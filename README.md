@@ -6,6 +6,8 @@ A lossless codec in 71 lines of C code.
 
 This image codec is highly subject to change, as I do not believe this is the final version. Previous versions will remain available in this repo however, I believe there is plenty of room for improvement.
 
+# CLI
+
 To use the CLI, use `pack` to encode an image and `unpack` to decode it into a PNG.
 
 ```text
