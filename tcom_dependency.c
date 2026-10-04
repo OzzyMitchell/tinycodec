@@ -19,7 +19,13 @@
 #define QOI_IMPLEMENTATION
 #define QOI_NO_STDIO
 #include <qoi/qoi.h>
+#ifdef TCOM_READABLE
+#include "tcom_readable.c"
+#define G read_le
+#define W write_le
+#else
 #include "tcom.c"
+#endif
 static void usage(void) { puts("tcom pack input [output.tcom]\ntcom unpack input.tcom [output]"); }
 static wchar_t *output_name(const wchar_t *input, int decode) { const wchar_t *base = input, *dot = NULL; for (const wchar_t *p = input; *p; ++p) {
 if (*p == L'/' || *p == L'\\') { base = p + 1; dot = NULL; } else if (*p == L'.' && p != base) dot = p; }

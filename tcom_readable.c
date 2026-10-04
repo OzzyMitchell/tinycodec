@@ -1,304 +1,164 @@
 #include <string.h>
 
 #define TCOM_INLINE __attribute__((always_inline))
-#define TCOM_RGB_MASK 0x00ffffffu
 
-enum {
-    TCOM_LUMA_SMALL = 64,
-    TCOM_INDEX = 192,
-    TCOM_RUN_SHORT = 224,
-    TCOM_RGB = 240,
-    TCOM_RGBA = 241,
-    TCOM_RUN_LEFT = 242,
-    TCOM_RUN_ABOVE = 243,
-    TCOM_LUMA_LARGE = 244
-};
-
-static TCOM_INLINE unsigned tcom_read_pixel(const unsigned char *bytes, unsigned channels) {
-    unsigned pixel = channels < 4 ? ~TCOM_RGB_MASK : 0;
-
-    for (unsigned channel = 0; channel < channels; channel++) {
-        pixel |= (unsigned)bytes[channel] << (channel * 8);
-    }
-
-    return pixel;
+static TCOM_INLINE unsigned read_le(const unsigned char *bytes, unsigned count) {
+    unsigned value = 0;
+    while (count)
+        value = value << 8 | bytes[--count];
+    return value;
 }
 
-static TCOM_INLINE void tcom_write_pixel(unsigned char *bytes, unsigned channels,
-                                         unsigned pixel) {
-    for (unsigned channel = 0; channel < channels; channel++) {
-        bytes[channel] = (unsigned char)(pixel >> (channel * 8));
+static TCOM_INLINE void write_le(unsigned char *bytes, unsigned count, unsigned value) {
+    while (count--) {
+        *bytes++ = (unsigned char)value;
+        value >>= 8;
     }
 }
 
-static unsigned tcom_predict(unsigned left, unsigned above) {
-    unsigned rgb = (left & above & TCOM_RGB_MASK) + ((left ^ above) & 0x00fefefeu) / 2;
-    return rgb | (left & ~TCOM_RGB_MASK);
+static TCOM_INLINE unsigned decode_residual(unsigned prediction, unsigned packed,
+                                           unsigned green_radix, unsigned chroma_radix) {
+    unsigned green_delta = packed % green_radix + 256 - green_radix / 2;
+    packed /= green_radix;
+    unsigned alpha = prediction & 0xff000000u;
+    unsigned green = (prediction + green_delta * 256) & 0xff00u;
+    unsigned red_blue = ((prediction & 0xff00ffu) + (green_delta - chroma_radix / 2) * 65537 +
+                         packed % chroma_radix + packed / chroma_radix * 65536) &
+                        0xff00ffu;
+    return alpha | green | red_blue;
 }
 
-static TCOM_INLINE size_t tcom_process(const unsigned char *input, size_t input_size,
-                                       unsigned char *output, size_t output_capacity,
-                                       unsigned width, unsigned height, unsigned channels,
-                                       int decode) {
-    unsigned pixel_cache[32] = {0};
-    unsigned previous_pixel = ~TCOM_RGB_MASK;
-    size_t stream_offset = 16;
-    size_t pixel_bytes = (size_t)width * height * channels;
-
-    if (decode) {
-        if (output_capacity < pixel_bytes) {
-            return 0;
+static TCOM_INLINE size_t process_pixels(const unsigned char *input, size_t input_size_or_samples,
+                                        unsigned char *output, size_t capacity_or_stride,
+                                        size_t row_bytes, size_t raw_size, unsigned channels,
+                                        int decode, unsigned model) {
+    size_t offset = 16;
+    unsigned previous = 0;
+    for (size_t position = 0; output ? position < raw_size : input_size_or_samples--;) {
+        if (!output)
+            previous = position ? read_le(input + position - channels, channels) : 0;
+        unsigned count = 1, payload_size = 0, tag = 255, pixel, value;
+        unsigned above = position >= row_bytes
+                             ? read_le((decode ? output : input) + position - row_bytes, channels)
+                             : previous;
+        unsigned prediction = (previous | above) - ((previous ^ above) & 0xfefefefeu) / 2 -
+                              ((previous ^ above) & model * 128 & 256);
+        if (decode) {
+            if (offset == input_size_or_samples)
+                return 0;
+            tag = input[offset++];
+            payload_size = tag & 3;
+            pixel = tag & 128 ? above : previous;
+            if (payload_size == 3 && tag < 255) {
+                count = tag / 4 % 32 + 1;
+                if (count * channels > raw_size - position)
+                    return 0;
+            } else {
+                payload_size = tag == 255 ? channels : payload_size;
+                if (payload_size > input_size_or_samples - offset)
+                    return 0;
+                pixel = read_le(input + offset, payload_size);
+                offset += payload_size;
+                if (tag < 255) {
+                    unsigned packed = tag / 4 + pixel * 64;
+                    pixel = payload_size == 0
+                                ? (model & 1 ? decode_residual(prediction, packed, 16, 2)
+                                             : decode_residual(prediction, packed, 4, 4))
+                            : payload_size == 1 ? decode_residual(prediction, packed, 64, 16)
+                                                : decode_residual(prediction, packed, 256, 128);
+                }
+            }
+            for (unsigned repeat = count; repeat--;)
+                write_le(output + position + repeat * channels, channels, pixel);
+        } else {
+            pixel = value = read_le(input + position, channels);
+            if (pixel == previous || pixel == above) {
+                tag = pixel != previous;
+                while (output && count < 32 - tag && count * channels < raw_size - position &&
+                       read_le(input + position + count * channels, channels) == pixel)
+                    count++;
+                tag = count * 4 - 1 + 128 * tag;
+            } else {
+                payload_size = channels;
+                int green_delta = (signed char)(pixel / 256 - prediction / 256);
+                int red_delta = (signed char)(pixel - prediction - green_delta);
+                int blue_delta = (signed char)(pixel / 65536 - prediction / 65536 - green_delta);
+                for (unsigned kind = 0, green_radix = model & 1 ? 16 : 4,
+                              chroma_radix = model & 1 ? 2 : 4;
+                     !((pixel ^ prediction) >> 24) && kind < 3;
+                     green_radix = 64 << (2 * kind), chroma_radix = 16 << (3 * kind), kind++) {
+                    unsigned green = green_delta + green_radix / 2;
+                    unsigned red = red_delta + chroma_radix / 2;
+                    unsigned blue = blue_delta + chroma_radix / 2;
+                    if (green < green_radix && (red | blue) < chroma_radix) {
+                        value = green + (red + blue * chroma_radix) * green_radix;
+                        tag = value * 4 + kind;
+                        value >>= 6;
+                        payload_size = kind;
+                        break;
+                    }
+                }
+            }
+            if (output) {
+                if (capacity_or_stride - offset <= payload_size)
+                    return 0;
+                output[offset] = (unsigned char)tag;
+                write_le(output + offset + 1, payload_size, value);
+            }
+            offset += payload_size + 1;
         }
-    } else {
-        if (input_size != pixel_bytes || output_capacity < 16) {
+        previous = pixel;
+        position += output ? count * channels : capacity_or_stride;
+    }
+    return decode ? offset == input_size_or_samples ? raw_size : 0 : offset;
+}
+
+TCOM_INLINE size_t tcom(const unsigned char *input, size_t input_size, unsigned char *output,
+                      size_t capacity, unsigned dimensions[3], int decode) {
+    if (!input || !dimensions)
+        return 0;
+    unsigned model = 0;
+    if (decode) {
+        if (input_size < 16 || memcmp(input, "TCOM", 4) ||
+            ((model = read_le(input + 12, 4)) >> 5) != 16)
             return 0;
+        dimensions[0] = read_le(input + 4, 4);
+        dimensions[1] = read_le(input + 8, 4);
+        dimensions[2] = model & 7;
+        model = (model >> 3) & 3;
+    }
+    unsigned width = dimensions[0], height = dimensions[1], channels = dimensions[2];
+    if (!width || !height || channels - 1 > 3 || width > (size_t)-1 / height / channels)
+        return 0;
+    size_t row_bytes = (size_t)width * channels;
+    size_t raw_size = row_bytes * height;
+    if (!output || (decode ? capacity < raw_size : input_size != raw_size || capacity < 16))
+        return decode && !output ? raw_size : 0;
+    if (!decode) {
+        size_t best_size = (size_t)-1;
+        size_t sample_step = (raw_size / channels - 1) / 127 * channels;
+        for (unsigned candidate = 0; sample_step && candidate < 4; candidate++) {
+            size_t cost = process_pixels(input, 128, NULL, sample_step, row_bytes, raw_size,
+                                         channels, 0, candidate) +
+                          3 * (candidate != 0);
+            if (cost < best_size) {
+                best_size = cost;
+                model = candidate;
+            }
         }
         memcpy(output, "TCOM", 4);
-        tcom_write_pixel(output + 4, 4, width);
-        tcom_write_pixel(output + 8, 4, height);
-        tcom_write_pixel(output + 12, 4, channels);
+        write_le(output + 12, 4, 512 + channels + model * 8);
+        write_le(output + 4, 4, width);
+        write_le(output + 8, 4, height);
     }
-
-    const unsigned char *pixels = decode ? output : input;
-
-    for (unsigned y = 0; y < height; y++) {
-        for (unsigned x = 0; x < width;) {
-            size_t pixel_offset = ((size_t)y * width + x) * channels;
-            unsigned run_length = 0;
-            unsigned pixel, opcode;
-
-            if (decode) {
-                if (stream_offset >= input_size) {
-                    return 0;
-                }
-                opcode = input[stream_offset++];
-
-                if ((opcode >= TCOM_RUN_SHORT && opcode < TCOM_RGB) ||
-                    opcode == TCOM_RUN_LEFT || opcode == TCOM_RUN_ABOVE) {
-                    if (opcode < TCOM_RGB) {
-                        run_length = opcode - TCOM_RUN_SHORT + 1;
-                    } else {
-                        if (stream_offset == input_size) {
-                            return 0;
-                        }
-                        run_length = input[stream_offset++] + 1;
-                    }
-                    if (run_length > width - x || (opcode == TCOM_RUN_ABOVE && y == 0)) {
-                        return 0;
-                    }
-                } else if (opcode == TCOM_RGB || opcode == TCOM_RGBA) {
-                    unsigned literal_channels = opcode == TCOM_RGB ? 3 : 4;
-                    if (literal_channels > input_size - stream_offset) {
-                        return 0;
-                    }
-                    pixel = tcom_read_pixel(input + stream_offset, literal_channels);
-                    if (literal_channels == 3) {
-                        pixel = (pixel & TCOM_RGB_MASK) | (previous_pixel & ~TCOM_RGB_MASK);
-                    }
-                    stream_offset += literal_channels;
-                } else if (opcode >= TCOM_INDEX && opcode < TCOM_RUN_SHORT) {
-                    pixel = pixel_cache[opcode - TCOM_INDEX];
-                } else {
-                    unsigned above =
-                        y ? tcom_read_pixel(pixels + pixel_offset - width * channels,
-                                            channels)
-                          : ~TCOM_RGB_MASK;
-                    unsigned prediction = x ? tcom_predict(previous_pixel, above) : above;
-                    int red_delta, green_delta, blue_delta;
-
-                    if (opcode < TCOM_LUMA_SMALL) {
-                        red_delta = (int)(opcode & 3) - 2;
-                        green_delta = (int)((opcode >> 2) & 3) - 2;
-                        blue_delta = (int)(opcode >> 4) - 2;
-                    } else if (opcode < TCOM_INDEX) {
-                        if (stream_offset == input_size) {
-                            return 0;
-                        }
-                        int packed =
-                            (opcode - TCOM_LUMA_SMALL) << 8 | input[stream_offset++];
-                        green_delta = (packed & 31) - 16;
-                        red_delta = green_delta + ((packed >> 5) & 31) - 16;
-                        blue_delta = green_delta + (packed >> 10) - 16;
-                    } else {
-                        if (opcode < TCOM_LUMA_LARGE || opcode >= TCOM_LUMA_LARGE + 4 ||
-                            input_size - stream_offset < 2) {
-                            return 0;
-                        }
-                        int packed = (opcode - TCOM_LUMA_LARGE) << 16 |
-                                     input[stream_offset] | input[stream_offset + 1] << 8;
-                        stream_offset += 2;
-                        green_delta = (packed & 63) - 32;
-                        red_delta = green_delta + ((packed >> 6) & 63) - 32;
-                        blue_delta = green_delta + (packed >> 12) - 32;
-                    }
-
-                    pixel = ((prediction + red_delta) & 255) |
-                            (((prediction >> 8) + green_delta) & 255) << 8 |
-                            (((prediction >> 16) + blue_delta) & 255) << 16 |
-                            (prediction & ~TCOM_RGB_MASK);
-                }
-            } else {
-                pixel = tcom_read_pixel(input + pixel_offset, channels);
-                unsigned cache_index = (pixel * 0x9e3779b1u) >> 27;
-                unsigned above =
-                    y ? tcom_read_pixel(pixels + pixel_offset - width * channels, channels)
-                      : ~TCOM_RGB_MASK;
-
-                if (pixel == previous_pixel || (y && pixel == above)) {
-                    opcode = pixel == previous_pixel ? TCOM_RUN_LEFT : TCOM_RUN_ABOVE;
-                    run_length = 1;
-
-                    if (opcode == TCOM_RUN_LEFT) {
-                        while (run_length < 256 && run_length < width - x &&
-                               tcom_read_pixel(input + pixel_offset + run_length * channels,
-                                               channels) == previous_pixel) {
-                            run_length++;
-                        }
-                    } else {
-                        while (run_length < 256 && run_length < width - x &&
-                               tcom_read_pixel(input + pixel_offset + run_length * channels,
-                                               channels) ==
-                                   tcom_read_pixel(input + pixel_offset - width * channels +
-                                                       run_length * channels,
-                                                   channels)) {
-                            run_length++;
-                        }
-                    }
-
-                    if (output_capacity - stream_offset < 2) {
-                        return 0;
-                    }
-                    if (opcode == TCOM_RUN_LEFT && run_length <= 16) {
-                        output[stream_offset++] = TCOM_RUN_SHORT + run_length - 1;
-                    } else {
-                        output[stream_offset++] = opcode;
-                        output[stream_offset++] = run_length - 1;
-                    }
-                } else {
-                    if (output_capacity - stream_offset < 5) {
-                        return 0;
-                    }
-                    if (pixel_cache[cache_index] == pixel) {
-                        output[stream_offset++] = TCOM_INDEX + cache_index;
-                    } else {
-                        unsigned prediction =
-                            x ? tcom_predict(previous_pixel, above) : above;
-                        int red_delta = (signed char)(pixel - prediction);
-                        int green_delta = (signed char)((pixel >> 8) - (prediction >> 8));
-                        int blue_delta = (signed char)((pixel >> 16) - (prediction >> 16));
-                        int same_alpha = (pixel ^ prediction) <= TCOM_RGB_MASK;
-
-                        if (same_alpha && (unsigned)((red_delta + 2) | (green_delta + 2) |
-                                                     (blue_delta + 2)) < 4) {
-                            output[stream_offset++] = (red_delta + 2) |
-                                                      (green_delta + 2) << 2 |
-                                                      (blue_delta + 2) << 4;
-                        } else if (same_alpha &&
-                                   (unsigned)((green_delta + 16) |
-                                              (red_delta - green_delta + 16) |
-                                              (blue_delta - green_delta + 16)) < 32) {
-                            unsigned packed = (green_delta + 16) |
-                                              (red_delta - green_delta + 16) << 5 |
-                                              (blue_delta - green_delta + 16) << 10;
-                            output[stream_offset++] = TCOM_LUMA_SMALL + (packed >> 8);
-                            output[stream_offset++] = packed;
-                        } else if (same_alpha &&
-                                   (unsigned)((green_delta + 32) |
-                                              (red_delta - green_delta + 32) |
-                                              (blue_delta - green_delta + 32)) < 64) {
-                            unsigned packed = (green_delta + 32) |
-                                              (red_delta - green_delta + 32) << 6 |
-                                              (blue_delta - green_delta + 32) << 12;
-                            output[stream_offset++] = TCOM_LUMA_LARGE + (packed >> 16);
-                            output[stream_offset++] = packed;
-                            output[stream_offset++] = packed >> 8;
-                        } else {
-                            unsigned literal_channels =
-                                (pixel ^ previous_pixel) <= TCOM_RGB_MASK ? 3 : 4;
-                            output[stream_offset++] =
-                                literal_channels == 3 ? TCOM_RGB : TCOM_RGBA;
-                            tcom_write_pixel(output + stream_offset, literal_channels,
-                                             pixel);
-                            stream_offset += literal_channels;
-                        }
-                    }
-                }
-            }
-
-            if (run_length) {
-                if (decode) {
-                    if (opcode == TCOM_RUN_ABOVE) {
-                        memcpy(output + pixel_offset,
-                               output + pixel_offset - width * channels,
-                               run_length * channels);
-                    } else {
-                        tcom_write_pixel(output + pixel_offset, channels, previous_pixel);
-                        for (unsigned copied = 1; copied < run_length;) {
-                            unsigned remaining = run_length - copied;
-                            unsigned chunk = copied < remaining ? copied : remaining;
-                            memcpy(output + pixel_offset + copied * channels,
-                                   output + pixel_offset, chunk * channels);
-                            copied += chunk;
-                        }
-                    }
-                }
-                previous_pixel = tcom_read_pixel(
-                    pixels + pixel_offset + (run_length - 1) * channels, channels);
-            } else {
-                if (decode) {
-                    tcom_write_pixel(output + pixel_offset, channels, pixel);
-                }
-                pixel_cache[(pixel * 0x9e3779b1u) >> 27] = pixel;
-                previous_pixel = pixel;
-                run_length = 1;
-            }
-
-            x += run_length;
-        }
-    }
-
-    return decode ? (stream_offset == input_size ? pixel_bytes : 0) : stream_offset;
-}
-
-TCOM_INLINE size_t tcom(const unsigned char *input, size_t input_size,
-                        unsigned char *output, size_t output_capacity,
-                        unsigned dimensions[3], int decode) {
-    if (!input || !dimensions) {
-        return 0;
-    }
-
-    if (decode) {
-        if (input_size < 16 || memcmp(input, "TCOM", 4)) {
-            return 0;
-        }
-        dimensions[0] = tcom_read_pixel(input + 4, 4);
-        dimensions[1] = tcom_read_pixel(input + 8, 4);
-        dimensions[2] = tcom_read_pixel(input + 12, 4);
-    }
-
-    unsigned width = dimensions[0];
-    unsigned height = dimensions[1];
-    unsigned channels = dimensions[2];
-
-    if (!width || width > 1000000 || !height || channels - 1 > 3 ||
-        width > (size_t)-1 / height / channels) {
-        return 0;
-    }
-    if (!output) {
-        return decode ? (size_t)width * height * channels : 0;
-    }
-
-    if (channels == 3) {
-        return tcom_process(input, input_size, output, output_capacity, width, height, 3,
-                            decode);
-    }
-    if (channels == 4) {
-        return tcom_process(input, input_size, output, output_capacity, width, height, 4,
-                            decode);
-    }
-    return tcom_process(input, input_size, output, output_capacity, width, height, channels,
-                        decode);
+    if (channels == 3)
+        return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, 3, decode,
+                              model);
+    if (channels == 4)
+        return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, 4, decode,
+                              model);
+    return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, channels,
+                          decode, model);
 }
 
 #undef TCOM_INLINE
-#undef TCOM_RGB_MASK
