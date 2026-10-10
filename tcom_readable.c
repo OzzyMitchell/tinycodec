@@ -28,8 +28,8 @@ static TCOM_INLINE unsigned decode_residual(unsigned prediction, unsigned packed
     return alpha | green | red_blue;
 }
 
-static TCOM_INLINE size_t process_pixels(const unsigned char *restrict input, size_t input_size_or_samples,
-                                        unsigned char *restrict output, size_t capacity_or_stride,
+static TCOM_INLINE size_t process_pixels(const unsigned char *input, size_t input_size_or_samples,
+                                        unsigned char *output, size_t capacity_or_stride,
                                         size_t row_bytes, size_t raw_size, unsigned channels,
                                         int decode, unsigned model) {
     size_t offset = 16;
@@ -113,7 +113,7 @@ static TCOM_INLINE size_t process_pixels(const unsigned char *restrict input, si
     return decode ? offset == input_size_or_samples ? raw_size : 0 : offset;
 }
 
-TCOM_INLINE size_t tcom(const unsigned char *restrict input, size_t input_size, unsigned char *restrict output,
+TCOM_INLINE size_t tcom(const unsigned char *input, size_t input_size, unsigned char *output,
                       size_t capacity, unsigned dimensions[3], int decode) {
     if (!input || !dimensions)
         return 0;
@@ -151,24 +151,14 @@ TCOM_INLINE size_t tcom(const unsigned char *restrict input, size_t input_size, 
         write_le(output + 4, 4, width);
         write_le(output + 8, 4, height);
     }
-    if (decode) {
-        if (channels == 3)
-            return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, 3, 1,
-                                  model);
-        if (channels == 4)
-            return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, 4, 1,
-                                  model);
-        return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, channels,
-                              1, model);
-    }
     if (channels == 3)
-        return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, 3, 0,
+        return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, 3, decode,
                               model);
     if (channels == 4)
-        return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, 4, 0,
+        return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, 4, decode,
                               model);
     return process_pixels(input, input_size, output, capacity, row_bytes, raw_size, channels,
-                          0, model);
+                          decode, model);
 }
 
 #undef TCOM_INLINE
