@@ -16,6 +16,8 @@ The CLI in `tcom_dependency.c` supports PNG, BMP, PNM/PAM, QOI and WebP.
 The codec itself is 45 lines. The CLI and format adapter is 164 lines, minus
 the image libraries.
 
+The readable version `tcom_readable.c` is 167 lines.
+
 ## Benchmark
 
 3,167 images. Combined file sizes and encoding/decoding speeds:
