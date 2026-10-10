@@ -24,7 +24,7 @@ The readable version `tcom_readable.c` is 167 lines.
 
 | Codec | Total size (MB) | Encode (MP/s) | Decode (MP/s) |
 |---|---:|---:|---:|
-| TCOM | 1,954.35 | 284.09 | 368.18 |
+| TCOM | 1,954.35 | 275.35 | 341.88 |
 | QOI | 2,125.45 | 238.71 | 298.07 |
 | libpng level 6 | 1,792.59 | 7.30 | 100.16 |
 | Oxipng effort 4 | 1,621.25 | 1.14 | 113.90 |
