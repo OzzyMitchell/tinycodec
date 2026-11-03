@@ -49,6 +49,6 @@ Both PNG implementations used libpng for the decoding. [Results by image type](b
 
 Single threaded on a 9950x3D.
 
-[Benchmark instructions](benchmarks/README.md) Â· [Frozen corpus manifest](benchmarks/corpus.jsonl)
+[Benchmark instructions](benchmarks/README.md) · [Frozen corpus manifest](benchmarks/corpus.jsonl)
 
 Copyright 2026 Ozzy M. Licensed under [Apache 2.0](LICENSE).
