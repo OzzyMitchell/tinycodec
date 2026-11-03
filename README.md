@@ -19,17 +19,36 @@ The readable version `tcom_readable.c` is 167 lines.
 
 ## Benchmark
 
-17,660 images totaling 21.63 gigapixels, including photos, textures, aerial imagery, UI, scans, and graphics.
+### QOI and TCOM on 17,660 images
+
+The full corpus totals 21.63 gigapixels and includes photos, textures, aerial imagery, UI, scans, and graphics.
 
 | Codec | Total size (GB) | Encode (MP/s) | Decode (MP/s) |
 |---|---:|---:|---:|
-| TCOM | 16.49 | 290.12 | 360.75 |
 | Reference QOI (`qoi.h`) | 17.60 | 275.35 | 342.41 |
+| TCOM | 16.49 | 290.12 | 360.75 |
 
-TCOM produced 6.34% smaller files and encoded and decoded 5.36% faster in the pooled results. On native RGB, TCOM encoded 1.55% faster and decoded 12.51% faster. On document scans expanded from grayscale to RGB, TCOM encoded 18.87% faster, decoded 16.40% slower, and produced 43.38% larger files.
+TCOM produced 6.34% smaller files than QOI and encoded and decoded 5.36% faster overall.
 
-Measured in memory on one logical CPU of a Ryzen 9 9950X3D with three repetitions. GB is decimal. Throughput divides the total pixels by the sum of the mean per-image times.
+Three timed repetitions per image. [Results by image type](benchmarks/results.json).
 
-[Benchmark instructions](benchmarks/README.md) · [Frozen corpus manifest](benchmarks/corpus.jsonl) · [Full results by image type](benchmarks/results.json)
+### Six codecs on 640 images
+
+This sample covers 32 categories and totals 816.39 megapixels. Each image had one timed encode and decode per codec.
+
+| Codec | Total size (MB) | Encode (MP/s) | Decode (MP/s) |
+|---|---:|---:|---:|
+| Reference QOI (`qoi.h`) | 862.01 | 209.43 | 262.46 |
+| TCOM | 784.04 | 226.45 | 242.86 |
+| libpng level 1 | 769.37 | 27.29 | 100.73 |
+| libpng level 3 | 741.91 | 18.70 | 104.22 |
+| libpng level 6 | 713.30 | 6.89 | 97.91 |
+| Oxipng preset 4 | 646.06 | 1.18 | 112.12 |
+
+Both PNG implementations used libpng for decoding. [Results by image type](benchmarks/results-640.json).
+
+Single threaded on a 9950x3D.
+
+[Benchmark instructions](benchmarks/README.md) · [Frozen corpus manifest](benchmarks/corpus.jsonl)
 
 Copyright 2026 Ozzy M. Licensed under [Apache 2.0](LICENSE).
