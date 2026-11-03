@@ -38,7 +38,7 @@ This one covers 32 categories and totals 816.39 megapixels.
 
 | Codec | Total size (MB) | Encode (MP/s) | Decode (MP/s) |
 |---|---:|---:|---:|
-| Reference QOI (`qoi.h`) | 862.01 | 209.43 | 262.46 |
+| QOI (`qoi.h`) | 862.01 | 209.43 | 262.46 |
 | TCOM | 784.04 | 226.45 | 242.86 |
 | libpng level 1 | 769.37 | 27.29 | 100.73 |
 | libpng level 3 | 741.91 | 18.70 | 104.22 |
