@@ -1,43 +1,162 @@
 {
+  "TOTAL": {
+    "images": 17660,
+    "pixels": 21627222864,
+    "codecs": {
+      "tcom": {
+        "bytes": 16487911423,
+        "encode_sec": 65.98399929694281,
+        "decode_sec": 56.53075640264835,
+        "checks": 17660,
+        "encode_mpps": 327.76465649911034,
+        "decode_mpps": 382.57444690739726
+      },
+      "qoi_reference": {
+        "bytes": 17604926200,
+        "encode_sec": 80.65729500182874,
+        "decode_sec": 64.37242539857002,
+        "checks": 17660,
+        "encode_mpps": 268.13722011765515,
+        "decode_mpps": 335.9702967550518
+      },
+      "qoir": {
+        "bytes": 16056262773,
+        "encode_sec": 71.30425149941281,
+        "decode_sec": 70.08082580333105,
+        "checks": 17660,
+        "encode_mpps": 303.30902308368104,
+        "decode_mpps": 308.60399568767673
+      },
+      "libpng_level_1": {
+        "bytes": 15627883763,
+        "encode_sec": 622.0404751012061,
+        "decode_sec": 168.14787879925922,
+        "checks": 17660,
+        "encode_mpps": 34.7681923117322,
+        "decode_mpps": 128.6202539005522
+      },
+      "fpng_single_pass": {
+        "bytes": 19642714471,
+        "encode_sec": 55.29162460128403,
+        "decode_sec": 75.23620399727339,
+        "checks": 17660,
+        "encode_mpps": 391.14826196475616,
+        "decode_mpps": 287.4576562207177
+      }
+    },
+    "run": {
+      "images": 17660,
+      "pixels": 21627222864,
+      "categories": 32,
+      "input_file_bytes": 42106250640,
+      "measurement": "memory",
+      "repetitions": 1,
+      "warmup": false,
+      "timing": "mean time per in-memory call; allocation included; excludes input decoding, process startup, file I/O and exact pixel verification",
+      "input_layout": "shared RGB/RGBA pixels; grayscale expanded",
+      "host": "Windows-11-10.0.26200-SP0",
+      "cpu": "AMD Ryzen 9 9950X3D 16-Core Processor",
+      "affinity": "logical CPU 1",
+      "launcher": "benchmark.cmd",
+      "settings": "all codecs, libpng level 1, in memory, one repetition",
+      "checks": 88300,
+      "manifest_sha256": "61c3ddf1e0543c4c98eb932c38fe65261c23e970d567a2bd5ff42f29558e1941",
+      "per_image_results_sha256": "7b81877bef046e5456a14d59dfc72675407e7e9bd411af540881dbfce3568a09",
+      "python": "3.12.10",
+      "build": {
+        "sources": {
+          "benchmarks/interactive.py": "8e5dbf7f6aaab10363a16ee352615a94ec306db4a19307647412fc18b4a16bd5",
+          "benchmarks/compare.c": "a400a0abb375e8bd0eadc262c9ff29ba5656779c8074ac97df58a6e87ad77269",
+          "tcom.c": "73df66e5e08f265d28b0b89ddfcc49e7f1dc9fa4285890c53452338230addc41",
+          "third_party/qoi/qoi.h": "34e75142624c233469a08a2b30e5549cce07f03c6b44bb0d4b74f06fcacf12ac",
+          "qoir.h": "a6d2a742484a1071cbccf02940454483671a175a0cb40c3cde24628a628df195",
+          "fpng.cpp": "b2b953f53f4b472b427bfb04a0ee1839ba66e8f32a02580e7a09d31313edd975",
+          "fpng.h": "604c7e3757dba53b32f7e2523927c7e02ad90939d631a76f94f0690efa2c1fc9",
+          "benchmarks/fpng_adapter.cpp": "61bb13df7328401baace413ac89449c246399b8e4614a0721139ef5b3be39f9d",
+          "benchmarks/fpng_adapter.h": "163b41082ab5a2ec893cc52ca664d4ae72987322da76d8616b6bae7319d714ec"
+        },
+        "executable_sha256": "23451f2aecef2933180e4b703e412bfa1d0679f2a303d74cd2bb0abc616bf808",
+        "compiler": "clang version 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20)\nTarget: x86_64-pc-windows-msvc\nThread model: posix\nInstalledDir: C:\\Program Files\\LLVM\\bin",
+        "flags": [
+          "/nologo",
+          "/O2",
+          "/MT",
+          "/std:c11",
+          "/D_CRT_SECURE_NO_WARNINGS",
+          "/DBENCH_INTERACTIVE",
+          "/DBENCH_FPNG",
+          "/DBENCH_LIBPNG"
+        ],
+        "libraries": {
+          "libpng16_static.lib": "1e244fab3172ae5ca837ce167bb663b3fd0da4cf8de9af7b63e1b981e77529ca",
+          "zs.lib": "71d74f9dd47135186577f1fa5797a344a6384c3189f144edbeac128efe598e3b"
+        },
+        "qoir_commit": "ce7b583beb123d897c4f20e436a2cb9d6d40e477",
+        "fpng_commit": "925796543b9d26b8edfcdcecd94c1dac280f29fc",
+        "fpng_flags": [
+          "/nologo",
+          "/O2",
+          "/MT",
+          "/std:c++17",
+          "/EHsc",
+          "/DNDEBUG",
+          "/D_CRT_SECURE_NO_WARNINGS",
+          "/clang:-msse4.1",
+          "/clang:-mpclmul",
+          "/clang:-fno-strict-aliasing"
+        ],
+        "link_flags": [
+          "/nologo",
+          "/MT",
+          "/link"
+        ],
+        "png_versions": "libpng=1.6.58 zlib=1.3.2"
+      }
+    }
+  },
   "aerial-resisc/rgb": {
     "images": 1000,
     "pixels": 65536000,
     "codecs": {
       "tcom": {
         "bytes": 100332405,
-        "encode_sec": 0.427748351312,
-        "decode_sec": 0.304984042962,
-        "checks": 79567,
-        "encode_mpps": 153.21157825386447,
-        "encode_repetition_mpps": [
-          152.73180628295995,
-          153.51125304187212,
-          153.39398444838537
-        ],
-        "decode_mpps": 214.88337344969085,
-        "decode_repetition_mpps": [
-          214.28717211668018,
-          215.3628749953111,
-          215.00286602993447
-        ]
+        "encode_sec": 0.4012526005910001,
+        "decode_sec": 0.2972004004489998,
+        "checks": 1000,
+        "encode_mpps": 163.3285364467989,
+        "decode_mpps": 220.5111429896815
       },
       "qoi_reference": {
         "bytes": 116381382,
-        "encode_sec": 0.350492688517,
-        "decode_sec": 0.334080886426,
-        "checks": 89788,
-        "encode_mpps": 186.98250248042277,
-        "encode_repetition_mpps": [
-          186.22891668374828,
-          187.4402670492083,
-          187.28297315982545
-        ],
-        "decode_mpps": 196.16806187598655,
-        "decode_repetition_mpps": [
-          195.7987632667595,
-          196.32055762149997,
-          196.3859214243815
-        ]
+        "encode_sec": 0.394104599606,
+        "decode_sec": 0.35406390024099926,
+        "checks": 1000,
+        "encode_mpps": 166.29087827322647,
+        "decode_mpps": 185.0965318841934
+      },
+      "qoir": {
+        "bytes": 109400271,
+        "encode_sec": 0.4401093999079996,
+        "decode_sec": 0.35756950104399987,
+        "checks": 1000,
+        "encode_mpps": 148.90843052590932,
+        "decode_mpps": 183.2818509650677
+      },
+      "libpng_level_1": {
+        "bytes": 104177485,
+        "encode_sec": 3.305462899832006,
+        "decode_sec": 1.1286371994560016,
+        "checks": 1000,
+        "encode_mpps": 19.826572551557224,
+        "decode_mpps": 58.06648941890988
+      },
+      "fpng_single_pass": {
+        "bytes": 135281586,
+        "encode_sec": 0.26168100058000016,
+        "decode_sec": 0.4925027993159997,
+        "checks": 1000,
+        "encode_mpps": 250.4423319031317,
+        "decode_mpps": 133.06726396483035
       }
     }
   },
@@ -47,39 +166,43 @@
     "codecs": {
       "tcom": {
         "bytes": 179357602,
-        "encode_sec": 0.648669352716,
-        "decode_sec": 0.434006837543,
-        "checks": 111948,
-        "encode_mpps": 151.45463029608106,
-        "encode_repetition_mpps": [
-          151.09632932521475,
-          151.50302924794073,
-          151.76603639057114
-        ],
-        "decode_mpps": 226.36504428404612,
-        "decode_repetition_mpps": [
-          225.68113848836387,
-          226.68037127449375,
-          226.73674356958244
-        ]
+        "encode_sec": 0.5844199995179996,
+        "decode_sec": 0.41644770092499955,
+        "checks": 1500,
+        "encode_mpps": 168.10509065573854,
+        "decode_mpps": 235.90951944694086
       },
       "qoi_reference": {
         "bytes": 206903612,
-        "encode_sec": 0.582071080389,
-        "decode_sec": 0.474248666027,
-        "checks": 121560,
-        "encode_mpps": 168.78347045577874,
-        "encode_repetition_mpps": [
-          167.97431447441036,
-          169.18150575097565,
-          169.20045305194665
-        ],
-        "decode_mpps": 207.1570971891922,
-        "decode_repetition_mpps": [
-          206.591741693982,
-          207.32803524675276,
-          207.55396152765667
-        ]
+        "encode_sec": 0.6335490012769992,
+        "decode_sec": 0.49856479932799963,
+        "checks": 1500,
+        "encode_mpps": 155.0692634697185,
+        "decode_mpps": 197.05357685183566
+      },
+      "qoir": {
+        "bytes": 190755369,
+        "encode_sec": 0.617027499994001,
+        "decode_sec": 0.4997716003349993,
+        "checks": 1500,
+        "encode_mpps": 159.2213912685499,
+        "decode_mpps": 196.5777505847603
+      },
+      "libpng_level_1": {
+        "bytes": 184139237,
+        "encode_sec": 5.313028600821994,
+        "decode_sec": 1.6887637996880025,
+        "checks": 1500,
+        "encode_mpps": 18.491144012437722,
+        "decode_mpps": 58.17508464958242
+      },
+      "fpng_single_pass": {
+        "bytes": 211869783,
+        "encode_sec": 0.3425741990250001,
+        "decode_sec": 0.7257821004660003,
+        "checks": 1500,
+        "encode_mpps": 286.78160024780624,
+        "decode_mpps": 135.36290980022906
       }
     }
   },
@@ -89,39 +212,43 @@
     "codecs": {
       "tcom": {
         "bytes": 3508061945,
-        "encode_sec": 15.564588164456,
-        "decode_sec": 12.293999855527,
-        "checks": 4087,
-        "encode_mpps": 173.22686829306386,
-        "encode_repetition_mpps": [
-          172.900893083279,
-          173.3167407306116,
-          173.46395628787343
-        ],
-        "decode_mpps": 219.3106308511847,
-        "decode_repetition_mpps": [
-          219.49206951695118,
-          219.19779050323584,
-          219.24226192442998
-        ]
+        "encode_sec": 13.471060400531,
+        "decode_sec": 11.640707199172008,
+        "checks": 1000,
+        "encode_mpps": 200.1479307370429,
+        "decode_mpps": 231.61864806562426
       },
       "qoi_reference": {
         "bytes": 4068998325,
-        "encode_sec": 15.244958649997,
-        "decode_sec": 14.087758966682,
-        "checks": 4015,
-        "encode_mpps": 176.8587849859816,
-        "encode_repetition_mpps": [
-          176.78875638659787,
-          176.80891360324082,
-          176.97880817180612
-        ],
-        "decode_mpps": 191.38635679220596,
-        "decode_repetition_mpps": [
-          191.40007031826485,
-          191.48043997672684,
-          191.2786679200867
-        ]
+        "encode_sec": 14.91883049929703,
+        "decode_sec": 13.920865900525003,
+        "checks": 1000,
+        "encode_mpps": 180.7249478521151,
+        "decode_mpps": 193.68083014852667
+      },
+      "qoir": {
+        "bytes": 3735925344,
+        "encode_sec": 15.199967199473006,
+        "decode_sec": 13.488718100653024,
+        "checks": 1000,
+        "encode_mpps": 177.38228172581051,
+        "decode_mpps": 199.88592273045353
+      },
+      "libpng_level_1": {
+        "bytes": 3462303316,
+        "encode_sec": 111.5495156003219,
+        "decode_sec": 35.946220901345,
+        "checks": 1000,
+        "encode_mpps": 24.170475770243684,
+        "decode_mpps": 75.0066292476135
+      },
+      "fpng_single_pass": {
+        "bytes": 4384826873,
+        "encode_sec": 9.824005199410978,
+        "decode_sec": 15.957053800221006,
+        "checks": 1000,
+        "encode_mpps": 274.4506755922378,
+        "decode_mpps": 168.96633286795443
       }
     }
   },
@@ -131,39 +258,43 @@
     "codecs": {
       "tcom": {
         "bytes": 3013,
-        "encode_sec": 1.2956249e-05,
-        "decode_sec": 5.311459e-06,
-        "checks": 388,
-        "encode_mpps": 316.1408830595954,
-        "encode_repetition_mpps": [
-          358.02239825184375,
-          355.11243565429425,
-          257.71136453008256
-        ],
-        "decode_mpps": 771.1628763396271,
-        "decode_repetition_mpps": [
-          754.5883707541739,
-          782.9868578255675,
-          776.4928909952606
-        ]
+        "encode_sec": 3.9000064e-05,
+        "decode_sec": 9.200012e-06,
+        "checks": 4,
+        "encode_mpps": 105.02546867615396,
+        "decode_mpps": 445.2168105867688
       },
       "qoi_reference": {
         "bytes": 2422,
-        "encode_sec": 9.133333999999999e-06,
-        "decode_sec": 6.552084e-06,
-        "checks": 388,
-        "encode_mpps": 448.4671205498453,
-        "encode_repetition_mpps": [
-          404.0443896424167,
-          480.11721611721606,
-          469.11954187544734
-        ],
-        "decode_mpps": 625.1446104781319,
-        "decode_repetition_mpps": [
-          449.64665523156094,
-          733.4750979294906,
-          825.3904282115868
-        ]
+        "encode_sec": 1.2100033e-05,
+        "decode_sec": 1.6200007e-05,
+        "checks": 4,
+        "encode_mpps": 338.5114734811054,
+        "decode_mpps": 252.83939692124827
+      },
+      "qoir": {
+        "bytes": 737,
+        "encode_sec": 7.100001600000001e-05,
+        "decode_sec": 2.6000022999999998e-05,
+        "checks": 4,
+        "encode_mpps": 57.690127844478226,
+        "decode_mpps": 157.5383221776381
+      },
+      "libpng_level_1": {
+        "bytes": 812,
+        "encode_sec": 0.000305499998,
+        "decode_sec": 9.7799931e-05,
+        "checks": 4,
+        "encode_mpps": 13.407528729345524,
+        "decode_mpps": 41.881420141288245
+      },
+      "fpng_single_pass": {
+        "bytes": 1802,
+        "encode_sec": 3.0900003e-05,
+        "decode_sec": 8.7399967e-05,
+        "checks": 4,
+        "encode_mpps": 132.55662143463223,
+        "decode_mpps": 46.86500625337764
       }
     }
   },
@@ -173,1341 +304,43 @@
     "codecs": {
       "tcom": {
         "bytes": 28751400,
-        "encode_sec": 0.17695481801,
-        "decode_sec": 0.204278558625,
-        "checks": 91218,
-        "encode_mpps": 1316.484685863909,
-        "encode_repetition_mpps": [
-          1307.6100209574029,
-          1321.506625145052,
-          1320.4285069450646
-        ],
-        "decode_mpps": 1140.3952992817433,
-        "decode_repetition_mpps": [
-          1134.946924542862,
-          1141.3696266667014,
-          1144.9141691199902
-        ]
+        "encode_sec": 0.18267759813899997,
+        "decode_sec": 0.1973002018559996,
+        "checks": 996,
+        "encode_mpps": 1275.242888965188,
+        "decode_mpps": 1180.7302060949012
       },
       "qoi_reference": {
         "bytes": 27470814,
-        "encode_sec": 0.424911817579,
-        "decode_sec": 0.231996507706,
-        "checks": 71421,
-        "encode_mpps": 548.2509508144904,
-        "encode_repetition_mpps": [
-          545.538141176484,
-          549.6648988738804,
-          549.5701061037794
-        ],
-        "decode_mpps": 1004.1457533284029,
-        "decode_repetition_mpps": [
-          1002.5783706449366,
-          1005.0150992685093,
-          1004.8474825119739
-        ]
-      }
-    }
-  },
-  "industrial/gray-as-rgb": {
-    "images": 302,
-    "pixels": 316669952,
-    "codecs": {
-      "tcom": {
-        "bytes": 284437959,
-        "encode_sec": 1.392187694448,
-        "decode_sec": 1.399112366661,
-        "checks": 2411,
-        "encode_mpps": 227.462111080905,
-        "encode_repetition_mpps": [
-          226.9495049274425,
-          227.76387024685994,
-          227.6747142055657
-        ],
-        "decode_mpps": 226.3363254773718,
-        "decode_repetition_mpps": [
-          226.6003798268121,
-          226.1912745237444,
-          226.21778491194175
-        ]
+        "encode_sec": 0.46246119942800024,
+        "decode_sec": 0.22923490009099978,
+        "checks": 996,
+        "encode_mpps": 503.73589889949,
+        "decode_mpps": 1016.2427619333798
       },
-      "qoi_reference": {
-        "bytes": 307939757,
-        "encode_sec": 1.307472611106,
-        "decode_sec": 1.457700261119,
-        "checks": 2507,
-        "encode_mpps": 242.2000654622713,
-        "encode_repetition_mpps": [
-          242.2958806397808,
-          242.0051066487575,
-          242.299444803711
-        ],
-        "decode_mpps": 217.23941502000494,
-        "decode_repetition_mpps": [
-          217.4857995835419,
-          216.94484381877993,
-          217.28829175269306
-        ]
-      }
-    }
-  },
-  "industrial/rgb": {
-    "images": 1198,
-    "pixels": 1084217392,
-    "codecs": {
-      "tcom": {
-        "bytes": 1795515448,
-        "encode_sec": 7.580419327794,
-        "decode_sec": 5.128301977774,
-        "checks": 6574,
-        "encode_mpps": 143.0286828625246,
-        "encode_repetition_mpps": [
-          142.77675129515794,
-          143.14640976043177,
-          143.1635559528647
-        ],
-        "decode_mpps": 211.4183986627514,
-        "decode_repetition_mpps": [
-          212.38352282522004,
-          210.89144828275508,
-          210.9868101730103
-        ]
+      "qoir": {
+        "bytes": 18385746,
+        "encode_sec": 0.3152917992420003,
+        "decode_sec": 0.3544521993639996,
+        "checks": 996,
+        "encode_mpps": 738.8657382147585,
+        "decode_mpps": 657.2347651333567
       },
-      "qoi_reference": {
-        "bytes": 1980564016,
-        "encode_sec": 7.3149597333220004,
-        "decode_sec": 5.765676855546,
-        "checks": 6439,
-        "encode_mpps": 148.2191880101595,
-        "encode_repetition_mpps": [
-          148.10527488848177,
-          148.1573103038205,
-          148.39530130434423
-        ],
-        "decode_mpps": 188.0468536763541,
-        "decode_repetition_mpps": [
-          187.68316452210286,
-          188.17729235509492,
-          188.28119097658404
-        ]
-      }
-    }
-  },
-  "natural-clic2022": {
-    "images": 30,
-    "pixels": 86384640,
-    "codecs": {
-      "tcom": {
-        "bytes": 129868562,
-        "encode_sec": 0.496401433335,
-        "decode_sec": 0.372446366666,
-        "checks": 120,
-        "encode_mpps": 174.02173764817218,
-        "encode_repetition_mpps": [
-          173.59015311605518,
-          173.87859063251733,
-          174.59957239752882
-        ],
-        "decode_mpps": 231.93846881440368,
-        "decode_repetition_mpps": [
-          232.99737804369855,
-          231.21038747473366,
-          231.61519730206115
-        ]
+      "libpng_level_1": {
+        "bytes": 21251843,
+        "encode_sec": 3.5855460013960005,
+        "decode_sec": 0.8402982986859996,
+        "checks": 996,
+        "encode_mpps": 64.97150166510198,
+        "decode_mpps": 277.23286880895046
       },
-      "qoi_reference": {
-        "bytes": 143758157,
-        "encode_sec": 0.486715533332,
-        "decode_sec": 0.422293466666,
-        "checks": 120,
-        "encode_mpps": 177.48486350665743,
-        "encode_repetition_mpps": [
-          177.4619780709206,
-          177.42869959430615,
-          177.56396882458267
-        ],
-        "decode_mpps": 204.56068307664174,
-        "decode_repetition_mpps": [
-          205.21417455381143,
-          203.6119258607669,
-          204.8628965033124
-        ]
-      }
-    }
-  },
-  "natural-div2k": {
-    "images": 100,
-    "pixels": 283502880,
-    "codecs": {
-      "tcom": {
-        "bytes": 453839412,
-        "encode_sec": 1.665181183336,
-        "decode_sec": 1.216893233333,
-        "checks": 403,
-        "encode_mpps": 170.25347321787197,
-        "encode_repetition_mpps": [
-          169.99493378269904,
-          170.44365160060292,
-          170.32246762126184
-        ],
-        "decode_mpps": 232.97268177217325,
-        "decode_repetition_mpps": [
-          233.35868425232164,
-          232.92007077740536,
-          232.64041521994452
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 507729603,
-        "encode_sec": 1.628954966665,
-        "decode_sec": 1.360111266669,
-        "checks": 400,
-        "encode_mpps": 174.03972841583368,
-        "encode_repetition_mpps": [
-          173.62582526547948,
-          173.8729239185812,
-          174.6235345784963
-        ],
-        "decode_mpps": 208.44094666925068,
-        "decode_repetition_mpps": [
-          208.99765961859015,
-          207.69837374191744,
-          208.63111780620906
-        ]
-      }
-    }
-  },
-  "photo-bsds/rgb": {
-    "images": 500,
-    "pixels": 77200500,
-    "codecs": {
-      "tcom": {
-        "bytes": 126993258,
-        "encode_sec": 0.483990137923,
-        "decode_sec": 0.343134027989,
-        "checks": 17114,
-        "encode_mpps": 159.50841546337904,
-        "encode_repetition_mpps": [
-          159.19151263550734,
-          159.68411273755922,
-          159.65057177698534
-        ],
-        "decode_mpps": 224.986430091028,
-        "decode_repetition_mpps": [
-          225.02542532033624,
-          224.67815795463375,
-          225.2564604382329
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 141811198,
-        "encode_sec": 0.440139152667,
-        "decode_sec": 0.375696673881,
-        "checks": 18932,
-        "encode_mpps": 175.4002104384662,
-        "encode_repetition_mpps": [
-          175.03828507644525,
-          175.27511576093568,
-          175.88942882415222
-        ],
-        "decode_mpps": 205.48624826115142,
-        "decode_repetition_mpps": [
-          205.22674049271367,
-          205.71948886824384,
-          205.51311153570276
-        ]
-      }
-    }
-  },
-  "photo-coco/gray-as-rgb": {
-    "images": 2,
-    "pixels": 650240,
-    "codecs": {
-      "tcom": {
-        "bytes": 710526,
-        "encode_sec": 0.0029464759260000003,
-        "decode_sec": 0.002834983333,
-        "checks": 47,
-        "encode_mpps": 220.6839683508753,
-        "encode_repetition_mpps": [
-          225.14499175251174,
-          221.29049823032946,
-          215.81625881929196
-        ],
-        "decode_mpps": 229.3629004555421,
-        "decode_repetition_mpps": [
-          228.1566096512794,
-          226.41632070179276,
-          233.63874807457918
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 742075,
-        "encode_sec": 0.002590159047,
-        "decode_sec": 0.002914764285,
-        "checks": 53,
-        "encode_mpps": 251.04249901299593,
-        "encode_repetition_mpps": [
-          252.1985815882312,
-          249.14473628340025,
-          251.80625047033357
-        ],
-        "decode_mpps": 223.08493463648983,
-        "decode_repetition_mpps": [
-          223.34042034326774,
-          221.37627716806688,
-          224.56129268611437
-        ]
-      }
-    }
-  },
-  "photo-coco/rgb": {
-    "images": 1963,
-    "pixels": 536755108,
-    "codecs": {
-      "tcom": {
-        "bytes": 974797878,
-        "encode_sec": 3.533005737853,
-        "decode_sec": 2.343702972063,
-        "checks": 38989,
-        "encode_mpps": 151.92590893616406,
-        "encode_repetition_mpps": [
-          151.70157211695513,
-          152.1181671432684,
-          151.95856930771254
-        ],
-        "decode_mpps": 229.02010809310514,
-        "decode_repetition_mpps": [
-          228.94728893447237,
-          228.99402215495252,
-          229.1190820722056
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 1112164594,
-        "encode_sec": 3.273900840534,
-        "decode_sec": 2.498895693575,
-        "checks": 41872,
-        "encode_mpps": 163.94971446736025,
-        "encode_repetition_mpps": [
-          163.58083947345804,
-          164.14962079214627,
-          164.1199349528066
-        ],
-        "decode_mpps": 214.79692384923078,
-        "decode_repetition_mpps": [
-          214.70109411527343,
-          214.9685475474376,
-          214.72133628361885
-        ]
-      }
-    }
-  },
-  "photo-div2k/rgb": {
-    "images": 800,
-    "pixels": 2230421760,
-    "codecs": {
-      "tcom": {
-        "bytes": 3604578808,
-        "encode_sec": 13.898455466681,
-        "decode_sec": 10.305318333315,
-        "checks": 3200,
-        "encode_mpps": 160.47982924052442,
-        "encode_repetition_mpps": [
-          160.46960499799283,
-          160.53854860089038,
-          160.4313708887061
-        ],
-        "decode_mpps": 216.4340477275214,
-        "decode_repetition_mpps": [
-          216.5556541729606,
-          216.52662146710907,
-          216.2201869355733
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 4049497416,
-        "encode_sec": 13.675964499998,
-        "decode_sec": 11.637242233331,
-        "checks": 3200,
-        "encode_mpps": 163.09063686150444,
-        "encode_repetition_mpps": [
-          163.0092845759251,
-          162.9785965317941,
-          163.28437697600614
-        ],
-        "decode_mpps": 191.66239864043567,
-        "decode_repetition_mpps": [
-          191.3967091793247,
-          191.44262723238032,
-          192.14971652603535
-        ]
-      }
-    }
-  },
-  "qoi-icon_512": {
-    "images": 213,
-    "pixels": 55836672,
-    "codecs": {
-      "tcom": {
-        "bytes": 17471252,
-        "encode_sec": 0.065804496058,
-        "decode_sec": 0.080413800122,
-        "checks": 18519,
-        "encode_mpps": 848.5236624376795,
-        "encode_repetition_mpps": [
-          845.7531786094753,
-          848.0242901961223,
-          851.8156099304391
-        ],
-        "decode_mpps": 694.3667867366951,
-        "decode_repetition_mpps": [
-          692.8297798632109,
-          695.4907960561958,
-          694.7852625116128
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 18658484,
-        "encode_sec": 0.12509382539,
-        "decode_sec": 0.091161811982,
-        "checks": 11892,
-        "encode_mpps": 446.35833803883,
-        "encode_repetition_mpps": [
-          445.74140887232744,
-          446.33045966863585,
-          447.0049364774791
-        ],
-        "decode_mpps": 612.5006818757071,
-        "decode_repetition_mpps": [
-          612.1443024681341,
-          613.9245085034175,
-          611.4385890577029
-        ]
-      }
-    }
-  },
-  "qoi-icon_64": {
-    "images": 213,
-    "pixels": 872448,
-    "codecs": {
-      "tcom": {
-        "bytes": 1046640,
-        "encode_sec": 0.001754943749,
-        "decode_sec": 0.001952212503,
-        "checks": 20661,
-        "encode_mpps": 497.1373016925114,
-        "encode_repetition_mpps": [
-          472.5793843575703,
-          515.2429463613412,
-          505.64512535928844
-        ],
-        "decode_mpps": 446.9021680064509,
-        "decode_repetition_mpps": [
-          428.6575249079913,
-          457.9231161622706,
-          455.32339347048213
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 1001738,
-        "encode_sec": 0.002071721872,
-        "decode_sec": 0.001874886456,
-        "checks": 20661,
-        "encode_mpps": 421.12216499300445,
-        "encode_repetition_mpps": [
-          432.1830881260217,
-          416.92618085101617,
-          414.68253803216066
-        ],
-        "decode_mpps": 465.3337791245957,
-        "decode_repetition_mpps": [
-          518.8471688435263,
-          443.3452328018802,
-          441.68502120752356
-        ]
-      }
-    }
-  },
-  "qoi-photo_kodak": {
-    "images": 24,
-    "pixels": 9437184,
-    "codecs": {
-      "tcom": {
-        "bytes": 15766809,
-        "encode_sec": 0.059716863886,
-        "decode_sec": 0.041904869444,
-        "checks": 324,
-        "encode_mpps": 158.03214344972412,
-        "encode_repetition_mpps": [
-          157.72148786774048,
-          157.62433343552465,
-          158.7555725790577
-        ],
-        "decode_mpps": 225.20494933438408,
-        "decode_repetition_mpps": [
-          223.79877396019586,
-          226.16226433014947,
-          225.66764588780921
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 16501520,
-        "encode_sec": 0.055705890001,
-        "decode_sec": 0.047933464442,
-        "checks": 345,
-        "encode_mpps": 169.41088275998445,
-        "encode_repetition_mpps": [
-          169.5529787031633,
-          169.2708515170133,
-          169.40905301330434
-        ],
-        "decode_mpps": 196.880907938943,
-        "decode_repetition_mpps": [
-          197.05842904247493,
-          198.00991708555998,
-          195.58950162543795
-        ]
-      }
-    }
-  },
-  "qoi-photo_tecnick": {
-    "images": 100,
-    "pixels": 144000000,
-    "codecs": {
-      "tcom": {
-        "bytes": 233759716,
-        "encode_sec": 0.890390866668,
-        "decode_sec": 0.630422149999,
-        "checks": 406,
-        "encode_mpps": 161.72672630714806,
-        "encode_repetition_mpps": [
-          162.2390338665533,
-          161.45186486434062,
-          161.4917078774253
-        ],
-        "decode_mpps": 228.41837013535837,
-        "decode_repetition_mpps": [
-          229.34906752880678,
-          227.92526045803007,
-          227.98644430599896
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 258843443,
-        "encode_sec": 0.898119083331,
-        "decode_sec": 0.729633349998,
-        "checks": 406,
-        "encode_mpps": 160.3350854832344,
-        "encode_repetition_mpps": [
-          160.82734051386458,
-          159.92004886001715,
-          160.26048561264273
-        ],
-        "decode_mpps": 197.35939975933763,
-        "decode_repetition_mpps": [
-          197.25489675007492,
-          197.2275152928366,
-          197.59621460540654
-        ]
-      }
-    }
-  },
-  "qoi-photo_wikipedia": {
-    "images": 49,
-    "pixels": 53140448,
-    "codecs": {
-      "tcom": {
-        "bytes": 94701727,
-        "encode_sec": 0.342915216667,
-        "decode_sec": 0.243181099999,
-        "checks": 217,
-        "encode_mpps": 154.9667247680173,
-        "encode_repetition_mpps": [
-          155.36048503403487,
-          155.42228205601415,
-          154.12434458188903
-        ],
-        "decode_mpps": 218.5221137671411,
-        "decode_repetition_mpps": [
-          220.27055661577083,
-          217.6871934319158,
-          217.62933458159947
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 105507130,
-        "encode_sec": 0.3378125,
-        "decode_sec": 0.27447545,
-        "checks": 223,
-        "encode_mpps": 157.3075241443108,
-        "encode_repetition_mpps": [
-          158.15588342217993,
-          156.5011883270064,
-          157.274212854972
-        ],
-        "decode_mpps": 193.60728983229646,
-        "decode_repetition_mpps": [
-          193.62820637080253,
-          193.78545425239523,
-          193.40857909403366
-        ]
-      }
-    }
-  },
-  "qoi-pngimg": {
-    "images": 186,
-    "pixels": 320196732,
-    "codecs": {
-      "tcom": {
-        "bytes": 235058294,
-        "encode_sec": 0.884202872311,
-        "decode_sec": 0.79133620734,
-        "checks": 7239,
-        "encode_mpps": 362.13039114328666,
-        "encode_repetition_mpps": [
-          358.63116737565497,
-          361.624741773805,
-          366.2156870747247
-        ],
-        "decode_mpps": 404.6279306191616,
-        "decode_repetition_mpps": [
-          404.5129505881049,
-          404.89009305804456,
-          404.48100400940604
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 265468193,
-        "encode_sec": 1.135492641539,
-        "decode_sec": 0.850663529051,
-        "checks": 5460,
-        "encode_mpps": 281.98926200527245,
-        "encode_repetition_mpps": [
-          280.75696490132236,
-          283.153016585239,
-          282.0680183226292
-        ],
-        "decode_mpps": 376.4082049658476,
-        "decode_repetition_mpps": [
-          376.13700373510653,
-          377.8543501317019,
-          375.2426119493029
-        ]
-      }
-    }
-  },
-  "qoi-screenshot_game": {
-    "images": 618,
-    "pixels": 391206639,
-    "codecs": {
-      "tcom": {
-        "bytes": 303903955,
-        "encode_sec": 1.393148029761,
-        "decode_sec": 1.144585720898,
-        "checks": 21234,
-        "encode_mpps": 280.80766052342125,
-        "encode_repetition_mpps": [
-          280.0482466407414,
-          281.03251146480864,
-          281.3454908237846
-        ],
-        "decode_mpps": 341.78885150958695,
-        "decode_repetition_mpps": [
-          341.76843611628857,
-          342.0230625288137,
-          341.57535093733543
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 328478275,
-        "encode_sec": 1.537565453899,
-        "decode_sec": 1.291071543067,
-        "checks": 17151,
-        "encode_mpps": 254.43251082935535,
-        "encode_repetition_mpps": [
-          254.0615380391984,
-          254.4066227470763,
-          254.83053770981527
-        ],
-        "decode_mpps": 303.00926474660776,
-        "decode_repetition_mpps": [
-          302.6937770693329,
-          303.06273589254573,
-          303.27184689353055
-        ]
-      }
-    }
-  },
-  "qoi-screenshot_web": {
-    "images": 13,
-    "pixels": 86622127,
-    "codecs": {
-      "tcom": {
-        "bytes": 27024134,
-        "encode_sec": 0.137026961112,
-        "decode_sec": 0.119430672221,
-        "checks": 73,
-        "encode_mpps": 632.1538936355654,
-        "encode_repetition_mpps": [
-          630.2772839123547,
-          628.4828591712749,
-          637.778166096902
-        ],
-        "decode_mpps": 725.2921329933607,
-        "decode_repetition_mpps": [
-          725.9591806705838,
-          725.2933813132287,
-          724.6250639815986
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 29762243,
-        "encode_sec": 0.206920044445,
-        "decode_sec": 0.128765011111,
-        "checks": 58,
-        "encode_mpps": 418.6260796161023,
-        "encode_repetition_mpps": [
-          417.57738272857125,
-          419.6220248847862,
-          418.6838366970127
-        ],
-        "decode_mpps": 672.714786824572,
-        "decode_repetition_mpps": [
-          675.2031483745603,
-          671.7672634096735,
-          671.1879290403203
-        ]
-      }
-    }
-  },
-  "qoi-textures_photo": {
-    "images": 20,
-    "pixels": 20971520,
-    "codecs": {
-      "tcom": {
-        "bytes": 35681604,
-        "encode_sec": 0.120197499999,
-        "decode_sec": 0.090507599998,
-        "checks": 113,
-        "encode_mpps": 174.47550905946028,
-        "encode_repetition_mpps": [
-          174.12558468370514,
-          174.49409117799522,
-          174.80818963271687
-        ],
-        "decode_mpps": 231.71004424449902,
-        "decode_repetition_mpps": [
-          231.8545248708696,
-          232.24724731653163,
-          231.03168496039862
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 40589641,
-        "encode_sec": 0.110151350001,
-        "decode_sec": 0.098831133333,
-        "checks": 122,
-        "encode_mpps": 190.38822492697193,
-        "encode_repetition_mpps": [
-          189.19620895238276,
-          190.46577631656623,
-          191.51688276582573
-        ],
-        "decode_mpps": 212.19548226102907,
-        "decode_repetition_mpps": [
-          211.44588456516587,
-          212.2467733896045,
-          212.89878193567512
-        ]
-      }
-    }
-  },
-  "qoi-textures_pk": {
-    "images": 1001,
-    "pixels": 44579584,
-    "codecs": {
-      "tcom": {
-        "bytes": 85622024,
-        "encode_sec": 0.261721992466,
-        "decode_sec": 0.185357081267,
-        "checks": 85718,
-        "encode_mpps": 170.33182263348115,
-        "encode_repetition_mpps": [
-          169.45900132794395,
-          171.05157076057856,
-          170.49257149941093
-        ],
-        "decode_mpps": 240.50650611931442,
-        "decode_repetition_mpps": [
-          240.29646876533525,
-          240.49688448617647,
-          240.726550204277
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 77532902,
-        "encode_sec": 0.263625292552,
-        "decode_sec": 0.243868578604,
-        "checks": 84659,
-        "encode_mpps": 169.10207502645707,
-        "encode_repetition_mpps": [
-          168.07622288082163,
-          169.31004716733025,
-          169.9305105055404
-        ],
-        "decode_mpps": 182.80167234004125,
-        "decode_repetition_mpps": [
-          182.46318955274808,
-          182.9201856224255,
-          183.0226132573113
-        ]
-      }
-    }
-  },
-  "qoi-textures_pk01": {
-    "images": 113,
-    "pixels": 14680064,
-    "codecs": {
-      "tcom": {
-        "bytes": 20261141,
-        "encode_sec": 0.074463743069,
-        "decode_sec": 0.052883387905,
-        "checks": 6560,
-        "encode_mpps": 197.1437829333543,
-        "encode_repetition_mpps": [
-          196.32831807981637,
-          197.5135839743818,
-          197.59455458387401
-        ],
-        "decode_mpps": 277.59310780866275,
-        "decode_repetition_mpps": [
-          277.6651862965647,
-          276.6858934856452,
-          278.4337752239512
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 20646004,
-        "encode_sec": 0.071283752998,
-        "decode_sec": 0.055541796512,
-        "checks": 6971,
-        "encode_mpps": 205.93842751814537,
-        "encode_repetition_mpps": [
-          205.15423417784794,
-          206.47725655744281,
-          206.18849879653564
-        ],
-        "decode_mpps": 264.30661091108783,
-        "decode_repetition_mpps": [
-          263.05110151026014,
-          265.01799114006917,
-          264.8597973786199
-        ]
-      }
-    }
-  },
-  "qoi-textures_pk02": {
-    "images": 234,
-    "pixels": 71319552,
-    "codecs": {
-      "tcom": {
-        "bytes": 117432944,
-        "encode_sec": 0.436061087675,
-        "decode_sec": 0.319860179465,
-        "checks": 9453,
-        "encode_mpps": 163.5540386789914,
-        "encode_repetition_mpps": [
-          163.6453366206427,
-          163.17922444206454,
-          163.8389623351722
-        ],
-        "decode_mpps": 222.97102477491728,
-        "decode_repetition_mpps": [
-          222.07537784153027,
-          223.4227671956809,
-          223.42035856041963
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 115170000,
-        "encode_sec": 0.380604857973,
-        "decode_sec": 0.330378279913,
-        "checks": 9825,
-        "encode_mpps": 187.38476534385012,
-        "encode_repetition_mpps": [
-          187.4492551209415,
-          187.55436637701362,
-          187.15114172470976
-        ],
-        "decode_mpps": 215.87239941675617,
-        "decode_repetition_mpps": [
-          215.08768542662284,
-          216.41829993437392,
-          216.1157267678181
-        ]
-      }
-    }
-  },
-  "qoi-textures_plants": {
-    "images": 60,
-    "pixels": 63833030,
-    "codecs": {
-      "tcom": {
-        "bytes": 52093741,
-        "encode_sec": 0.182373221256,
-        "decode_sec": 0.153378618229,
-        "checks": 1203,
-        "encode_mpps": 350.0131738661162,
-        "encode_repetition_mpps": [
-          352.19543972286493,
-          350.1773484122885,
-          347.6957776202829
-        ],
-        "decode_mpps": 416.1794566742993,
-        "decode_repetition_mpps": [
-          416.4991244922716,
-          417.0805534378144,
-          414.9644418037292
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 56670920,
-        "encode_sec": 0.225807243631,
-        "decode_sec": 0.156417634834,
-        "checks": 966,
-        "encode_mpps": 282.68814132602375,
-        "encode_repetition_mpps": [
-          283.23150772321395,
-          282.99049804024463,
-          281.846298180274
-        ],
-        "decode_mpps": 408.0935635406042,
-        "decode_repetition_mpps": [
-          405.5287240721774,
-          409.9198882157615,
-          408.8578657384654
-        ]
-      }
-    }
-  },
-  "scan-document/gray-as-rgb": {
-    "images": 1500,
-    "pixels": 9013722831,
-    "codecs": {
-      "tcom": {
-        "bytes": 2080324285,
-        "encode_sec": 15.064871999805,
-        "decode_sec": 14.240099272039,
-        "checks": 8103,
-        "encode_mpps": 598.327209890444,
-        "encode_repetition_mpps": [
-          598.9591523227134,
-          597.7542069629104,
-          598.2694919745292
-        ],
-        "decode_mpps": 632.9817411244319,
-        "decode_repetition_mpps": [
-          633.0533978307243,
-          633.3877906158316,
-          632.5046631919537
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 1450952558,
-        "encode_sec": 17.907047758732,
-        "decode_sec": 11.904340461907,
-        "checks": 6132,
-        "encode_mpps": 503.3617463048674,
-        "encode_repetition_mpps": [
-          503.6081635140325,
-          503.016564464595,
-          503.4608879049637
-        ],
-        "decode_mpps": 757.1795228675827,
-        "decode_repetition_mpps": [
-          759.590941070584,
-          755.0210406251651,
-          756.9404884949959
-        ]
-      }
-    }
-  },
-  "science-microscopy/rgb": {
-    "images": 735,
-    "pixels": 114883180,
-    "codecs": {
-      "tcom": {
-        "bytes": 94310318,
-        "encode_sec": 0.57781813869,
-        "decode_sec": 0.497804420081,
-        "checks": 47253,
-        "encode_mpps": 198.82238425477144,
-        "encode_repetition_mpps": [
-          197.6695569207551,
-          199.56320838735795,
-          199.24475633858845
-        ],
-        "decode_mpps": 230.77975077301812,
-        "decode_repetition_mpps": [
-          230.87695195163417,
-          230.90678498001594,
-          230.55584364794277
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 106555326,
-        "encode_sec": 0.514104437718,
-        "decode_sec": 0.513180636427,
-        "checks": 49734,
-        "encode_mpps": 223.4627277483578,
-        "encode_repetition_mpps": [
-          222.79341267929001,
-          223.5873411941462,
-          224.01085075673407
-        ],
-        "decode_mpps": 223.86499381556877,
-        "decode_repetition_mpps": [
-          223.42252221732923,
-          224.1020133054727,
-          224.0717637018176
-        ]
-      }
-    }
-  },
-  "texture-dtd/rgb": {
-    "images": 1500,
-    "pixels": 344462715,
-    "codecs": {
-      "tcom": {
-        "bytes": 578779602,
-        "encode_sec": 2.111099780214,
-        "decode_sec": 1.460102035024,
-        "checks": 43275,
-        "encode_mpps": 163.16742497367045,
-        "encode_repetition_mpps": [
-          162.91685571602576,
-          163.3015491076004,
-          163.2844495052236
-        ],
-        "decode_mpps": 235.9168789147931,
-        "decode_repetition_mpps": [
-          235.55026983983143,
-          236.15991104443503,
-          236.04134217676832
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 663905901,
-        "encode_sec": 1.882578849116,
-        "decode_sec": 1.553414416336,
-        "checks": 47673,
-        "encode_mpps": 182.97385799365,
-        "encode_repetition_mpps": [
-          182.63787277524412,
-          183.09329988572452,
-          183.19135555512602
-        ],
-        "decode_mpps": 221.74553768625094,
-        "decode_repetition_mpps": [
-          221.49924197974494,
-          221.75408728520674,
-          221.98381374071846
-        ]
-      }
-    }
-  },
-  "ui-enrico": {
-    "images": 193,
-    "pixels": 317779200,
-    "codecs": {
-      "tcom": {
-        "bytes": 130820272,
-        "encode_sec": 0.625638151614,
-        "decode_sec": 0.51751759647,
-        "checks": 3190,
-        "encode_mpps": 507.9281037772457,
-        "encode_repetition_mpps": [
-          505.22312302008515,
-          510.64102478322445,
-          507.94906007880263
-        ],
-        "decode_mpps": 614.0452076752165,
-        "decode_repetition_mpps": [
-          612.887255783384,
-          612.7266677738385,
-          616.5367937624907
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 139128577,
-        "encode_sec": 0.837583505618,
-        "decode_sec": 0.577918955324,
-        "checks": 2179,
-        "encode_mpps": 379.4000214528231,
-        "encode_repetition_mpps": [
-          379.37169397785533,
-          379.74246002157423,
-          379.08648060178473
-        ],
-        "decode_mpps": 549.8681036025938,
-        "decode_repetition_mpps": [
-          549.9225194801066,
-          551.6863281170789,
-          548.0077762986286
-        ]
-      }
-    }
-  },
-  "ui-enrico/rgb": {
-    "images": 1000,
-    "pixels": 1663027200,
-    "codecs": {
-      "tcom": {
-        "bytes": 671892253,
-        "encode_sec": 3.313199893883,
-        "decode_sec": 2.898796369099,
-        "checks": 16990,
-        "encode_mpps": 501.93989293261967,
-        "encode_repetition_mpps": [
-          499.54168131119843,
-          503.37364254710815,
-          502.9218694057532
-        ],
-        "decode_mpps": 573.6957648104478,
-        "decode_repetition_mpps": [
-          573.0849635841895,
-          573.5237113409734,
-          574.4803937847337
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 717506968,
-        "encode_sec": 4.478197007049,
-        "decode_sec": 3.221366295046,
-        "checks": 11470,
-        "encode_mpps": 371.36088416438065,
-        "encode_repetition_mpps": [
-          371.33754005793975,
-          370.639228409575,
-          372.10879384004227
-        ],
-        "decode_mpps": 516.2490222106992,
-        "decode_repetition_mpps": [
-          516.3562175779588,
-          516.37161252113,
-          516.0193900844866
-        ]
-      }
-    }
-  },
-  "ui-screenspot/rgb": {
-    "images": 493,
-    "pixels": 1187902021,
-    "codecs": {
-      "tcom": {
-        "bytes": 504712496,
-        "encode_sec": 2.131702646461,
-        "decode_sec": 2.132017366094,
-        "checks": 10123,
-        "encode_mpps": 557.255029434863,
-        "encode_repetition_mpps": [
-          555.6727600209218,
-          558.4004365445061,
-          557.6991003209431
-        ],
-        "decode_mpps": 557.1727697398248,
-        "decode_repetition_mpps": [
-          556.8045981800775,
-          557.2041239759724,
-          557.5100362854469
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 528083006,
-        "encode_sec": 2.840737799882,
-        "decode_sec": 2.442600676385,
-        "checks": 5947,
-        "encode_mpps": 418.16672452112397,
-        "encode_repetition_mpps": [
-          417.87603395282287,
-          418.30559537119274,
-          418.31884787496
-        ],
-        "decode_mpps": 486.32673874391577,
-        "decode_repetition_mpps": [
-          485.94432926050337,
-          485.7525068666842,
-          487.28624921983106
-        ]
-      }
-    }
-  },
-  "original": {
-    "images": 3167,
-    "pixels": 1964362720,
-    "codecs": {
-      "tcom": {
-        "bytes": 1954352227,
-        "encode_sec": 7.636998562962,
-        "decode_sec": 5.962070795859,
-        "checks": 175433,
-        "encode_mpps": 257.2165889262816,
-        "encode_repetition_mpps": [
-          256.6386316660823,
-          257.3360805682286,
-          257.6772350953597
-        ],
-        "decode_mpps": 329.4765841030205,
-        "decode_repetition_mpps": [
-          329.7666225592284,
-          329.3550183053605,
-          329.3084972040033
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 2125446830,
-        "encode_sec": 8.303507663247,
-        "decode_sec": 6.660940157962,
-        "checks": 161438,
-        "encode_mpps": 236.57023027685824,
-        "encode_repetition_mpps": [
-          236.30610558387255,
-          236.59969383937434,
-          236.8054238863284
-        ],
-        "decode_mpps": 294.90772674964575,
-        "decode_repetition_mpps": [
-          294.9123571051002,
-          294.9251498403021,
-          294.88567605498974
-        ]
-      }
-    }
-  },
-  "independent": {
-    "images": 14493,
-    "pixels": 19662860144,
-    "codecs": {
-      "tcom": {
-        "bytes": 14533559196,
-        "encode_sec": 66.907670942421,
-        "decode_sec": 53.988498729588,
-        "checks": 481287,
-        "encode_mpps": 293.88050528498206,
-        "encode_repetition_mpps": [
-          293.5748553046322,
-          294.0176214909707,
-          294.04951837142283
-        ],
-        "decode_mpps": 364.20461036498335,
-        "decode_repetition_mpps": [
-          364.4212058927863,
-          364.17226142245624,
-          364.02058841466123
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 15479479370,
-        "encode_sec": 70.240136218987,
-        "decode_sec": 56.501120546763,
-        "checks": 481131,
-        "encode_mpps": 279.9376710019082,
-        "encode_repetition_mpps": [
-          279.81380455411903,
-          279.8205975132128,
-          280.17892248632785
-        ],
-        "decode_mpps": 348.0083218478134,
-        "decode_repetition_mpps": [
-          348.0406506573728,
-          347.78228626116123,
-          348.20228658275283
-        ]
-      }
-    }
-  },
-  "native_rgb": {
-    "images": 15133,
-    "pixels": 11839668691,
-    "codecs": {
-      "tcom": {
-        "bytes": 13797216228,
-        "encode_sec": 56.882292704501,
-        "decode_sec": 43.2232258879,
-        "checks": 596296,
-        "encode_mpps": 208.14331012475432,
-        "encode_repetition_mpps": [
-          207.8079884134891,
-          208.32110025288108,
-          208.30165489055983
-        ],
-        "decode_mpps": 273.91913601512147,
-        "decode_repetition_mpps": [
-          274.1377671097364,
-          273.8147429774019,
-          273.80515956528075
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 15482563418,
-        "encode_sec": 57.763932122918,
-        "decode_sec": 48.632533683006,
-        "checks": 592915,
-        "encode_mpps": 204.9664601399699,
-        "encode_repetition_mpps": [
-          204.8051911651061,
-          204.89670013846055,
-          205.19790089492378
-        ],
-        "decode_mpps": 243.451611387815,
-        "decode_repetition_mpps": [
-          243.28739196435177,
-          243.4314809434176,
-          243.6362136407563
-        ]
-      }
-    }
-  },
-  "native_rgba": {
-    "images": 719,
-    "pixels": 456507054,
-    "codecs": {
-      "tcom": {
-        "bytes": 325219412,
-        "encode_sec": 1.202357674454,
-        "decode_sec": 1.085291704055,
-        "checks": 49475,
-        "encode_mpps": 379.6765835152201,
-        "encode_repetition_mpps": [
-          377.203767504245,
-          379.294920157635,
-          382.5695340259659
-        ],
-        "decode_mpps": 420.6307412968719,
-        "decode_repetition_mpps": [
-          420.4887410283716,
-          421.1304308982853,
-          420.27399563498074
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 362725970,
-        "encode_sec": 1.562592097097,
-        "decode_sec": 1.164564982324,
-        "checks": 40574,
-        "encode_mpps": 292.1472947726432,
-        "encode_repetition_mpps": [
-          291.3679495495261,
-          293.02371486124673,
-          292.054955005667
-        ],
-        "decode_mpps": 391.99792276854896,
-        "decode_repetition_mpps": [
-          391.5728788858966,
-          393.2563161394803,
-          391.1708103104429
-        ]
+      "fpng_single_pass": {
+        "bytes": 31646743,
+        "encode_sec": 0.4145948011969997,
+        "decode_sec": 0.21545439970400018,
+        "checks": 996,
+        "encode_mpps": 561.8939439843749,
+        "decode_mpps": 1081.2418234208603
       }
     }
   },
@@ -1517,81 +350,1469 @@
     "codecs": {
       "tcom": {
         "bytes": 2365475783,
-        "encode_sec": 16.460019126428,
-        "decode_sec": 15.642051933492,
-        "checks": 10949,
-        "encode_mpps": 566.8916328303766,
-        "encode_repetition_mpps": [
-          567.3331543753542,
-          566.4584576823102,
-          566.8839614013556
-        ],
-        "decode_mpps": 596.5360017134847,
-        "decode_repetition_mpps": [
-          596.659099120845,
-          596.8486937592874,
-          596.1007193282466
-        ]
+        "encode_sec": 14.838642500095009,
+        "decode_sec": 13.953773100569993,
+        "checks": 1808,
+        "encode_mpps": 628.8342831185707,
+        "decode_mpps": 668.7113981105828
       },
       "qoi_reference": {
         "bytes": 1759636812,
-        "encode_sec": 19.217119662219,
-        "decode_sec": 13.364962039395,
-        "checks": 9080,
-        "encode_mpps": 485.55908913576195,
-        "encode_repetition_mpps": [
-          485.7939302584165,
-          485.22173970351656,
-          485.66196730656594
-        ],
-        "decode_mpps": 698.1723622929493,
-        "decode_repetition_mpps": [
-          700.2389778087404,
-          696.2950751189759,
-          697.9942399807663
-        ]
+        "encode_sec": 19.882532598255008,
+        "decode_sec": 13.375313699406986,
+        "checks": 1808,
+        "encode_mpps": 469.3087801007272,
+        "decode_mpps": 697.6320203550595
+      },
+      "qoir": {
+        "bytes": 1617448564,
+        "encode_sec": 15.010974600800015,
+        "decode_sec": 18.96808889968902,
+        "checks": 1808,
+        "encode_mpps": 621.6150094946332,
+        "decode_mpps": 491.93396173680856
+      },
+      "libpng_level_1": {
+        "bytes": 1877921900,
+        "encode_sec": 152.322290500205,
+        "decode_sec": 27.775212300070994,
+        "checks": 1808,
+        "encode_mpps": 61.258579347501616,
+        "decode_mpps": 335.94872356659357
+      },
+      "fpng_single_pass": {
+        "bytes": 3214353440,
+        "encode_sec": 18.284806002269956,
+        "decode_sec": 16.098510598242004,
+        "checks": 1808,
+        "encode_mpps": 510.316987658584,
+        "decode_mpps": 579.6217645139776
       }
     }
   },
-  "TOTAL": {
-    "images": 17660,
-    "pixels": 21627222864,
+  "independent": {
+    "images": 14493,
+    "pixels": 19662860144,
     "codecs": {
       "tcom": {
-        "bytes": 16487911423,
-        "encode_sec": 74.544669505383,
-        "decode_sec": 59.950569525447,
-        "checks": 656720,
-        "encode_mpps": 290.12433762870546,
-        "encode_repetition_mpps": [
-          289.7866822504116,
-          290.25964142979535,
-          290.32728757912804
-        ],
-        "decode_mpps": 360.75091588279196,
-        "decode_repetition_mpps": [
-          360.97570091694234,
-          360.7088204913349,
-          360.5684634518305
-        ]
+        "bytes": 14533559196,
+        "encode_sec": 58.86530159830794,
+        "decode_sec": 50.60874660334821,
+        "checks": 14493,
+        "encode_mpps": 334.0314176622719,
+        "decode_mpps": 388.5269140947097
       },
       "qoi_reference": {
-        "bytes": 17604926200,
-        "encode_sec": 78.543643882234,
-        "decode_sec": 63.162060704725,
-        "checks": 642569,
-        "encode_mpps": 275.3529349418422,
-        "encode_repetition_mpps": [
-          275.2114653654556,
-          275.2535707759099,
-          275.59408829191796
-        ],
-        "decode_mpps": 342.4084430225393,
-        "decode_repetition_mpps": [
-          342.43746391984143,
-          342.21161543325985,
-          342.5764477735968
-        ]
+        "bytes": 15479479370,
+        "encode_sec": 71.7269863003079,
+        "decode_sec": 57.19612939949389,
+        "checks": 14493,
+        "encode_mpps": 274.13475956838846,
+        "decode_mpps": 343.7795590443221
+      },
+      "qoir": {
+        "bytes": 14134440200,
+        "encode_sec": 63.27536049931385,
+        "decode_sec": 62.68153620426819,
+        "checks": 14493,
+        "encode_mpps": 310.75066169260657,
+        "decode_mpps": 313.69461143903953
+      },
+      "libpng_level_1": {
+        "bytes": 13667833130,
+        "encode_sec": 549.5328543012665,
+        "decode_sec": 147.3530452999706,
+        "checks": 14493,
+        "encode_mpps": 35.7810456464908,
+        "decode_mpps": 133.44047355093193
+      },
+      "fpng_single_pass": {
+        "bytes": 17388526053,
+        "encode_sec": 49.916725799888916,
+        "decode_sec": 66.7748782986143,
+        "checks": 14493,
+        "encode_mpps": 393.9132591113129,
+        "decode_mpps": 294.46493419379306
+      }
+    }
+  },
+  "industrial/gray-as-rgb": {
+    "images": 302,
+    "pixels": 316669952,
+    "codecs": {
+      "tcom": {
+        "bytes": 284437959,
+        "encode_sec": 1.304951799916,
+        "decode_sec": 1.5038501995709994,
+        "checks": 302,
+        "encode_mpps": 242.6679299728803,
+        "decode_mpps": 210.5728031225024
+      },
+      "qoi_reference": {
+        "bytes": 307939757,
+        "encode_sec": 1.3066524000539999,
+        "decode_sec": 1.457420499581,
+        "checks": 302,
+        "encode_mpps": 242.35209914045464,
+        "decode_mpps": 217.28111556756667
+      },
+      "qoir": {
+        "bytes": 287430980,
+        "encode_sec": 1.2389057998169994,
+        "decode_sec": 1.2782930006480004,
+        "checks": 302,
+        "encode_mpps": 255.60454398290474,
+        "decode_mpps": 247.72876941317182
+      },
+      "libpng_level_1": {
+        "bytes": 235398521,
+        "encode_sec": 10.201373700470006,
+        "decode_sec": 3.4495757001090017,
+        "checks": 302,
+        "encode_mpps": 31.041893111455188,
+        "decode_mpps": 91.79968191160255
+      },
+      "fpng_single_pass": {
+        "bytes": 424500435,
+        "encode_sec": 1.2648205004520006,
+        "decode_sec": 1.7755522003349995,
+        "checks": 302,
+        "encode_mpps": 250.36750423228733,
+        "decode_mpps": 178.3501222550668
+      }
+    }
+  },
+  "industrial/rgb": {
+    "images": 1198,
+    "pixels": 1084217392,
+    "codecs": {
+      "tcom": {
+        "bytes": 1795515448,
+        "encode_sec": 6.034378199544993,
+        "decode_sec": 4.6229716005449975,
+        "checks": 1198,
+        "encode_mpps": 179.67342386358095,
+        "decode_mpps": 234.5282397737816
+      },
+      "qoi_reference": {
+        "bytes": 1980564016,
+        "encode_sec": 7.061492402403996,
+        "decode_sec": 5.7510166987770015,
+        "checks": 1198,
+        "encode_mpps": 153.5394120980562,
+        "decode_mpps": 188.52621176192505
+      },
+      "qoir": {
+        "bytes": 1879605789,
+        "encode_sec": 6.159547799659997,
+        "decode_sec": 5.288393000555993,
+        "checks": 1198,
+        "encode_mpps": 176.0222385253424,
+        "decode_mpps": 205.01830932118912
+      },
+      "libpng_level_1": {
+        "bytes": 1585330501,
+        "encode_sec": 50.97256399976904,
+        "decode_sec": 16.419660699092013,
+        "checks": 1198,
+        "encode_mpps": 21.27060730170279,
+        "decode_mpps": 66.03165630943616
+      },
+      "fpng_single_pass": {
+        "bytes": 1699614297,
+        "encode_sec": 3.3812950004259985,
+        "decode_sec": 5.741030200344998,
+        "checks": 1198,
+        "encode_mpps": 320.6515231186285,
+        "decode_mpps": 188.85415233224967
+      }
+    }
+  },
+  "native_rgb": {
+    "images": 15133,
+    "pixels": 11839668691,
+    "codecs": {
+      "tcom": {
+        "bytes": 13797216228,
+        "encode_sec": 50.024240397030944,
+        "decode_sec": 41.50518510193507,
+        "checks": 15133,
+        "encode_mpps": 236.67863014073296,
+        "decode_mpps": 285.25758075580796
+      },
+      "qoi_reference": {
+        "bytes": 15482563418,
+        "encode_sec": 59.07543440355395,
+        "decode_sec": 49.69721249913799,
+        "checks": 15133,
+        "encode_mpps": 200.41610883673386,
+        "decode_mpps": 238.23607191661628
+      },
+      "qoir": {
+        "bytes": 14126021381,
+        "encode_sec": 54.85484199840889,
+        "decode_sec": 49.61299630434899,
+        "checks": 15133,
+        "encode_mpps": 215.83634661354816,
+        "decode_mpps": 238.64046868626951
+      },
+      "libpng_level_1": {
+        "bytes": 13398996263,
+        "encode_sec": 453.2013975005394,
+        "decode_sec": 135.8765320994688,
+        "checks": 15133,
+        "encode_mpps": 26.124519377692142,
+        "decode_mpps": 87.13549358422497
+      },
+      "fpng_single_pass": {
+        "bytes": 16049376622,
+        "encode_sec": 35.68887339826223,
+        "decode_sec": 57.501782199001816,
+        "checks": 15133,
+        "encode_mpps": 331.74677605756244,
+        "decode_mpps": 205.90089973255695
+      }
+    }
+  },
+  "native_rgba": {
+    "images": 719,
+    "pixels": 456507054,
+    "codecs": {
+      "tcom": {
+        "bytes": 325219412,
+        "encode_sec": 1.1211163998169997,
+        "decode_sec": 1.071798200143,
+        "checks": 719,
+        "encode_mpps": 407.1897031160331,
+        "decode_mpps": 425.9263114447221
+      },
+      "qoi_reference": {
+        "bytes": 362725970,
+        "encode_sec": 1.6993280000200004,
+        "decode_sec": 1.2998992000250005,
+        "checks": 719,
+        "encode_mpps": 268.6397528873926,
+        "decode_mpps": 351.18650276207586
+      },
+      "qoir": {
+        "bytes": 312792828,
+        "encode_sec": 1.4384349002040007,
+        "decode_sec": 1.4997405992929989,
+        "checks": 719,
+        "encode_mpps": 317.3637221505524,
+        "decode_mpps": 304.3906754376087
+      },
+      "libpng_level_1": {
+        "bytes": 350965600,
+        "encode_sec": 16.516787100465,
+        "decode_sec": 4.49613439972,
+        "checks": 719,
+        "encode_mpps": 27.638974288598046,
+        "decode_mpps": 101.53323130830549
+      },
+      "fpng_single_pass": {
+        "bytes": 378984409,
+        "encode_sec": 1.3179452007519994,
+        "decode_sec": 1.635911200028999,
+        "checks": 719,
+        "encode_mpps": 346.37787196275235,
+        "decode_mpps": 279.0536882392563
+      }
+    }
+  },
+  "natural-clic2022": {
+    "images": 30,
+    "pixels": 86384640,
+    "codecs": {
+      "tcom": {
+        "bytes": 129868562,
+        "encode_sec": 0.46221739996699995,
+        "decode_sec": 0.379344800142,
+        "checks": 30,
+        "encode_mpps": 186.89179595179118,
+        "decode_mpps": 227.72063823641093
+      },
+      "qoi_reference": {
+        "bytes": 143758157,
+        "encode_sec": 0.5154372001409999,
+        "decode_sec": 0.45933159987799993,
+        "checks": 30,
+        "encode_mpps": 167.59488833240815,
+        "decode_mpps": 188.0659637241245
+      },
+      "qoir": {
+        "bytes": 134066993,
+        "encode_sec": 0.472991399872,
+        "decode_sec": 0.431906000012,
+        "checks": 30,
+        "encode_mpps": 182.63469488742763,
+        "decode_mpps": 200.00796469046483
+      },
+      "libpng_level_1": {
+        "bytes": 133291388,
+        "encode_sec": 4.101598799926999,
+        "decode_sec": 1.1294720001170002,
+        "checks": 30,
+        "encode_mpps": 21.061211545492327,
+        "decode_mpps": 76.48232093496037
+      },
+      "fpng_single_pass": {
+        "bytes": 151330881,
+        "encode_sec": 0.28044000000300007,
+        "decode_sec": 0.525570700118,
+        "checks": 30,
+        "encode_mpps": 308.032520321908,
+        "decode_mpps": 164.36350043981733
+      }
+    }
+  },
+  "natural-div2k": {
+    "images": 100,
+    "pixels": 283502880,
+    "codecs": {
+      "tcom": {
+        "bytes": 453839412,
+        "encode_sec": 1.5645671000239991,
+        "decode_sec": 1.2475774001220006,
+        "checks": 100,
+        "encode_mpps": 181.20212293589154,
+        "decode_mpps": 227.2427185457802
+      },
+      "qoi_reference": {
+        "bytes": 507729603,
+        "encode_sec": 1.7522109000689992,
+        "decode_sec": 1.5026019000219992,
+        "checks": 100,
+        "encode_mpps": 161.79723570309721,
+        "decode_mpps": 188.67464495808858
+      },
+      "qoir": {
+        "bytes": 478421287,
+        "encode_sec": 1.6158619996870007,
+        "decode_sec": 1.4888802003680004,
+        "checks": 100,
+        "encode_mpps": 175.44993325848105,
+        "decode_mpps": 190.41349326153156
+      },
+      "libpng_level_1": {
+        "bytes": 474686315,
+        "encode_sec": 14.133136100196008,
+        "decode_sec": 4.019607199817999,
+        "checks": 100,
+        "encode_mpps": 20.05944597081098,
+        "decode_mpps": 70.52999606848066
+      },
+      "fpng_single_pass": {
+        "bytes": 539205675,
+        "encode_sec": 0.9347338999539999,
+        "decode_sec": 1.8265893000039997,
+        "checks": 100,
+        "encode_mpps": 303.29795465206917,
+        "decode_mpps": 155.20888028818476
+      }
+    }
+  },
+  "original": {
+    "images": 3167,
+    "pixels": 1964362720,
+    "codecs": {
+      "tcom": {
+        "bytes": 1954352227,
+        "encode_sec": 7.118697698634999,
+        "decode_sec": 5.9220097993000005,
+        "checks": 3167,
+        "encode_mpps": 275.9441126958747,
+        "decode_mpps": 331.7054153190009
+      },
+      "qoi_reference": {
+        "bytes": 2125446830,
+        "encode_sec": 8.930308701520971,
+        "decode_sec": 7.176295999076016,
+        "checks": 3167,
+        "encode_mpps": 219.96582488413176,
+        "decode_mpps": 273.72933338492743
+      },
+      "qoir": {
+        "bytes": 1921822573,
+        "encode_sec": 8.028891000098994,
+        "decode_sec": 7.399289599062994,
+        "checks": 3167,
+        "encode_mpps": 244.66177458079576,
+        "decode_mpps": 265.47990772637905
+      },
+      "libpng_level_1": {
+        "bytes": 1960050633,
+        "encode_sec": 72.50762079994092,
+        "decode_sec": 20.79483349928904,
+        "checks": 3167,
+        "encode_mpps": 27.091810465274577,
+        "decode_mpps": 94.46397924114949
+      },
+      "fpng_single_pass": {
+        "bytes": 2254188418,
+        "encode_sec": 5.374898801394993,
+        "decode_sec": 8.461325698658992,
+        "checks": 3167,
+        "encode_mpps": 365.46971256280625,
+        "decode_mpps": 232.15779535721282
+      }
+    }
+  },
+  "photo-bsds/rgb": {
+    "images": 500,
+    "pixels": 77200500,
+    "codecs": {
+      "tcom": {
+        "bytes": 126993258,
+        "encode_sec": 0.4361873009520003,
+        "decode_sec": 0.3340357998400003,
+        "checks": 500,
+        "encode_mpps": 176.9893342412906,
+        "decode_mpps": 231.11444952001622
+      },
+      "qoi_reference": {
+        "bytes": 141811198,
+        "encode_sec": 0.4747621998550002,
+        "decode_sec": 0.39130350056100016,
+        "checks": 500,
+        "encode_mpps": 162.6087755587497,
+        "decode_mpps": 197.29059384677097
+      },
+      "qoir": {
+        "bytes": 132935010,
+        "encode_sec": 0.45876450027900034,
+        "decode_sec": 0.3918897000349999,
+        "checks": 500,
+        "encode_mpps": 168.27914965750415,
+        "decode_mpps": 196.9954811088558
+      },
+      "libpng_level_1": {
+        "bytes": 132989638,
+        "encode_sec": 3.9190651998439963,
+        "decode_sec": 1.1924643001969992,
+        "checks": 500,
+        "encode_mpps": 19.698702640382987,
+        "decode_mpps": 64.74030290654925
+      },
+      "fpng_single_pass": {
+        "bytes": 159612016,
+        "encode_sec": 0.27731260005399994,
+        "decode_sec": 0.5454589001569997,
+        "checks": 500,
+        "encode_mpps": 278.3879996255744,
+        "decode_mpps": 141.53312005318705
+      }
+    }
+  },
+  "photo-coco/gray-as-rgb": {
+    "images": 2,
+    "pixels": 650240,
+    "codecs": {
+      "tcom": {
+        "bytes": 710526,
+        "encode_sec": 0.0032811999549999995,
+        "decode_sec": 0.003496700025,
+        "checks": 2,
+        "encode_mpps": 198.1714034248791,
+        "decode_mpps": 185.95818782024344
+      },
+      "qoi_reference": {
+        "bytes": 742075,
+        "encode_sec": 0.002963499981,
+        "decode_sec": 0.00298260001,
+        "checks": 2,
+        "encode_mpps": 219.41623221491764,
+        "decode_mpps": 218.0111304968446
+      },
+      "qoir": {
+        "bytes": 697325,
+        "encode_sec": 0.0024191000260000003,
+        "decode_sec": 0.002328399977,
+        "checks": 2,
+        "encode_mpps": 268.7941767646444,
+        "decode_mpps": 279.26473390443607
+      },
+      "libpng_level_1": {
+        "bytes": 635267,
+        "encode_sec": 0.022673300002,
+        "decode_sec": 0.006284300005,
+        "checks": 2,
+        "encode_mpps": 28.67866609371563,
+        "decode_mpps": 103.4705535195085
+      },
+      "fpng_single_pass": {
+        "bytes": 1163953,
+        "encode_sec": 0.002129800036,
+        "decode_sec": 0.0041708999770000005,
+        "checks": 2,
+        "encode_mpps": 305.3056573429413,
+        "decode_mpps": 155.89920726598137
+      }
+    }
+  },
+  "photo-coco/rgb": {
+    "images": 1963,
+    "pixels": 536755108,
+    "codecs": {
+      "tcom": {
+        "bytes": 974797878,
+        "encode_sec": 3.155061399505002,
+        "decode_sec": 2.2651789994619977,
+        "checks": 1963,
+        "encode_mpps": 170.12509109464926,
+        "decode_mpps": 236.9592461026191
+      },
+      "qoi_reference": {
+        "bytes": 1112164594,
+        "encode_sec": 3.5851263007390006,
+        "decode_sec": 2.644531900357004,
+        "checks": 1963,
+        "encode_mpps": 149.7172102107976,
+        "decode_mpps": 202.96790820618943
+      },
+      "qoir": {
+        "bytes": 1001766013,
+        "encode_sec": 3.3680147991380016,
+        "decode_sec": 2.7404681008170058,
+        "checks": 1963,
+        "encode_mpps": 159.3683935525982,
+        "decode_mpps": 195.86256371310404
+      },
+      "libpng_level_1": {
+        "bytes": 990485190,
+        "encode_sec": 28.921942500276046,
+        "decode_sec": 8.150973999817992,
+        "checks": 1963,
+        "encode_mpps": 18.558750263571575,
+        "decode_mpps": 65.8516525769786
+      },
+      "fpng_single_pass": {
+        "bytes": 1124102197,
+        "encode_sec": 1.674192700246999,
+        "decode_sec": 3.6395931977810014,
+        "checks": 1963,
+        "encode_mpps": 320.6053328991405,
+        "decode_mpps": 147.4766763294454
+      }
+    }
+  },
+  "photo-div2k/rgb": {
+    "images": 800,
+    "pixels": 2230421760,
+    "codecs": {
+      "tcom": {
+        "bytes": 3604578808,
+        "encode_sec": 12.230733799927004,
+        "decode_sec": 9.82648640020499,
+        "checks": 800,
+        "encode_mpps": 182.36205582475452,
+        "decode_mpps": 226.9805980653951
+      },
+      "qoi_reference": {
+        "bytes": 4049497416,
+        "encode_sec": 13.831856000637005,
+        "decode_sec": 11.926267500028993,
+        "checks": 800,
+        "encode_mpps": 161.25252893735168,
+        "decode_mpps": 187.01758618063678
+      },
+      "qoir": {
+        "bytes": 3796820446,
+        "encode_sec": 12.736560200122003,
+        "decode_sec": 11.615341200964997,
+        "checks": 800,
+        "encode_mpps": 175.11963394784055,
+        "decode_mpps": 192.02378315108794
+      },
+      "libpng_level_1": {
+        "bytes": 3756869832,
+        "encode_sec": 110.37611639930002,
+        "decode_sec": 31.074986500957998,
+        "checks": 800,
+        "encode_mpps": 20.207467274271163,
+        "decode_mpps": 71.7754699565594
+      },
+      "fpng_single_pass": {
+        "bytes": 4219241792,
+        "encode_sec": 7.327229999816999,
+        "decode_sec": 14.184655600990988,
+        "checks": 800,
+        "encode_mpps": 304.40176711468126,
+        "decode_mpps": 157.24186915360673
+      }
+    }
+  },
+  "qoi-icon_512": {
+    "images": 213,
+    "pixels": 55836672,
+    "codecs": {
+      "tcom": {
+        "bytes": 17471252,
+        "encode_sec": 0.07433949986800002,
+        "decode_sec": 0.09149769950200001,
+        "checks": 213,
+        "encode_mpps": 751.1036810732608,
+        "decode_mpps": 610.2521954530615
+      },
+      "qoi_reference": {
+        "bytes": 18658484,
+        "encode_sec": 0.1480562001779999,
+        "decode_sec": 0.11355800012500006,
+        "checks": 213,
+        "encode_mpps": 377.13160227582915,
+        "decode_mpps": 491.70179061393515
+      },
+      "qoir": {
+        "bytes": 12727490,
+        "encode_sec": 0.12582240015299992,
+        "decode_sec": 0.14062099973599992,
+        "checks": 213,
+        "encode_mpps": 443.7736995328547,
+        "decode_mpps": 397.0720739066502
+      },
+      "libpng_level_1": {
+        "bytes": 15419809,
+        "encode_sec": 1.4423234999469996,
+        "decode_sec": 0.3840699000249999,
+        "checks": 213,
+        "encode_mpps": 38.71300162692475,
+        "decode_mpps": 145.38153600780865
+      },
+      "fpng_single_pass": {
+        "bytes": 18771518,
+        "encode_sec": 0.16385610040200008,
+        "decode_sec": 0.136438600143,
+        "checks": 213,
+        "encode_mpps": 340.7665131967124,
+        "decode_mpps": 409.2439525286694
+      }
+    }
+  },
+  "qoi-icon_64": {
+    "images": 213,
+    "pixels": 872448,
+    "codecs": {
+      "tcom": {
+        "bytes": 1046640,
+        "encode_sec": 0.004662899998000001,
+        "decode_sec": 0.002747000541999999,
+        "checks": 213,
+        "encode_mpps": 187.10416272581617,
+        "decode_mpps": 317.600228562314
+      },
+      "qoi_reference": {
+        "bytes": 1001738,
+        "encode_sec": 0.004834300432999998,
+        "decode_sec": 0.003861999601999999,
+        "checks": 213,
+        "encode_mpps": 180.4703725164613,
+        "decode_mpps": 225.9057715977466
+      },
+      "qoir": {
+        "bytes": 861988,
+        "encode_sec": 0.007906099903000001,
+        "decode_sec": 0.007728699941,
+        "checks": 213,
+        "encode_mpps": 110.35124912460898,
+        "decode_mpps": 112.8841857828829
+      },
+      "libpng_level_1": {
+        "bytes": 903214,
+        "encode_sec": 0.06214950006399996,
+        "decode_sec": 0.02102550013999999,
+        "checks": 213,
+        "encode_mpps": 14.037892486690568,
+        "decode_mpps": 41.49475609097213
+      },
+      "fpng_single_pass": {
+        "bytes": 1117151,
+        "encode_sec": 0.006760000417999995,
+        "decode_sec": 0.010908099585,
+        "checks": 213,
+        "encode_mpps": 129.06034704922715,
+        "decode_mpps": 79.98166804414997
+      }
+    }
+  },
+  "qoi-photo_kodak": {
+    "images": 24,
+    "pixels": 9437184,
+    "codecs": {
+      "tcom": {
+        "bytes": 15766809,
+        "encode_sec": 0.054946800054,
+        "decode_sec": 0.044302899798,
+        "checks": 24,
+        "encode_mpps": 171.7512938101114,
+        "decode_mpps": 213.01504061876398
+      },
+      "qoi_reference": {
+        "bytes": 16501520,
+        "encode_sec": 0.061571400262,
+        "decode_sec": 0.052291500206,
+        "checks": 24,
+        "encode_mpps": 153.27220040217836,
+        "decode_mpps": 180.47261912208754
+      },
+      "qoir": {
+        "bytes": 15133821,
+        "encode_sec": 0.053263799986999996,
+        "decode_sec": 0.049556699988000004,
+        "checks": 24,
+        "encode_mpps": 177.17819611637393,
+        "decode_mpps": 190.43205060637985
+      },
+      "libpng_level_1": {
+        "bytes": 16366710,
+        "encode_sec": 0.465828799991,
+        "decode_sec": 0.14181099989,
+        "checks": 24,
+        "encode_mpps": 20.258910570111443,
+        "decode_mpps": 66.54761624500382
+      },
+      "fpng_single_pass": {
+        "bytes": 19044579,
+        "encode_sec": 0.031125000038,
+        "decode_sec": 0.064298799956,
+        "checks": 24,
+        "encode_mpps": 303.20269842500556,
+        "decode_mpps": 146.77076409603154
+      }
+    }
+  },
+  "qoi-photo_tecnick": {
+    "images": 100,
+    "pixels": 144000000,
+    "codecs": {
+      "tcom": {
+        "bytes": 233759716,
+        "encode_sec": 0.8040063999920001,
+        "decode_sec": 0.639577099705,
+        "checks": 100,
+        "encode_mpps": 179.10305191778676,
+        "decode_mpps": 225.14877419222623
+      },
+      "qoi_reference": {
+        "bytes": 258843443,
+        "encode_sec": 0.9484688002850001,
+        "decode_sec": 0.7885830997240001,
+        "checks": 100,
+        "encode_mpps": 151.8236550920075,
+        "decode_mpps": 182.6059930150662
+      },
+      "qoir": {
+        "bytes": 243747002,
+        "encode_sec": 0.8328998000970004,
+        "decode_sec": 0.7214157999249998,
+        "checks": 100,
+        "encode_mpps": 172.8899442444693,
+        "decode_mpps": 199.60749406232938
+      },
+      "libpng_level_1": {
+        "bytes": 236631270,
+        "encode_sec": 7.116703999987001,
+        "decode_sec": 2.1239060997559998,
+        "checks": 100,
+        "encode_mpps": 20.234085891483335,
+        "decode_mpps": 67.79960753281094
+      },
+      "fpng_single_pass": {
+        "bytes": 257838159,
+        "encode_sec": 0.463862899864,
+        "decode_sec": 0.867030999739,
+        "checks": 100,
+        "encode_mpps": 310.43655365026905,
+        "decode_mpps": 166.08402703403675
+      }
+    }
+  },
+  "qoi-photo_wikipedia": {
+    "images": 49,
+    "pixels": 53140448,
+    "codecs": {
+      "tcom": {
+        "bytes": 94701727,
+        "encode_sec": 0.307247800172,
+        "decode_sec": 0.239375199892,
+        "checks": 49,
+        "encode_mpps": 172.95631724702835,
+        "decode_mpps": 221.99646422843978
+      },
+      "qoi_reference": {
+        "bytes": 105507130,
+        "encode_sec": 0.356223500043,
+        "decode_sec": 0.29774799966,
+        "checks": 49,
+        "encode_mpps": 149.17726650146713,
+        "decode_mpps": 178.4745760195916
+      },
+      "qoir": {
+        "bytes": 97968592,
+        "encode_sec": 0.330494799884,
+        "decode_sec": 0.278238599831,
+        "checks": 49,
+        "encode_mpps": 160.79057225303305,
+        "decode_mpps": 190.98877018600976
+      },
+      "libpng_level_1": {
+        "bytes": 96052437,
+        "encode_sec": 2.82574030006,
+        "decode_sec": 0.7808508001029999,
+        "checks": 49,
+        "encode_mpps": 18.805849921477797,
+        "decode_mpps": 68.05454767157873
+      },
+      "fpng_single_pass": {
+        "bytes": 105698657,
+        "encode_sec": 0.17221129976500002,
+        "decode_sec": 0.3442400001780001,
+        "checks": 49,
+        "encode_mpps": 308.5770101759617,
+        "decode_mpps": 154.3703461902221
+      }
+    }
+  },
+  "qoi-pngimg": {
+    "images": 186,
+    "pixels": 320196732,
+    "codecs": {
+      "tcom": {
+        "bytes": 235058294,
+        "encode_sec": 0.8200643997369998,
+        "decode_sec": 0.7764122002470003,
+        "checks": 186,
+        "encode_mpps": 390.4531547799042,
+        "decode_mpps": 412.40559061042023
+      },
+      "qoi_reference": {
+        "bytes": 265468193,
+        "encode_sec": 1.2265844995309996,
+        "decode_sec": 0.9449638004280003,
+        "checks": 186,
+        "encode_mpps": 261.04743058666674,
+        "decode_mpps": 338.8455005948101
+      },
+      "qoir": {
+        "bytes": 227688207,
+        "encode_sec": 1.0449022001150001,
+        "decode_sec": 1.094136599795,
+        "checks": 186,
+        "encode_mpps": 306.4370349347142,
+        "decode_mpps": 292.64785773549005
+      },
+      "libpng_level_1": {
+        "bytes": 255888664,
+        "encode_sec": 11.813421900494001,
+        "decode_sec": 3.2617707998120014,
+        "checks": 186,
+        "encode_mpps": 27.104486295085284,
+        "decode_mpps": 98.16653335006102
+      },
+      "fpng_single_pass": {
+        "bytes": 274373008,
+        "encode_sec": 0.9236878997720003,
+        "decode_sec": 1.154807900553,
+        "checks": 186,
+        "encode_mpps": 346.65034810896213,
+        "decode_mpps": 277.27272375489304
+      }
+    }
+  },
+  "qoi-screenshot_game": {
+    "images": 618,
+    "pixels": 391206639,
+    "codecs": {
+      "tcom": {
+        "bytes": 303903955,
+        "encode_sec": 1.3475785996389995,
+        "decode_sec": 1.1283708007599997,
+        "checks": 618,
+        "encode_mpps": 290.30339239937445,
+        "decode_mpps": 346.70042749821937
+      },
+      "qoi_reference": {
+        "bytes": 328478275,
+        "encode_sec": 1.6527154999210019,
+        "decode_sec": 1.3687600998140008,
+        "checks": 618,
+        "encode_mpps": 236.70537307764056,
+        "decode_mpps": 285.8109606301064
+      },
+      "qoir": {
+        "bytes": 285498474,
+        "encode_sec": 1.580214199485999,
+        "decode_sec": 1.4263216999799997,
+        "checks": 618,
+        "encode_mpps": 247.5655763169632,
+        "decode_mpps": 274.27658080605914
+      },
+      "libpng_level_1": {
+        "bytes": 293675879,
+        "encode_sec": 12.373918899682996,
+        "decode_sec": 3.858205000688997,
+        "checks": 618,
+        "encode_mpps": 31.61541967193774,
+        "decode_mpps": 101.39602196620926
+      },
+      "fpng_single_pass": {
+        "bytes": 344385895,
+        "encode_sec": 1.0435511997950007,
+        "decode_sec": 1.4958233998659998,
+        "checks": 618,
+        "encode_mpps": 374.88015832558114,
+        "decode_mpps": 261.53263749921643
+      }
+    }
+  },
+  "qoi-screenshot_web": {
+    "images": 13,
+    "pixels": 86622127,
+    "codecs": {
+      "tcom": {
+        "bytes": 27024134,
+        "encode_sec": 0.12294129992200001,
+        "decode_sec": 0.107467100083,
+        "checks": 13,
+        "encode_mpps": 704.5811867530059,
+        "decode_mpps": 806.0339111514052
+      },
+      "qoi_reference": {
+        "bytes": 29762243,
+        "encode_sec": 0.22222890006200002,
+        "decode_sec": 0.128373899907,
+        "checks": 13,
+        "encode_mpps": 389.7878582661083,
+        "decode_mpps": 674.7643178461751
+      },
+      "qoir": {
+        "bytes": 25709198,
+        "encode_sec": 0.18261349998600002,
+        "decode_sec": 0.16420090006500002,
+        "checks": 13,
+        "encode_mpps": 474.3467871030392,
+        "decode_mpps": 527.5374676126017
+      },
+      "libpng_level_1": {
+        "bytes": 26986103,
+        "encode_sec": 1.7218035999699997,
+        "decode_sec": 0.470874900055,
+        "checks": 13,
+        "encode_mpps": 50.3089475486689,
+        "decode_mpps": 183.9599583453741
+      },
+      "fpng_single_pass": {
+        "bytes": 33019402,
+        "encode_sec": 0.14291660004600001,
+        "decode_sec": 0.142420800113,
+        "checks": 13,
+        "encode_mpps": 606.1026288906905,
+        "decode_mpps": 608.212613124431
+      }
+    }
+  },
+  "qoi-textures_photo": {
+    "images": 20,
+    "pixels": 20971520,
+    "codecs": {
+      "tcom": {
+        "bytes": 35681604,
+        "encode_sec": 0.10873030009600003,
+        "decode_sec": 0.08757529995700002,
+        "checks": 20,
+        "encode_mpps": 192.87650251570952,
+        "decode_mpps": 239.46843471043937
+      },
+      "qoi_reference": {
+        "bytes": 40589641,
+        "encode_sec": 0.113128900176,
+        "decode_sec": 0.10186459991300001,
+        "checks": 20,
+        "encode_mpps": 185.3772110165803,
+        "decode_mpps": 205.87642829708503
+      },
+      "qoir": {
+        "bytes": 38077189,
+        "encode_sec": 0.11972079996599999,
+        "decode_sec": 0.098633500108,
+        "checks": 20,
+        "encode_mpps": 175.17022945015228,
+        "decode_mpps": 212.62066110436078
+      },
+      "libpng_level_1": {
+        "bytes": 35611791,
+        "encode_sec": 1.0170596000410002,
+        "decode_sec": 0.276446599805,
+        "checks": 20,
+        "encode_mpps": 20.619755222953096,
+        "decode_mpps": 75.86101624976722
+      },
+      "fpng_single_pass": {
+        "bytes": 48824419,
+        "encode_sec": 0.062427500090999996,
+        "decode_sec": 0.15240810008300001,
+        "checks": 20,
+        "encode_mpps": 335.93400295430706,
+        "decode_mpps": 137.60108543167397
+      }
+    }
+  },
+  "qoi-textures_pk": {
+    "images": 1001,
+    "pixels": 44579584,
+    "codecs": {
+      "tcom": {
+        "bytes": 85622024,
+        "encode_sec": 0.2487482994990004,
+        "decode_sec": 0.1903617993139998,
+        "checks": 1001,
+        "encode_mpps": 179.2156331914106,
+        "decode_mpps": 234.18345571774324
+      },
+      "qoi_reference": {
+        "bytes": 77532902,
+        "encode_sec": 0.30496499943500005,
+        "decode_sec": 0.2622570007749999,
+        "checks": 1001,
+        "encode_mpps": 146.1793454415796,
+        "decode_mpps": 169.9843430995632
+      },
+      "qoir": {
+        "bytes": 67692676,
+        "encode_sec": 0.29288639984800013,
+        "decode_sec": 0.25000720038300006,
+        "checks": 1001,
+        "encode_mpps": 152.20776390824417,
+        "decode_mpps": 178.3132003066553
+      },
+      "libpng_level_1": {
+        "bytes": 84241158,
+        "encode_sec": 2.5459063000729976,
+        "decode_sec": 0.716086098936999,
+        "checks": 1001,
+        "encode_mpps": 17.510300358941645,
+        "decode_mpps": 62.25450272834034
+      },
+      "fpng_single_pass": {
+        "bytes": 101602130,
+        "encode_sec": 0.1593951007990001,
+        "decode_sec": 0.3515053990500002,
+        "checks": 1001,
+        "encode_mpps": 279.6797629069892,
+        "decode_mpps": 126.82474898104975
+      }
+    }
+  },
+  "qoi-textures_pk01": {
+    "images": 113,
+    "pixels": 14680064,
+    "codecs": {
+      "tcom": {
+        "bytes": 20261141,
+        "encode_sec": 0.06992910022400002,
+        "decode_sec": 0.052222599684,
+        "checks": 113,
+        "encode_mpps": 209.9278262265089,
+        "decode_mpps": 281.10557668192246
+      },
+      "qoi_reference": {
+        "bytes": 20646004,
+        "encode_sec": 0.07887410011399999,
+        "decode_sec": 0.05744559992699999,
+        "checks": 113,
+        "encode_mpps": 186.12020902656636,
+        "decode_mpps": 255.54723109611442
+      },
+      "qoir": {
+        "bytes": 18829684,
+        "encode_sec": 0.07141649996999998,
+        "decode_sec": 0.06038989982400002,
+        "checks": 113,
+        "encode_mpps": 205.55563498864652,
+        "decode_mpps": 243.0880667592345
+      },
+      "libpng_level_1": {
+        "bytes": 17927013,
+        "encode_sec": 0.586074899477,
+        "decode_sec": 0.17510390036999995,
+        "checks": 113,
+        "encode_mpps": 25.048102235909028,
+        "decode_mpps": 83.8363050107997
+      },
+      "fpng_single_pass": {
+        "bytes": 23710964,
+        "encode_sec": 0.046400500344999984,
+        "decode_sec": 0.08284979954099997,
+        "checks": 113,
+        "encode_mpps": 316.3772780648882,
+        "decode_mpps": 177.1888897900744
+      }
+    }
+  },
+  "qoi-textures_pk02": {
+    "images": 234,
+    "pixels": 71319552,
+    "codecs": {
+      "tcom": {
+        "bytes": 117432944,
+        "encode_sec": 0.40254970000400003,
+        "decode_sec": 0.3050526995269997,
+        "checks": 234,
+        "encode_mpps": 177.16955694984077,
+        "decode_mpps": 233.7942005121893
+      },
+      "qoi_reference": {
+        "bytes": 115170000,
+        "encode_sec": 0.4006764004029999,
+        "decode_sec": 0.342718699656,
+        "checks": 234,
+        "encode_mpps": 177.99788539646175,
+        "decode_mpps": 208.09938900791286
+      },
+      "qoir": {
+        "bytes": 107425489,
+        "encode_sec": 0.37745250022099974,
+        "decode_sec": 0.329736399586,
+        "checks": 234,
+        "encode_mpps": 188.94974058521842,
+        "decode_mpps": 216.29262674531884
+      },
+      "libpng_level_1": {
+        "bytes": 100234941,
+        "encode_sec": 3.1175523999220003,
+        "decode_sec": 0.870497499882,
+        "checks": 234,
+        "encode_mpps": 22.876777308309038,
+        "decode_mpps": 81.92964598941145
+      },
+      "fpng_single_pass": {
+        "bytes": 132772427,
+        "encode_sec": 0.21895530005000005,
+        "decode_sec": 0.44666679971999995,
+        "checks": 234,
+        "encode_mpps": 325.7265386300933,
+        "decode_mpps": 159.6705912431991
+      }
+    }
+  },
+  "qoi-textures_plants": {
+    "images": 60,
+    "pixels": 63833030,
+    "codecs": {
+      "tcom": {
+        "bytes": 52093741,
+        "encode_sec": 0.156067200296,
+        "decode_sec": 0.143627699814,
+        "checks": 60,
+        "encode_mpps": 409.00990008748204,
+        "decode_mpps": 444.4339781439424
+      },
+      "qoi_reference": {
+        "bytes": 56670920,
+        "encode_sec": 0.23889600031400002,
+        "decode_sec": 0.16842339979499998,
+        "checks": 60,
+        "encode_mpps": 267.2000783441295,
+        "decode_mpps": 379.00333372735435
+      },
+      "qoir": {
+        "bytes": 53460709,
+        "encode_sec": 0.182864099975,
+        "decode_sec": 0.18509249982700002,
+        "checks": 60,
+        "encode_mpps": 349.07360170053516,
+        "decode_mpps": 344.8709702427849
+      },
+      "libpng_level_1": {
+        "bytes": 59049555,
+        "encode_sec": 2.4503060000730006,
+        "decode_sec": 0.6207395998109999,
+        "checks": 60,
+        "encode_mpps": 26.051044236147753,
+        "decode_mpps": 102.83382922474351
+      },
+      "fpng_single_pass": {
+        "bytes": 61076549,
+        "encode_sec": 0.16825629997199998,
+        "decode_sec": 0.23754689987799998,
+        "checks": 60,
+        "encode_mpps": 379.3797320553384,
+        "decode_mpps": 268.71758811747725
+      }
+    }
+  },
+  "scan-document/gray-as-rgb": {
+    "images": 1500,
+    "pixels": 9013722831,
+    "codecs": {
+      "tcom": {
+        "bytes": 2080324285,
+        "encode_sec": 13.530370500160014,
+        "decode_sec": 12.446417000961993,
+        "checks": 1500,
+        "encode_mpps": 666.1844796410712,
+        "decode_mpps": 724.2022206313128
+      },
+      "qoi_reference": {
+        "bytes": 1450952558,
+        "encode_sec": 18.572904598187,
+        "decode_sec": 11.914894399808986,
+        "checks": 1500,
+        "encode_mpps": 485.31573418408,
+        "decode_mpps": 756.5088307576192
+      },
+      "qoir": {
+        "bytes": 1329319522,
+        "encode_sec": 13.769578700941024,
+        "decode_sec": 17.687441499040997,
+        "checks": 1500,
+        "encode_mpps": 654.611373867524,
+        "decode_mpps": 509.6114568909652
+      },
+      "libpng_level_1": {
+        "bytes": 1641887300,
+        "encode_sec": 142.09793799973525,
+        "decode_sec": 24.319254500026002,
+        "checks": 1500,
+        "encode_mpps": 63.43317121897148,
+        "decode_mpps": 370.64141217776074
+      },
+      "fpng_single_pass": {
+        "bytes": 2788687250,
+        "encode_sec": 17.017824801778982,
+        "decode_sec": 14.318700097963013,
+        "checks": 1500,
+        "encode_mpps": 529.6636283420745,
+        "decode_mpps": 629.507062046945
+      }
+    }
+  },
+  "science-microscopy/rgb": {
+    "images": 735,
+    "pixels": 114883180,
+    "codecs": {
+      "tcom": {
+        "bytes": 94310318,
+        "encode_sec": 0.5500398989049998,
+        "decode_sec": 0.5361114005619999,
+        "checks": 735,
+        "encode_mpps": 208.86335741953522,
+        "decode_mpps": 214.28975373321512
+      },
+      "qoi_reference": {
+        "bytes": 106555326,
+        "encode_sec": 0.5416069995840002,
+        "decode_sec": 0.5118577004680002,
+        "checks": 735,
+        "encode_mpps": 212.1153901043376,
+        "decode_mpps": 224.44359026924937
+      },
+      "qoir": {
+        "bytes": 92756932,
+        "encode_sec": 0.5609280001270002,
+        "decode_sec": 0.532724299358,
+        "checks": 735,
+        "encode_mpps": 204.8091376682733,
+        "decode_mpps": 215.65222412127383
+      },
+      "libpng_level_1": {
+        "bytes": 84631719,
+        "encode_sec": 3.8184528992109983,
+        "decode_sec": 1.1561899003470006,
+        "checks": 735,
+        "encode_mpps": 30.08631585418748,
+        "decode_mpps": 99.36359067443918
+      },
+      "fpng_single_pass": {
+        "bytes": 137886963,
+        "encode_sec": 0.4957785996410002,
+        "decode_sec": 0.6563880002310003,
+        "checks": 735,
+        "encode_mpps": 231.7227489915628,
+        "decode_mpps": 175.02327885270535
+      }
+    }
+  },
+  "texture-dtd/rgb": {
+    "images": 1500,
+    "pixels": 344462715,
+    "codecs": {
+      "tcom": {
+        "bytes": 578779602,
+        "encode_sec": 1.9620608007210012,
+        "decode_sec": 1.470400500183999,
+        "checks": 1500,
+        "encode_mpps": 175.5616925191206,
+        "decode_mpps": 234.26455238344624
+      },
+      "qoi_reference": {
+        "bytes": 663905901,
+        "encode_sec": 2.1151585992580006,
+        "decode_sec": 1.671909299558998,
+        "checks": 1500,
+        "encode_mpps": 162.85431982303257,
+        "decode_mpps": 206.02954663321717
+      },
+      "qoir": {
+        "bytes": 609073326,
+        "encode_sec": 2.1745223001830007,
+        "decode_sec": 1.741150700442001,
+        "checks": 1500,
+        "encode_mpps": 158.408453650262,
+        "decode_mpps": 197.83624410716212
+      },
+      "libpng_level_1": {
+        "bytes": 572265511,
+        "encode_sec": 17.28484149954298,
+        "decode_sec": 5.184532599577994,
+        "checks": 1500,
+        "encode_mpps": 19.928601312838637,
+        "decode_mpps": 66.44045695228887
+      },
+      "fpng_single_pass": {
+        "bytes": 728147805,
+        "encode_sec": 1.1697518981090014,
+        "decode_sec": 2.3093725001500025,
+        "checks": 1500,
+        "encode_mpps": 294.47502120479726,
+        "decode_mpps": 149.15857661664623
+      }
+    }
+  },
+  "ui-enrico": {
+    "images": 193,
+    "pixels": 317779200,
+    "codecs": {
+      "tcom": {
+        "bytes": 130820272,
+        "encode_sec": 0.5701008991430001,
+        "decode_sec": 0.48649750021099997,
+        "checks": 193,
+        "encode_mpps": 557.4086981404506,
+        "decode_mpps": 653.1980120394766
+      },
+      "qoi_reference": {
+        "bytes": 139128577,
+        "encode_sec": 0.905437100154,
+        "decode_sec": 0.5835127996440002,
+        "checks": 193,
+        "encode_mpps": 350.96772591486587,
+        "decode_mpps": 544.5967940958216
+      },
+      "qoir": {
+        "bytes": 114513774,
+        "encode_sec": 0.7375805009490001,
+        "decode_sec": 0.6724238996939998,
+        "checks": 193,
+        "encode_mpps": 430.84002300919394,
+        "decode_mpps": 472.58760455214616
+      },
+      "libpng_level_1": {
+        "bytes": 113084386,
+        "encode_sec": 6.7340962000359985,
+        "decode_sec": 1.9443666000789994,
+        "checks": 193,
+        "encode_mpps": 47.18958425308822,
+        "decode_mpps": 163.43584588785296
+      },
+      "fpng_single_pass": {
+        "bytes": 141417004,
+        "encode_sec": 0.5563192000809996,
+        "decode_sec": 0.6222201001319999,
+        "checks": 193,
+        "encode_mpps": 571.2173873447683,
+        "decode_mpps": 510.71831323447316
+      }
+    }
+  },
+  "ui-enrico/rgb": {
+    "images": 1000,
+    "pixels": 1663027200,
+    "codecs": {
+      "tcom": {
+        "bytes": 671892253,
+        "encode_sec": 2.965916600259001,
+        "decode_sec": 2.8564693995849977,
+        "checks": 1000,
+        "encode_mpps": 560.7127320622484,
+        "decode_mpps": 582.1967496804317
+      },
+      "qoi_reference": {
+        "bytes": 717506968,
+        "encode_sec": 4.787080100329003,
+        "decode_sec": 3.388565500493001,
+        "checks": 1000,
+        "encode_mpps": 347.39907524958784,
+        "decode_mpps": 490.77617055301033
+      },
+      "qoir": {
+        "bytes": 592781960,
+        "encode_sec": 3.8511529011910004,
+        "decode_sec": 3.851495300587003,
+        "checks": 1000,
+        "encode_mpps": 431.8258045495144,
+        "decode_mpps": 431.78741507137227
+      },
+      "libpng_level_1": {
+        "bytes": 584472515,
+        "encode_sec": 35.09786540038999,
+        "decode_sec": 10.370814700500024,
+        "checks": 1000,
+        "encode_mpps": 47.382573869621176,
+        "decode_mpps": 160.356466490508
+      },
+      "fpng_single_pass": {
+        "bytes": 724601082,
+        "encode_sec": 3.6952971990139964,
+        "decode_sec": 3.440027700730995,
+        "checks": 1000,
+        "encode_mpps": 450.0388224372697,
+        "decode_mpps": 483.4342466622033
+      }
+    }
+  },
+  "ui-screenspot/rgb": {
+    "images": 493,
+    "pixels": 1187902021,
+    "codecs": {
+      "tcom": {
+        "bytes": 504712496,
+        "encode_sec": 2.0528704996199987,
+        "decode_sec": 2.191663899992998,
+        "checks": 493,
+        "encode_mpps": 578.6541436587887,
+        "decode_mpps": 542.0092109030928
+      },
+      "qoi_reference": {
+        "bytes": 528083006,
+        "encode_sec": 3.0384257996389987,
+        "decode_sec": 2.5326340996580003,
+        "checks": 493,
+        "encode_mpps": 390.95969404325655,
+        "decode_mpps": 469.03815326517594
+      },
+      "qoir": {
+        "bytes": 356785430,
+        "encode_sec": 2.3824994991970003,
+        "decode_sec": 2.851473600422998,
+        "checks": 493,
+        "encode_mpps": 498.594867029509,
+        "decode_mpps": 416.59232644615133
+      },
+      "libpng_level_1": {
+        "bytes": 310994443,
+        "encode_sec": 23.066162800356977,
+        "decode_sec": 6.424290100235007,
+        "checks": 493,
+        "encode_mpps": 51.49976748545344,
+        "decode_mpps": 184.90790460358343
+      },
+      "fpng_single_pass": {
+        "bytes": 617341476,
+        "encode_sec": 2.768206600098,
+        "decode_sec": 2.769048500279,
+        "checks": 493,
+        "encode_mpps": 429.12332517303656,
+        "decode_mpps": 428.99285472259186
       }
     }
   }

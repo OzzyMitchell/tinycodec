@@ -1,5 +1,7 @@
 /build/
+/interactive_benchmarks/
 *.obj
 *.exe
+!/benchmarks/windows/benchmark.exe
 *.pdb
 *.ilk

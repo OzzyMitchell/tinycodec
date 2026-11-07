@@ -1,0 +1,4 @@
+tcom.c text eol=lf
+/benchmarks/640-manifest.jsonl -text
+/benchmarks/linux/benchmark -text
+/benchmarks/linux/benchmark.sh text eol=lf

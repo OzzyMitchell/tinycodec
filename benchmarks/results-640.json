@@ -1,3421 +1,1592 @@
 {
   "TOTAL": {
     "images": 640,
-    "pixels": 816389296,
+    "pixels": 1108266889,
     "codecs": {
       "tcom": {
-        "bytes": 784037484,
-        "encode_sec": 3.605178299984,
-        "decode_sec": 3.361595299988,
-        "checks": 1280,
-        "encode_mpps": 226.44907631992103,
-        "encode_repetition_mpps": [
-          226.44907631992103
-        ],
-        "decode_mpps": 242.85769795159882,
-        "decode_repetition_mpps": [
-          242.85769795159882
-        ]
+        "bytes": 1534764157,
+        "encode_sec": 5.450212200348004,
+        "decode_sec": 4.402384299480005,
+        "checks": 640,
+        "encode_mpps": 203.3438053896756,
+        "decode_mpps": 251.74242265285764
       },
       "qoi_reference": {
-        "bytes": 862007657,
-        "encode_sec": 3.898101399982,
-        "decode_sec": 3.110542999999,
-        "checks": 1280,
-        "encode_mpps": 209.43254477776534,
-        "encode_repetition_mpps": [
-          209.43254477776534
-        ],
-        "decode_mpps": 262.4587719894123,
-        "decode_repetition_mpps": [
-          262.4587719894123
-        ]
+        "bytes": 1685704806,
+        "encode_sec": 6.073612100558998,
+        "decode_sec": 5.309988499750005,
+        "checks": 640,
+        "encode_mpps": 182.47245142606295,
+        "decode_mpps": 208.71361379637216
+      },
+      "qoir": {
+        "bytes": 1565472726,
+        "encode_sec": 5.635369200721998,
+        "decode_sec": 5.149086299979002,
+        "checks": 640,
+        "encode_mpps": 196.66269405348098,
+        "decode_mpps": 215.23564073970164
       },
       "libpng_level_1": {
-        "bytes": 769371083,
-        "encode_sec": 29.915441299983,
-        "decode_sec": 8.104361299982,
-        "checks": 1280,
-        "encode_mpps": 27.2898964723099,
-        "encode_repetition_mpps": [
-          27.2898964723099
-        ],
-        "decode_mpps": 100.73456325322185,
-        "decode_repetition_mpps": [
-          100.73456325322185
-        ]
+        "bytes": 1543762306,
+        "encode_sec": 46.69089799945394,
+        "decode_sec": 13.547592199986019,
+        "checks": 640,
+        "encode_mpps": 23.73625131418465,
+        "decode_mpps": 81.8054509347531
       },
-      "libpng_level_3": {
-        "bytes": 741913696,
-        "encode_sec": 43.658492999994,
-        "decode_sec": 7.83369069997,
-        "checks": 1280,
-        "encode_mpps": 18.699438297151303,
-        "encode_repetition_mpps": [
-          18.699438297151303
-        ],
-        "decode_mpps": 104.21515569961507,
-        "decode_repetition_mpps": [
-          104.21515569961507
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 713299982,
-        "encode_sec": 118.509050599999,
-        "decode_sec": 8.338227000026,
-        "checks": 1280,
-        "encode_mpps": 6.888835003459279,
-        "encode_repetition_mpps": [
-          6.888835003459279
-        ],
-        "decode_mpps": 97.90921930974707,
-        "decode_repetition_mpps": [
-          97.90921930974707
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 646062392,
-        "encode_sec": 691.06073060003,
-        "decode_sec": 7.281097300031,
-        "checks": 1280,
-        "encode_mpps": 1.1813568038964541,
-        "encode_repetition_mpps": [
-          1.1813568038964541
-        ],
-        "decode_mpps": 112.1244865106423,
-        "decode_repetition_mpps": [
-          112.1244865106423
-        ]
+      "fpng_single_pass": {
+        "bytes": 1850092541,
+        "encode_sec": 3.266640700805997,
+        "decode_sec": 6.127488799981003,
+        "checks": 640,
+        "encode_mpps": 339.2680709349366,
+        "decode_mpps": 180.86803993887938
       }
+    },
+    "run": {
+      "images": 640,
+      "pixels": 1108266889,
+      "measurement": "memory",
+      "repetitions": 1,
+      "warmup": false,
+      "input_layout": "shared RGB/RGBA pixels; grayscale expanded",
+      "timing": "mean time per in-memory call; allocation included; excludes input decoding, process startup, file I/O and exact pixel verification",
+      "affinity": "logical CPU 1",
+      "host": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10",
+      "categories": 32,
+      "images_per_category": 20,
+      "checks": 3200,
+      "cpu": "AMD Ryzen 9 9950X3D 16-Core Processor",
+      "build": {
+        "sources": {
+          "benchmarks/interactive.py": "8e5dbf7f6aaab10363a16ee352615a94ec306db4a19307647412fc18b4a16bd5",
+          "benchmarks/compare.c": "a400a0abb375e8bd0eadc262c9ff29ba5656779c8074ac97df58a6e87ad77269",
+          "tcom.c": "73df66e5e08f265d28b0b89ddfcc49e7f1dc9fa4285890c53452338230addc41",
+          "third_party/qoi/qoi.h": "34e75142624c233469a08a2b30e5549cce07f03c6b44bb0d4b74f06fcacf12ac",
+          "qoir.h": "a6d2a742484a1071cbccf02940454483671a175a0cb40c3cde24628a628df195",
+          "fpng.cpp": "b2b953f53f4b472b427bfb04a0ee1839ba66e8f32a02580e7a09d31313edd975",
+          "fpng.h": "604c7e3757dba53b32f7e2523927c7e02ad90939d631a76f94f0690efa2c1fc9",
+          "benchmarks/fpng_adapter.cpp": "61bb13df7328401baace413ac89449c246399b8e4614a0721139ef5b3be39f9d",
+          "benchmarks/fpng_adapter.h": "163b41082ab5a2ec893cc52ca664d4ae72987322da76d8616b6bae7319d714ec"
+        },
+        "executable_sha256": "23451f2aecef2933180e4b703e412bfa1d0679f2a303d74cd2bb0abc616bf808",
+        "compiler": "clang version 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20)\nTarget: x86_64-pc-windows-msvc\nThread model: posix\nInstalledDir: C:\\Program Files\\LLVM\\bin",
+        "flags": [
+          "/nologo",
+          "/O2",
+          "/MT",
+          "/std:c11",
+          "/D_CRT_SECURE_NO_WARNINGS",
+          "/DBENCH_INTERACTIVE",
+          "/DBENCH_FPNG",
+          "/DBENCH_LIBPNG"
+        ],
+        "libraries": {
+          "libpng16_static.lib": "1e244fab3172ae5ca837ce167bb663b3fd0da4cf8de9af7b63e1b981e77529ca",
+          "zs.lib": "71d74f9dd47135186577f1fa5797a344a6384c3189f144edbeac128efe598e3b"
+        },
+        "qoir_commit": "ce7b583beb123d897c4f20e436a2cb9d6d40e477",
+        "fpng_commit": "925796543b9d26b8edfcdcecd94c1dac280f29fc",
+        "fpng_flags": [
+          "/nologo",
+          "/O2",
+          "/MT",
+          "/std:c++17",
+          "/EHsc",
+          "/DNDEBUG",
+          "/D_CRT_SECURE_NO_WARNINGS",
+          "/clang:-msse4.1",
+          "/clang:-mpclmul",
+          "/clang:-fno-strict-aliasing"
+        ],
+        "link_flags": [
+          "/nologo",
+          "/MT",
+          "/link"
+        ],
+        "png_versions": "libpng=1.6.58 zlib=1.3.2"
+      },
+      "archive": {
+        "file": "tinycodec-benchmark-640-v1.zip",
+        "bytes": 486699984,
+        "sha256": "611a65cf09889d1f5199e03fb2d4d3ac09ef7216c8b08667c48b36f017c539b6"
+      },
+      "manifest_sha256": "72329137d289eb74de1be8471a1f5a691352868d42d092c2519d73ccadd7da27",
+      "per_image_results_sha256": "922d74a332d7185126869f2fd653d03557acc25050a9907e6c1d5327e1c1909a",
+      "full_corpus_manifest_sha256": "61c3ddf1e0543c4c98eb932c38fe65261c23e970d567a2bd5ff42f29558e1941"
     }
   },
-  "qoi-photo_wikipedia": {
-    "images": 21,
-    "pixels": 22757064,
-    "codecs": {
-      "tcom": {
-        "bytes": 41220212,
-        "encode_sec": 0.161725399995,
-        "decode_sec": 0.1412568,
-        "checks": 42,
-        "encode_mpps": 140.71422300209844,
-        "encode_repetition_mpps": [
-          140.71422300209844
-        ],
-        "decode_mpps": 161.10420170922748,
-        "decode_repetition_mpps": [
-          161.10420170922748
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 46229592,
-        "encode_sec": 0.156093800005,
-        "decode_sec": 0.129274600001,
-        "checks": 42,
-        "encode_mpps": 145.79095389612556,
-        "encode_repetition_mpps": [
-          145.79095389612556
-        ],
-        "decode_mpps": 176.0366228154948,
-        "decode_repetition_mpps": [
-          176.0366228154948
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 42102748,
-        "encode_sec": 1.252908299993,
-        "decode_sec": 0.33274330000700003,
-        "checks": 42,
-        "encode_mpps": 18.16339152683971,
-        "encode_repetition_mpps": [
-          18.16339152683971
-        ],
-        "decode_mpps": 68.39225312582177,
-        "decode_repetition_mpps": [
-          68.39225312582177
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 41312451,
-        "encode_sec": 1.7826077,
-        "decode_sec": 0.318317199994,
-        "checks": 42,
-        "encode_mpps": 12.766164984028734,
-        "encode_repetition_mpps": [
-          12.766164984028734
-        ],
-        "decode_mpps": 71.49178241210011,
-        "decode_repetition_mpps": [
-          71.49178241210011
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 39694826,
-        "encode_sec": 5.269327099995,
-        "decode_sec": 0.284835300002,
-        "checks": 42,
-        "encode_mpps": 4.318779906455531,
-        "encode_repetition_mpps": [
-          4.318779906455531
-        ],
-        "decode_mpps": 79.89551856753783,
-        "decode_repetition_mpps": [
-          79.89551856753783
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 38592635,
-        "encode_sec": 22.618623800001,
-        "decode_sec": 0.298924700004,
-        "checks": 42,
-        "encode_mpps": 1.006120628789051,
-        "encode_repetition_mpps": [
-          1.006120628789051
-        ],
-        "decode_mpps": 76.12975441539452,
-        "decode_repetition_mpps": [
-          76.12975441539452
-        ]
-      }
-    }
-  },
-  "original": {
-    "images": 331,
-    "pixels": 415140370,
-    "codecs": {
-      "tcom": {
-        "bytes": 465085922,
-        "encode_sec": 2.038351499994,
-        "decode_sec": 1.877670700002,
-        "checks": 662,
-        "encode_mpps": 203.66476047002786,
-        "encode_repetition_mpps": [
-          203.66476047002786
-        ],
-        "decode_mpps": 221.09327796378662,
-        "decode_repetition_mpps": [
-          221.09327796378662
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 516052386,
-        "encode_sec": 2.195675300001,
-        "decode_sec": 1.725862600015,
-        "checks": 662,
-        "encode_mpps": 189.0718404491825,
-        "encode_repetition_mpps": [
-          189.0718404491825
-        ],
-        "decode_mpps": 240.54079971162935,
-        "decode_repetition_mpps": [
-          240.54079971162935
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 474802978,
-        "encode_sec": 17.381233999988,
-        "decode_sec": 4.650698300004,
-        "checks": 662,
-        "encode_mpps": 23.8844014182357,
-        "encode_repetition_mpps": [
-          23.8844014182357
-        ],
-        "decode_mpps": 89.26409395329793,
-        "decode_repetition_mpps": [
-          89.26409395329793
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 461686728,
-        "encode_sec": 25.105720199989,
-        "decode_sec": 4.538203699989,
-        "checks": 662,
-        "encode_mpps": 16.535688547990027,
-        "encode_repetition_mpps": [
-          16.535688547990027
-        ],
-        "decode_mpps": 91.47680391715475,
-        "decode_repetition_mpps": [
-          91.47680391715475
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 445828918,
-        "encode_sec": 68.106597200002,
-        "decode_sec": 4.619907800024,
-        "checks": 662,
-        "encode_mpps": 6.095450177622261,
-        "encode_repetition_mpps": [
-          6.095450177622261
-        ],
-        "decode_mpps": 89.8590162335801,
-        "decode_repetition_mpps": [
-          89.8590162335801
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 412616340,
-        "encode_sec": 391.217887700017,
-        "decode_sec": 4.312873700024,
-        "checks": 662,
-        "encode_mpps": 1.0611487435828257,
-        "encode_repetition_mpps": [
-          1.0611487435828257
-        ],
-        "decode_mpps": 96.25609254397823,
-        "decode_repetition_mpps": [
-          96.25609254397823
-        ]
-      }
-    }
-  },
-  "native_rgb": {
-    "images": 503,
-    "pixels": 602462482,
-    "codecs": {
-      "tcom": {
-        "bytes": 678357127,
-        "encode_sec": 3.061887099972,
-        "decode_sec": 2.818552999993,
-        "checks": 1006,
-        "encode_mpps": 196.76182116757647,
-        "encode_repetition_mpps": [
-          196.76182116757647
-        ],
-        "decode_mpps": 213.74885694946886,
-        "decode_repetition_mpps": [
-          213.74885694946886
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 753050079,
-        "encode_sec": 3.218152499992,
-        "decode_sec": 2.624195999998,
-        "checks": 1006,
-        "encode_mpps": 187.2075614817811,
-        "encode_repetition_mpps": [
-          187.2075614817811
-        ],
-        "decode_mpps": 229.57983397599082,
-        "decode_repetition_mpps": [
-          229.57983397599082
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 669075610,
-        "encode_sec": 24.419341699988,
-        "decode_sec": 6.80536899998,
-        "checks": 1006,
-        "encode_mpps": 24.671528389329843,
-        "encode_repetition_mpps": [
-          24.671528389329843
-        ],
-        "decode_mpps": 88.52752613440514,
-        "decode_repetition_mpps": [
-          88.52752613440514
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 648431094,
-        "encode_sec": 36.453294899982,
-        "decode_sec": 6.628302599972,
-        "checks": 1006,
-        "encode_mpps": 16.52696919861413,
-        "encode_repetition_mpps": [
-          16.52696919861413
-        ],
-        "decode_mpps": 90.8924227452357,
-        "decode_repetition_mpps": [
-          90.8924227452357
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 626895989,
-        "encode_sec": 101.445498900001,
-        "decode_sec": 6.671952900024,
-        "checks": 1006,
-        "encode_mpps": 5.938779822985266,
-        "encode_repetition_mpps": [
-          5.938779822985266
-        ],
-        "decode_mpps": 90.29777203580572,
-        "decode_repetition_mpps": [
-          90.29777203580572
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 578624527,
-        "encode_sec": 576.498418800027,
-        "decode_sec": 6.182499300015,
-        "checks": 1006,
-        "encode_mpps": 1.0450375271696613,
-        "encode_repetition_mpps": [
-          1.0450375271696613
-        ],
-        "decode_mpps": 97.44642947206452,
-        "decode_repetition_mpps": [
-          97.44642947206452
-        ]
-      }
-    }
-  },
-  "aerial-ucmerced/rgb": {
-    "images": 22,
-    "pixels": 1441792,
-    "codecs": {
-      "tcom": {
-        "bytes": 2662409,
-        "encode_sec": 0.009399600001,
-        "decode_sec": 0.0084628,
-        "checks": 44,
-        "encode_mpps": 153.38865482005738,
-        "encode_repetition_mpps": [
-          153.38865482005738
-        ],
-        "decode_mpps": 170.36819965023398,
-        "decode_repetition_mpps": [
-          170.36819965023398
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 3092117,
-        "encode_sec": 0.009251700002,
-        "decode_sec": 0.007160900005,
-        "checks": 44,
-        "encode_mpps": 155.84076436636707,
-        "encode_repetition_mpps": [
-          155.84076436636707
-        ],
-        "decode_mpps": 201.34228923644912,
-        "decode_repetition_mpps": [
-          201.34228923644912
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 2680594,
-        "encode_sec": 0.076643300004,
-        "decode_sec": 0.024719499999,
-        "checks": 44,
-        "encode_mpps": 18.811716091618617,
-        "encode_repetition_mpps": [
-          18.811716091618617
-        ],
-        "decode_mpps": 58.326098831219326,
-        "decode_repetition_mpps": [
-          58.326098831219326
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 2638951,
-        "encode_sec": 0.109202,
-        "decode_sec": 0.024179199994,
-        "checks": 44,
-        "encode_mpps": 13.20298163037307,
-        "encode_repetition_mpps": [
-          13.20298163037307
-        ],
-        "decode_mpps": 59.62943357752848,
-        "decode_repetition_mpps": [
-          59.62943357752848
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 2574901,
-        "encode_sec": 0.282039599997,
-        "decode_sec": 0.023542500003,
-        "checks": 44,
-        "encode_mpps": 5.1120197306170345,
-        "encode_repetition_mpps": [
-          5.1120197306170345
-        ],
-        "decode_mpps": 61.2420940773611,
-        "decode_repetition_mpps": [
-          61.2420940773611
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 2429590,
-        "encode_sec": 1.347536100008,
-        "decode_sec": 0.022565899996,
-        "checks": 44,
-        "encode_mpps": 1.0699468459445656,
-        "encode_repetition_mpps": [
-          1.0699468459445656
-        ],
-        "decode_mpps": 63.89251039203267,
-        "decode_repetition_mpps": [
-          63.89251039203267
-        ]
-      }
-    }
-  },
-  "independent": {
-    "images": 309,
-    "pixels": 401248926,
-    "codecs": {
-      "tcom": {
-        "bytes": 318951562,
-        "encode_sec": 1.56682679999,
-        "decode_sec": 1.483924599986,
-        "checks": 618,
-        "encode_mpps": 256.09016006272094,
-        "encode_repetition_mpps": [
-          256.09016006272094
-        ],
-        "decode_mpps": 270.3971118234616,
-        "decode_repetition_mpps": [
-          270.3971118234616
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 345955271,
-        "encode_sec": 1.702426099981,
-        "decode_sec": 1.384680399984,
-        "checks": 618,
-        "encode_mpps": 235.69241919192743,
-        "encode_repetition_mpps": [
-          235.69241919192743
-        ],
-        "decode_mpps": 289.77728434997454,
-        "decode_repetition_mpps": [
-          289.77728434997454
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 294568105,
-        "encode_sec": 12.534207299995,
-        "decode_sec": 3.453662999978,
-        "checks": 618,
-        "encode_mpps": 32.012309705469775,
-        "encode_repetition_mpps": [
-          32.012309705469775
-        ],
-        "decode_mpps": 116.18068294519644,
-        "decode_repetition_mpps": [
-          116.18068294519644
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 280226968,
-        "encode_sec": 18.552772800005,
-        "decode_sec": 3.295486999981,
-        "checks": 618,
-        "encode_mpps": 21.627437058890298,
-        "encode_repetition_mpps": [
-          21.627437058890298
-        ],
-        "decode_mpps": 121.75709568944237,
-        "decode_repetition_mpps": [
-          121.75709568944237
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 267471064,
-        "encode_sec": 50.402453399997,
-        "decode_sec": 3.718319200002,
-        "checks": 618,
-        "encode_mpps": 7.960900689013362,
-        "encode_repetition_mpps": [
-          7.960900689013362
-        ],
-        "decode_mpps": 107.91137189076834,
-        "decode_repetition_mpps": [
-          107.91137189076834
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 233446052,
-        "encode_sec": 299.842842900013,
-        "decode_sec": 2.968223600007,
-        "checks": 618,
-        "encode_mpps": 1.338197444098415,
-        "encode_repetition_mpps": [
-          1.338197444098415
-        ],
-        "decode_mpps": 135.1815024983474,
-        "decode_repetition_mpps": [
-          135.1815024983474
-        ]
-      }
-    }
-  },
-  "qoi-textures_pk02": {
-    "images": 21,
-    "pixels": 6660096,
-    "codecs": {
-      "tcom": {
-        "bytes": 9076537,
-        "encode_sec": 0.040354599998,
-        "decode_sec": 0.036985200005,
-        "checks": 42,
-        "encode_mpps": 165.0393263798942,
-        "encode_repetition_mpps": [
-          165.0393263798942
-        ],
-        "decode_mpps": 180.0746244200282,
-        "decode_repetition_mpps": [
-          180.0746244200282
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 8349378,
-        "encode_sec": 0.039239999994,
-        "decode_sec": 0.032190799999,
-        "checks": 42,
-        "encode_mpps": 169.72721715133443,
-        "encode_repetition_mpps": [
-          169.72721715133443
-        ],
-        "decode_mpps": 206.8943921930146,
-        "decode_repetition_mpps": [
-          206.8943921930146
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 7964686,
-        "encode_sec": 0.270064799997,
-        "decode_sec": 0.074886399999,
-        "checks": 42,
-        "encode_mpps": 24.6611035576424,
-        "encode_repetition_mpps": [
-          24.6611035576424
-        ],
-        "decode_mpps": 88.9359883782494,
-        "decode_repetition_mpps": [
-          88.9359883782494
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 7473161,
-        "encode_sec": 0.452984700003,
-        "decode_sec": 0.073272399995,
-        "checks": 42,
-        "encode_mpps": 14.702695256497387,
-        "encode_repetition_mpps": [
-          14.702695256497387
-        ],
-        "decode_mpps": 90.89501641074231,
-        "decode_repetition_mpps": [
-          90.89501641074231
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 7554569,
-        "encode_sec": 1.395066599996,
-        "decode_sec": 0.0685212,
-        "checks": 42,
-        "encode_mpps": 4.774034443960666,
-        "encode_repetition_mpps": [
-          4.774034443960666
-        ],
-        "decode_mpps": 97.19759723997828,
-        "decode_repetition_mpps": [
-          97.19759723997828
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 5928829,
-        "encode_sec": 5.900806200001,
-        "decode_sec": 0.053916100003,
-        "checks": 42,
-        "encode_mpps": 1.1286756036825731,
-        "encode_repetition_mpps": [
-          1.1286756036825731
-        ],
-        "decode_mpps": 123.52703551683855,
-        "decode_repetition_mpps": [
-          123.52703551683855
-        ]
-      }
-    }
-  },
-  "texture-dtd/rgb": {
-    "images": 21,
-    "pixels": 4822122,
-    "codecs": {
-      "tcom": {
-        "bytes": 8395836,
-        "encode_sec": 0.031237100001,
-        "decode_sec": 0.025066099998,
-        "checks": 42,
-        "encode_mpps": 154.37162860334757,
-        "encode_repetition_mpps": [
-          154.37162860334757
-        ],
-        "decode_mpps": 192.37623724411665,
-        "decode_repetition_mpps": [
-          192.37623724411665
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 9652229,
-        "encode_sec": 0.029668400001,
-        "decode_sec": 0.023162199998,
-        "checks": 42,
-        "encode_mpps": 162.5339418316278,
-        "encode_repetition_mpps": [
-          162.5339418316278
-        ],
-        "decode_mpps": 208.1892911906632,
-        "decode_repetition_mpps": [
-          208.1892911906632
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 8512598,
-        "encode_sec": 0.245622100003,
-        "decode_sec": 0.0739814,
-        "checks": 42,
-        "encode_mpps": 19.63228064551644,
-        "encode_repetition_mpps": [
-          19.63228064551644
-        ],
-        "decode_mpps": 65.18019394063913,
-        "decode_repetition_mpps": [
-          65.18019394063913
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 8335208,
-        "encode_sec": 0.355612999994,
-        "decode_sec": 0.072716700001,
-        "checks": 42,
-        "encode_mpps": 13.560027333312787,
-        "encode_repetition_mpps": [
-          13.560027333312787
-        ],
-        "decode_mpps": 66.31381787036109,
-        "decode_repetition_mpps": [
-          66.31381787036109
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 8293535,
-        "encode_sec": 0.912246300005,
-        "decode_sec": 0.065462600003,
-        "checks": 42,
-        "encode_mpps": 5.285986909427389,
-        "encode_repetition_mpps": [
-          5.285986909427389
-        ],
-        "decode_mpps": 73.66224378162514,
-        "decode_repetition_mpps": [
-          73.66224378162514
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 7693268,
-        "encode_sec": 4.279871700006,
-        "decode_sec": 0.063981500004,
-        "checks": 42,
-        "encode_mpps": 1.1266977932990936,
-        "encode_repetition_mpps": [
-          1.1266977932990936
-        ],
-        "decode_mpps": 75.36744214653501,
-        "decode_repetition_mpps": [
-          75.36744214653501
-        ]
-      }
-    }
-  },
-  "photo-coco/rgb": {
-    "images": 22,
-    "pixels": 6007364,
-    "codecs": {
-      "tcom": {
-        "bytes": 11365545,
-        "encode_sec": 0.0428367,
-        "decode_sec": 0.033098899998,
-        "checks": 44,
-        "encode_mpps": 140.23872053636254,
-        "encode_repetition_mpps": [
-          140.23872053636254
-        ],
-        "decode_mpps": 181.49739116293878,
-        "decode_repetition_mpps": [
-          181.49739116293878
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 13049481,
-        "encode_sec": 0.040983799997,
-        "decode_sec": 0.030764899998,
-        "checks": 44,
-        "encode_mpps": 146.57898975789794,
-        "encode_repetition_mpps": [
-          146.57898975789794
-        ],
-        "decode_mpps": 195.26681381673706,
-        "decode_repetition_mpps": [
-          195.26681381673706
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 11276561,
-        "encode_sec": 0.323850700006,
-        "decode_sec": 0.093465099997,
-        "checks": 44,
-        "encode_mpps": 18.5497947044385,
-        "encode_repetition_mpps": [
-          18.5497947044385
-        ],
-        "decode_mpps": 64.27387335158066,
-        "decode_repetition_mpps": [
-          64.27387335158066
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 11070714,
-        "encode_sec": 0.436253399996,
-        "decode_sec": 0.090035899997,
-        "checks": 44,
-        "encode_mpps": 13.770354569282627,
-        "encode_repetition_mpps": [
-          13.770354569282627
-        ],
-        "decode_mpps": 66.72187427681808,
-        "decode_repetition_mpps": [
-          66.72187427681808
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 10573991,
-        "encode_sec": 1.055809000002,
-        "decode_sec": 0.082349800009,
-        "checks": 44,
-        "encode_mpps": 5.689820791439191,
-        "encode_repetition_mpps": [
-          5.689820791439191
-        ],
-        "decode_mpps": 72.94934534562873,
-        "decode_repetition_mpps": [
-          72.94934534562873
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 10252506,
-        "encode_sec": 4.923757200001,
-        "decode_sec": 0.0785302,
-        "checks": 44,
-        "encode_mpps": 1.2200772207042987,
-        "encode_repetition_mpps": [
-          1.2200772207042987
-        ],
-        "decode_mpps": 76.49750032471586,
-        "decode_repetition_mpps": [
-          76.49750032471586
-        ]
-      }
-    }
-  },
-  "qoi-icon_64": {
-    "images": 22,
-    "pixels": 90112,
-    "codecs": {
-      "tcom": {
-        "bytes": 107397,
-        "encode_sec": 0.000486700003,
-        "decode_sec": 0.000615999995,
-        "checks": 44,
-        "encode_mpps": 185.1489612585846,
-        "encode_repetition_mpps": [
-          185.1489612585846
-        ],
-        "decode_mpps": 146.28571547309835,
-        "decode_repetition_mpps": [
-          146.28571547309835
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 104483,
-        "encode_sec": 0.000402300004,
-        "decode_sec": 0.000278099998,
-        "checks": 44,
-        "encode_mpps": 223.99204350989766,
-        "encode_repetition_mpps": [
-          223.99204350989766
-        ],
-        "decode_mpps": 324.0273306294666,
-        "decode_repetition_mpps": [
-          324.0273306294666
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 94227,
-        "encode_sec": 0.005341599999,
-        "decode_sec": 0.0017475,
-        "checks": 44,
-        "encode_mpps": 16.869851732976983,
-        "encode_repetition_mpps": [
-          16.869851732976983
-        ],
-        "decode_mpps": 51.56623748211731,
-        "decode_repetition_mpps": [
-          51.56623748211731
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 89686,
-        "encode_sec": 0.006203299997,
-        "decode_sec": 0.001767700001,
-        "checks": 44,
-        "encode_mpps": 14.526461729011878,
-        "encode_repetition_mpps": [
-          14.526461729011878
-        ],
-        "decode_mpps": 50.97697570233808,
-        "decode_repetition_mpps": [
-          50.97697570233808
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 84575,
-        "encode_sec": 0.009786300003,
-        "decode_sec": 0.001676500004,
-        "checks": 44,
-        "encode_mpps": 9.20797441038759,
-        "encode_repetition_mpps": [
-          9.20797441038759
-        ],
-        "decode_mpps": 53.75007443185189,
-        "decode_repetition_mpps": [
-          53.75007443185189
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 75570,
-        "encode_sec": 0.1711534,
-        "decode_sec": 0.002176000007,
-        "checks": 44,
-        "encode_mpps": 0.5264984510970859,
-        "encode_repetition_mpps": [
-          0.5264984510970859
-        ],
-        "decode_mpps": 41.41176457266436,
-        "decode_repetition_mpps": [
-          41.41176457266436
-        ]
-      }
-    }
-  },
-  "native_rgba": {
-    "images": 88,
-    "pixels": 63613678,
-    "codecs": {
-      "tcom": {
-        "bytes": 58238596,
-        "encode_sec": 0.24660060000099998,
-        "decode_sec": 0.234055899994,
-        "checks": 176,
-        "encode_mpps": 257.96238127458753,
-        "encode_repetition_mpps": [
-          257.96238127458753
-        ],
-        "decode_mpps": 271.78839756498655,
-        "decode_repetition_mpps": [
-          271.78839756498655
-        ]
-      },
-      "qoi_reference": {
-        "bytes": 67880903,
-        "encode_sec": 0.311399499999,
-        "decode_sec": 0.215074799999,
-        "checks": 176,
-        "encode_mpps": 204.2831732234775,
-        "encode_repetition_mpps": [
-          204.2831732234775
-        ],
-        "decode_mpps": 295.77467002315365,
-        "decode_repetition_mpps": [
-          295.77467002315365
-        ]
-      },
-      "libpng_level_1": {
-        "bytes": 62333598,
-        "encode_sec": 2.725260599991,
-        "decode_sec": 0.694264100001,
-        "checks": 176,
-        "encode_mpps": 23.342236702137797,
-        "encode_repetition_mpps": [
-          23.342236702137797
-        ],
-        "decode_mpps": 91.62749161292997,
-        "decode_repetition_mpps": [
-          91.62749161292997
-        ]
-      },
-      "libpng_level_3": {
-        "bytes": 60285688,
-        "encode_sec": 3.693854900005,
-        "decode_sec": 0.656203200006,
-        "checks": 176,
-        "encode_mpps": 17.2214880448915,
-        "encode_repetition_mpps": [
-          17.2214880448915
-        ],
-        "decode_mpps": 96.9420417325279,
-        "decode_repetition_mpps": [
-          96.9420417325279
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 53873981,
-        "encode_sec": 9.900406699999,
-        "decode_sec": 0.738980900001,
-        "checks": 176,
-        "encode_mpps": 6.425360081420335,
-        "encode_repetition_mpps": [
-          6.425360081420335
-        ],
-        "decode_mpps": 86.08297995241003,
-        "decode_repetition_mpps": [
-          86.08297995241003
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 49913354,
-        "encode_sec": 70.058204500001,
-        "decode_sec": 0.63578750001,
-        "checks": 176,
-        "encode_mpps": 0.9080118232262018,
-        "encode_repetition_mpps": [
-          0.9080118232262018
-        ],
-        "decode_mpps": 100.05493659280728,
-        "decode_repetition_mpps": [
-          100.05493659280728
-        ]
-      }
-    }
-  },
-  "qoi-textures_photo": {
+  "aerial": {
     "images": 20,
-    "pixels": 20971520,
+    "pixels": 20574000,
     "codecs": {
       "tcom": {
-        "bytes": 35681604,
-        "encode_sec": 0.123424199994,
-        "decode_sec": 0.112218600005,
-        "checks": 40,
-        "encode_mpps": 169.91416594978523,
-        "encode_repetition_mpps": [
-          169.91416594978523
-        ],
-        "decode_mpps": 186.88096268413253,
-        "decode_repetition_mpps": [
-          186.88096268413253
-        ]
+        "bytes": 31867181,
+        "encode_sec": 0.10293650004500002,
+        "decode_sec": 0.083772699812,
+        "checks": 20,
+        "encode_mpps": 199.87079404298584,
+        "decode_mpps": 245.59313530746306
       },
       "qoi_reference": {
-        "bytes": 40589641,
-        "encode_sec": 0.113457899997,
-        "decode_sec": 0.101375200005,
-        "checks": 40,
-        "encode_mpps": 184.83966299882619,
-        "encode_repetition_mpps": [
-          184.83966299882619
-        ],
-        "decode_mpps": 206.87031935784736,
-        "decode_repetition_mpps": [
-          206.87031935784736
-        ]
+        "bytes": 34936435,
+        "encode_sec": 0.111239899997,
+        "decode_sec": 0.094767599893,
+        "checks": 20,
+        "encode_mpps": 184.95162257926208,
+        "decode_mpps": 217.09951526924442
+      },
+      "qoir": {
+        "bytes": 33097511,
+        "encode_sec": 0.101252800089,
+        "decode_sec": 0.090289600135,
+        "checks": 20,
+        "encode_mpps": 203.19438061876508,
+        "decode_mpps": 227.86677501326827
       },
       "libpng_level_1": {
-        "bytes": 35611791,
-        "encode_sec": 1.002089200002,
-        "decode_sec": 0.278915300005,
-        "checks": 40,
-        "encode_mpps": 20.927797645117963,
-        "encode_repetition_mpps": [
-          20.927797645117963
-        ],
-        "decode_mpps": 75.18956471596952,
-        "decode_repetition_mpps": [
-          75.18956471596952
-        ]
+        "bytes": 31364324,
+        "encode_sec": 0.902935099902,
+        "decode_sec": 0.271185600197,
+        "checks": 20,
+        "encode_mpps": 22.785690801291253,
+        "decode_mpps": 75.86686013215389
       },
-      "libpng_level_3": {
-        "bytes": 34833670,
-        "encode_sec": 1.531002099997,
-        "decode_sec": 0.280142399996,
-        "checks": 40,
-        "encode_mpps": 13.697904137454216,
-        "encode_repetition_mpps": [
-          13.697904137454216
-        ],
-        "decode_mpps": 74.86021394940373,
-        "decode_repetition_mpps": [
-          74.86021394940373
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 37604999,
-        "encode_sec": 3.790137499999,
-        "decode_sec": 0.252501300004,
-        "checks": 40,
-        "encode_mpps": 5.533181843668082,
-        "encode_repetition_mpps": [
-          5.533181843668082
-        ],
-        "decode_mpps": 83.05509714075839,
-        "decode_repetition_mpps": [
-          83.05509714075839
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 31470944,
-        "encode_sec": 17.400029600003002,
-        "decode_sec": 0.241038399991,
-        "checks": 40,
-        "encode_mpps": 1.2052577197912573,
-        "encode_repetition_mpps": [
-          1.2052577197912573
-        ],
-        "decode_mpps": 87.00489216980799,
-        "decode_repetition_mpps": [
-          87.00489216980799
-        ]
+      "fpng_single_pass": {
+        "bytes": 38634077,
+        "encode_sec": 0.061790799896000004,
+        "decode_sec": 0.12489189987500002,
+        "checks": 20,
+        "encode_mpps": 332.9621891062758,
+        "decode_mpps": 164.7344625279286
       }
     }
   },
-  "qoi-icon_512": {
-    "images": 22,
-    "pixels": 5767168,
+  "architecture": {
+    "images": 20,
+    "pixels": 65416766,
     "codecs": {
       "tcom": {
-        "bytes": 1814365,
-        "encode_sec": 0.007692199999,
-        "decode_sec": 0.010032999999,
-        "checks": 44,
-        "encode_mpps": 749.7423364901774,
-        "encode_repetition_mpps": [
-          749.7423364901774
-        ],
-        "decode_mpps": 574.8198944059425,
-        "decode_repetition_mpps": [
-          574.8198944059425
-        ]
+        "bytes": 90692095,
+        "encode_sec": 0.343331200013,
+        "decode_sec": 0.278121499985,
+        "checks": 20,
+        "encode_mpps": 190.53545380531406,
+        "decode_mpps": 235.20930961298617
       },
       "qoi_reference": {
-        "bytes": 1856251,
-        "encode_sec": 0.014493499996,
-        "decode_sec": 0.009473299999,
-        "checks": 44,
-        "encode_mpps": 397.91409953369833,
-        "encode_repetition_mpps": [
-          397.91409953369833
-        ],
-        "decode_mpps": 608.7813117507924,
-        "decode_repetition_mpps": [
-          608.7813117507924
-        ]
+        "bytes": 98507449,
+        "encode_sec": 0.37079930020299984,
+        "decode_sec": 0.33921499981100006,
+        "checks": 20,
+        "encode_mpps": 176.4209532331549,
+        "decode_mpps": 192.84750390297648
+      },
+      "qoir": {
+        "bytes": 91647265,
+        "encode_sec": 0.34132180002199997,
+        "decode_sec": 0.321085799834,
+        "checks": 20,
+        "encode_mpps": 191.65715754394697,
+        "decode_mpps": 203.7360918291005
       },
       "libpng_level_1": {
-        "bytes": 1511050,
-        "encode_sec": 0.1375825,
-        "decode_sec": 0.034055800004,
-        "checks": 44,
-        "encode_mpps": 41.91788926644014,
-        "encode_repetition_mpps": [
-          41.91788926644014
-        ],
-        "decode_mpps": 169.34466373782504,
-        "decode_repetition_mpps": [
-          169.34466373782504
-        ]
+        "bytes": 93634768,
+        "encode_sec": 2.8033041,
+        "decode_sec": 0.8472539000209999,
+        "checks": 20,
+        "encode_mpps": 23.335593880093136,
+        "decode_mpps": 77.21034509062584
       },
-      "libpng_level_3": {
-        "bytes": 1340170,
-        "encode_sec": 0.158239200004,
-        "decode_sec": 0.031023700007,
-        "checks": 44,
-        "encode_mpps": 36.445886985362776,
-        "encode_repetition_mpps": [
-          36.445886985362776
-        ],
-        "decode_mpps": 185.89555722556403,
-        "decode_repetition_mpps": [
-          185.89555722556403
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 1085494,
-        "encode_sec": 0.274288100001,
-        "decode_sec": 0.042028099997,
-        "checks": 44,
-        "encode_mpps": 21.02595045129181,
-        "encode_repetition_mpps": [
-          21.02595045129181
-        ],
-        "decode_mpps": 137.2217159569827,
-        "decode_repetition_mpps": [
-          137.2217159569827
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 831254,
-        "encode_sec": 6.0155134,
-        "decode_sec": 0.031254200002,
-        "checks": 44,
-        "encode_mpps": 0.958715842940355,
-        "encode_repetition_mpps": [
-          0.958715842940355
-        ],
-        "decode_mpps": 184.52457588519147,
-        "decode_repetition_mpps": [
-          184.52457588519147
-        ]
+      "fpng_single_pass": {
+        "bytes": 111262532,
+        "encode_sec": 0.20271290000700004,
+        "decode_sec": 0.37705760000899996,
+        "checks": 20,
+        "encode_mpps": 322.70647796830417,
+        "decode_mpps": 173.49276608783
       }
     }
   },
-  "industrial/gray-as-rgb": {
-    "images": 22,
-    "pixels": 23068672,
+  "beaches": {
+    "images": 20,
+    "pixels": 33151639,
     "codecs": {
       "tcom": {
-        "bytes": 20832640,
-        "encode_sec": 0.102777000001,
-        "decode_sec": 0.109416100002,
-        "checks": 44,
-        "encode_mpps": 224.45364234970418,
-        "encode_repetition_mpps": [
-          224.45364234970418
-        ],
-        "decode_mpps": 210.83434704379275,
-        "decode_repetition_mpps": [
-          210.83434704379275
-        ]
+        "bytes": 38105603,
+        "encode_sec": 0.156203299992,
+        "decode_sec": 0.128919500158,
+        "checks": 20,
+        "encode_mpps": 212.23392208549927,
+        "decode_mpps": 257.14991882042915
       },
       "qoi_reference": {
-        "bytes": 22818231,
-        "encode_sec": 0.095182199995,
-        "decode_sec": 0.1060305,
-        "checks": 44,
-        "encode_mpps": 242.3632990329265,
-        "encode_repetition_mpps": [
-          242.3632990329265
-        ],
-        "decode_mpps": 217.56637948514813,
-        "decode_repetition_mpps": [
-          217.56637948514813
-        ]
+        "bytes": 40308029,
+        "encode_sec": 0.17464670009200003,
+        "decode_sec": 0.160619000031,
+        "checks": 20,
+        "encode_mpps": 189.821158845466,
+        "decode_mpps": 206.39923666316955
+      },
+      "qoir": {
+        "bytes": 37611834,
+        "encode_sec": 0.16686759987799998,
+        "decode_sec": 0.154641399977,
+        "checks": 20,
+        "encode_mpps": 198.6703172109971,
+        "decode_mpps": 214.37751472070664
       },
       "libpng_level_1": {
-        "bytes": 17281307,
-        "encode_sec": 0.733617900004,
-        "decode_sec": 0.256117499997,
-        "checks": 44,
-        "encode_mpps": 31.445077880289208,
-        "encode_repetition_mpps": [
-          31.445077880289208
-        ],
-        "decode_mpps": 90.07065897593961,
-        "decode_repetition_mpps": [
-          90.07065897593961
-        ]
+        "bytes": 38180530,
+        "encode_sec": 1.234462000139,
+        "decode_sec": 0.38773599982900003,
+        "checks": 20,
+        "encode_mpps": 26.85513122013244,
+        "decode_mpps": 85.5005442224106
       },
-      "libpng_level_3": {
-        "bytes": 14454025,
-        "encode_sec": 1.231206100003,
-        "decode_sec": 0.227678299999,
-        "checks": 44,
-        "encode_mpps": 18.7366453105973,
-        "encode_repetition_mpps": [
-          18.7366453105973
-        ],
-        "decode_mpps": 101.32134683059968,
-        "decode_repetition_mpps": [
-          101.32134683059968
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 14610635,
-        "encode_sec": 3.193141499993,
-        "decode_sec": 0.238765099999,
-        "checks": 44,
-        "encode_mpps": 7.224444015415719,
-        "encode_repetition_mpps": [
-          7.224444015415719
-        ],
-        "decode_mpps": 96.61659932752573,
-        "decode_repetition_mpps": [
-          96.61659932752573
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 8816113,
-        "encode_sec": 13.389215800002,
-        "decode_sec": 0.131293799999,
-        "checks": 44,
-        "encode_mpps": 1.7229292846259563,
-        "encode_repetition_mpps": [
-          1.7229292846259563
-        ],
-        "decode_mpps": 175.70267598451488,
-        "decode_repetition_mpps": [
-          175.70267598451488
-        ]
+      "fpng_single_pass": {
+        "bytes": 49432950,
+        "encode_sec": 0.10575520008599999,
+        "decode_sec": 0.17815660010399997,
+        "checks": 20,
+        "encode_mpps": 313.47526148162103,
+        "decode_mpps": 186.08145295008737
       }
     }
   },
-  "gray_as_rgb": {
-    "images": 49,
-    "pixels": 150313136,
+  "birds": {
+    "images": 20,
+    "pixels": 60307536,
     "codecs": {
       "tcom": {
-        "bytes": 47441761,
-        "encode_sec": 0.296690600011,
-        "decode_sec": 0.308986400001,
-        "checks": 98,
-        "encode_mpps": 506.6326199563688,
-        "encode_repetition_mpps": [
-          506.6326199563688
-        ],
-        "decode_mpps": 486.4716893672781,
-        "decode_repetition_mpps": [
-          486.4716893672781
-        ]
+        "bytes": 77234218,
+        "encode_sec": 0.31860609992800004,
+        "decode_sec": 0.25747429992899995,
+        "checks": 20,
+        "encode_mpps": 189.28556613833996,
+        "decode_mpps": 234.22740062456782
       },
       "qoi_reference": {
-        "bytes": 41076675,
-        "encode_sec": 0.368549399991,
-        "decode_sec": 0.271272200002,
-        "checks": 98,
-        "encode_mpps": 407.8507141883033,
-        "encode_repetition_mpps": [
-          407.8507141883033
-        ],
-        "decode_mpps": 554.1044603866221,
-        "decode_repetition_mpps": [
-          554.1044603866221
-        ]
+        "bytes": 81766964,
+        "encode_sec": 0.353074699991,
+        "decode_sec": 0.31125149998199997,
+        "checks": 20,
+        "encode_mpps": 170.80673297049395,
+        "decode_mpps": 193.75821804388943
+      },
+      "qoir": {
+        "bytes": 75219398,
+        "encode_sec": 0.292516399992,
+        "decode_sec": 0.28616120026099995,
+        "checks": 20,
+        "encode_mpps": 206.16805075424605,
+        "decode_mpps": 210.74672577901936
       },
       "libpng_level_1": {
-        "bytes": 37961875,
-        "encode_sec": 2.770839000004,
-        "decode_sec": 0.604728200001,
-        "checks": 98,
-        "encode_mpps": 54.2482388907414,
-        "encode_repetition_mpps": [
-          54.2482388907414
-        ],
-        "decode_mpps": 248.56313299057564,
-        "decode_repetition_mpps": [
-          248.56313299057564
-        ]
+        "bytes": 78630029,
+        "encode_sec": 2.501886600048,
+        "decode_sec": 0.6891066998930001,
+        "checks": 20,
+        "encode_mpps": 24.104823935202724,
+        "decode_mpps": 87.5155269994678
       },
-      "libpng_level_3": {
-        "bytes": 33196914,
-        "encode_sec": 3.511343200007,
-        "decode_sec": 0.549184899992,
-        "checks": 98,
-        "encode_mpps": 42.80787363641935,
-        "encode_repetition_mpps": [
-          42.80787363641935
-        ],
-        "decode_mpps": 273.70223762923854,
-        "decode_repetition_mpps": [
-          273.70223762923854
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 32530012,
-        "encode_sec": 7.163144999999,
-        "decode_sec": 0.927293200001,
-        "checks": 98,
-        "encode_mpps": 20.98423751020271,
-        "encode_repetition_mpps": [
-          20.98423751020271
-        ],
-        "decode_mpps": 162.0988226807205,
-        "decode_repetition_mpps": [
-          162.0988226807205
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 17524511,
-        "encode_sec": 44.504107300002,
-        "decode_sec": 0.462810500006,
-        "checks": 98,
-        "encode_mpps": 3.3775115403785043,
-        "encode_repetition_mpps": [
-          3.3775115403785043
-        ],
-        "decode_mpps": 324.7833314024883,
-        "decode_repetition_mpps": [
-          324.7833314024883
-        ]
+      "fpng_single_pass": {
+        "bytes": 86428074,
+        "encode_sec": 0.19008210004300002,
+        "decode_sec": 0.307710300025,
+        "checks": 20,
+        "encode_mpps": 317.2709896742373,
+        "decode_mpps": 195.9880315839291
       }
     }
   },
-  "art-painting/rgb": {
-    "images": 22,
-    "pixels": 59162942,
+  "bridges": {
+    "images": 20,
+    "pixels": 23272289,
     "codecs": {
       "tcom": {
-        "bytes": 72747754,
-        "encode_sec": 0.368543999995,
-        "decode_sec": 0.347442599998,
-        "checks": 44,
-        "encode_mpps": 160.53155661414283,
-        "encode_repetition_mpps": [
-          160.53155661414283
-        ],
-        "decode_mpps": 170.28119752828403,
-        "decode_repetition_mpps": [
-          170.28119752828403
-        ]
+        "bytes": 34680905,
+        "encode_sec": 0.11953460000400001,
+        "decode_sec": 0.096819499798,
+        "checks": 20,
+        "encode_mpps": 194.6908175475656,
+        "decode_mpps": 240.36778798232064
       },
       "qoi_reference": {
-        "bytes": 84894705,
-        "encode_sec": 0.382466300001,
-        "decode_sec": 0.348287199999,
-        "checks": 44,
-        "encode_mpps": 154.68798688889797,
-        "encode_repetition_mpps": [
-          154.68798688889797
-        ],
-        "decode_mpps": 169.86826389304537,
-        "decode_repetition_mpps": [
-          169.86826389304537
-        ]
+        "bytes": 39812795,
+        "encode_sec": 0.124312900123,
+        "decode_sec": 0.11176770000099999,
+        "checks": 20,
+        "encode_mpps": 187.2073531948293,
+        "decode_mpps": 208.22016557370137
+      },
+      "qoir": {
+        "bytes": 36607137,
+        "encode_sec": 0.128946300248,
+        "decode_sec": 0.112345999866,
+        "checks": 20,
+        "encode_mpps": 180.4804709808722,
+        "decode_mpps": 207.14835443859045
       },
       "libpng_level_1": {
-        "bytes": 69407837,
-        "encode_sec": 2.560935599999,
-        "decode_sec": 0.801636699999,
-        "checks": 44,
-        "encode_mpps": 23.102081130046027,
-        "encode_repetition_mpps": [
-          23.102081130046027
-        ],
-        "decode_mpps": 73.80268642899433,
-        "decode_repetition_mpps": [
-          73.80268642899433
-        ]
+        "bytes": 34829584,
+        "encode_sec": 1.024076099974,
+        "decode_sec": 0.313829999941,
+        "checks": 20,
+        "encode_mpps": 22.72515587522339,
+        "decode_mpps": 74.15571807786122
       },
-      "libpng_level_3": {
-        "bytes": 65903695,
-        "encode_sec": 4.249758500001,
-        "decode_sec": 0.782089699998,
-        "checks": 44,
-        "encode_mpps": 13.921483303106772,
-        "encode_repetition_mpps": [
-          13.921483303106772
-        ],
-        "decode_mpps": 75.6472588759976,
-        "decode_repetition_mpps": [
-          75.6472588759976
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 63111811,
-        "encode_sec": 12.686347899998001,
-        "decode_sec": 0.764299799994,
-        "checks": 44,
-        "encode_mpps": 4.663512499133759,
-        "encode_repetition_mpps": [
-          4.663512499133759
-        ],
-        "decode_mpps": 77.4080302002754,
-        "decode_repetition_mpps": [
-          77.4080302002754
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 54776421,
-        "encode_sec": 81.279473899998,
-        "decode_sec": 0.638294499996,
-        "checks": 44,
-        "encode_mpps": 0.7278952380128713,
-        "encode_repetition_mpps": [
-          0.7278952380128713
-        ],
-        "decode_mpps": 92.68909884131973,
-        "decode_repetition_mpps": [
-          92.68909884131973
-        ]
+      "fpng_single_pass": {
+        "bytes": 45978171,
+        "encode_sec": 0.073425699958,
+        "decode_sec": 0.144137200025,
+        "checks": 20,
+        "encode_mpps": 316.95018247441845,
+        "decode_mpps": 161.45928321046557
       }
     }
   },
-  "graphics-plot/gray-as-rgb": {
-    "images": 4,
-    "pixels": 4096,
+  "emoji-activities": {
+    "images": 20,
+    "pixels": 7638480,
     "codecs": {
       "tcom": {
-        "bytes": 3013,
-        "encode_sec": 1.4400001e-05,
-        "decode_sec": 8.200001e-06,
-        "checks": 8,
-        "encode_mpps": 284.4444246913594,
-        "encode_repetition_mpps": [
-          284.4444246913594
-        ],
-        "decode_mpps": 499.51213420583724,
-        "decode_repetition_mpps": [
-          499.51213420583724
-        ]
+        "bytes": 663361,
+        "encode_sec": 0.003405500027,
+        "decode_sec": 0.005246100017,
+        "checks": 20,
+        "encode_mpps": 2242.9833914078545,
+        "decode_mpps": 1456.0301891400254
       },
       "qoi_reference": {
-        "bytes": 2422,
-        "encode_sec": 9.8e-06,
-        "decode_sec": 6.699999e-06,
-        "checks": 8,
-        "encode_mpps": 417.9591836734694,
-        "encode_repetition_mpps": [
-          417.9591836734694
-        ],
-        "decode_mpps": 611.3433748273693,
-        "decode_repetition_mpps": [
-          611.3433748273693
-        ]
+        "bytes": 484829,
+        "encode_sec": 0.014015499909000003,
+        "decode_sec": 0.005926799903,
+        "checks": 20,
+        "encode_mpps": 545.002322399858,
+        "decode_mpps": 1288.8034225912688
+      },
+      "qoir": {
+        "bytes": 380129,
+        "encode_sec": 0.007777800201,
+        "decode_sec": 0.009467500030000001,
+        "checks": 20,
+        "encode_mpps": 982.0874543701846,
+        "decode_mpps": 806.810665518424
       },
       "libpng_level_1": {
-        "bytes": 812,
-        "encode_sec": 0.00021370000099999999,
-        "decode_sec": 5.4599998999999996e-05,
-        "checks": 8,
-        "encode_mpps": 19.167056531740496,
-        "encode_repetition_mpps": [
-          19.167056531740496
-        ],
-        "decode_mpps": 75.01831639227687,
-        "decode_repetition_mpps": [
-          75.01831639227687
-        ]
+        "bytes": 661594,
+        "encode_sec": 0.14382600004500004,
+        "decode_sec": 0.025026199932,
+        "checks": 20,
+        "encode_mpps": 53.10917356813153,
+        "decode_mpps": 305.21933097133865
       },
-      "libpng_level_3": {
-        "bytes": 764,
-        "encode_sec": 0.000197299998,
-        "decode_sec": 4.2299998e-05,
-        "checks": 8,
-        "encode_mpps": 20.760263768477078,
-        "encode_repetition_mpps": [
-          20.760263768477078
-        ],
-        "decode_mpps": 96.83215587858894,
-        "decode_repetition_mpps": [
-          96.83215587858894
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 671,
-        "encode_sec": 0.00023790000099999998,
-        "decode_sec": 3.5899999e-05,
-        "checks": 8,
-        "encode_mpps": 17.21731812855268,
-        "encode_repetition_mpps": [
-          17.21731812855268
-        ],
-        "decode_mpps": 114.094710699017,
-        "decode_repetition_mpps": [
-          114.094710699017
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 426,
-        "encode_sec": 0.011147100001,
-        "decode_sec": 6.340000400000001e-05,
-        "checks": 8,
-        "encode_mpps": 0.36744982996766423,
-        "encode_repetition_mpps": [
-          0.36744982996766423
-        ],
-        "decode_mpps": 64.60567415737071,
-        "decode_repetition_mpps": [
-          64.60567415737071
-        ]
+      "fpng_single_pass": {
+        "bytes": 735539,
+        "encode_sec": 0.012484800126999998,
+        "decode_sec": 0.006210999913,
+        "checks": 20,
+        "encode_mpps": 611.8223697855441,
+        "decode_mpps": 1229.8309623241496
       }
     }
   },
-  "ui-screenspot/rgb": {
-    "images": 21,
-    "pixels": 51024356,
+  "emoji-food": {
+    "images": 20,
+    "pixels": 7638480,
     "codecs": {
       "tcom": {
-        "bytes": 21268217,
-        "encode_sec": 0.095575599999,
-        "decode_sec": 0.109239999997,
-        "checks": 42,
-        "encode_mpps": 533.8638313600319,
-        "encode_repetition_mpps": [
-          533.8638313600319
-        ],
-        "decode_mpps": 467.08491396376104,
-        "decode_repetition_mpps": [
-          467.08491396376104
-        ]
+        "bytes": 668094,
+        "encode_sec": 0.003584699939,
+        "decode_sec": 0.004869700059,
+        "checks": 20,
+        "encode_mpps": 2130.8561748492834,
+        "decode_mpps": 1568.572993706839
       },
       "qoi_reference": {
-        "bytes": 21407766,
-        "encode_sec": 0.125590600001,
-        "decode_sec": 0.098130499998,
-        "checks": 42,
-        "encode_mpps": 406.27527856060664,
-        "encode_repetition_mpps": [
-          406.27527856060664
-        ],
-        "decode_mpps": 519.9642924578998,
-        "decode_repetition_mpps": [
-          519.9642924578998
-        ]
+        "bytes": 468232,
+        "encode_sec": 0.013351899921,
+        "decode_sec": 0.006416100078000001,
+        "checks": 20,
+        "encode_mpps": 572.0893689433758,
+        "decode_mpps": 1190.5175896790304
+      },
+      "qoir": {
+        "bytes": 407387,
+        "encode_sec": 0.007890600071,
+        "decode_sec": 0.00962399988,
+        "checks": 20,
+        "encode_mpps": 968.0480484714202,
+        "decode_mpps": 793.6907829637256
       },
       "libpng_level_1": {
-        "bytes": 11172587,
-        "encode_sec": 0.912471399994,
-        "decode_sec": 0.244356899999,
-        "checks": 42,
-        "encode_mpps": 55.91885510092209,
-        "encode_repetition_mpps": [
-          55.91885510092209
-        ],
-        "decode_mpps": 208.8107845541043,
-        "decode_repetition_mpps": [
-          208.8107845541043
-        ]
+        "bytes": 688895,
+        "encode_sec": 0.14400289993499998,
+        "decode_sec": 0.023549200036000004,
+        "checks": 20,
+        "encode_mpps": 53.04393177809514,
+        "decode_mpps": 324.36261054825405
       },
-      "libpng_level_3": {
-        "bytes": 10368220,
-        "encode_sec": 1.118683599999,
-        "decode_sec": 0.238387800002,
-        "checks": 42,
-        "encode_mpps": 45.61107001125753,
-        "encode_repetition_mpps": [
-          45.61107001125753
-        ],
-        "decode_mpps": 214.03929227742327,
-        "decode_repetition_mpps": [
-          214.03929227742327
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 9197355,
-        "encode_sec": 2.156168200002,
-        "decode_sec": 0.333788499998,
-        "checks": 42,
-        "encode_mpps": 23.664367186174378,
-        "encode_repetition_mpps": [
-          23.664367186174378
-        ],
-        "decode_mpps": 152.8643317559045,
-        "decode_repetition_mpps": [
-          152.8643317559045
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 7749757,
-        "encode_sec": 24.612565900000998,
-        "decode_sec": 0.261206599999,
-        "checks": 42,
-        "encode_mpps": 2.0731018540410666,
-        "encode_repetition_mpps": [
-          2.0731018540410666
-        ],
-        "decode_mpps": 195.34099061890223,
-        "decode_repetition_mpps": [
-          195.34099061890223
-        ]
+      "fpng_single_pass": {
+        "bytes": 783575,
+        "encode_sec": 0.011485799855999998,
+        "decode_sec": 0.006402500031999999,
+        "checks": 20,
+        "encode_mpps": 665.0368364210857,
+        "decode_mpps": 1193.0464602612283
       }
     }
   },
-  "graphics-plot/rgb": {
-    "images": 22,
-    "pixels": 4939527,
+  "emoji-nature": {
+    "images": 20,
+    "pixels": 7638480,
     "codecs": {
       "tcom": {
-        "bytes": 494229,
-        "encode_sec": 0.003482299996,
-        "decode_sec": 0.004120699995,
-        "checks": 44,
-        "encode_mpps": 1418.4668195370496,
-        "encode_repetition_mpps": [
-          1418.4668195370496
-        ],
-        "decode_mpps": 1198.710657411011,
-        "decode_repetition_mpps": [
-          1198.710657411011
-        ]
+        "bytes": 721781,
+        "encode_sec": 0.004078600145999999,
+        "decode_sec": 0.005349899929,
+        "checks": 20,
+        "encode_mpps": 1872.819037554166,
+        "decode_mpps": 1427.7799774523594
       },
       "qoi_reference": {
-        "bytes": 444648,
-        "encode_sec": 0.009038999999,
-        "decode_sec": 0.004018599999,
-        "checks": 44,
-        "encode_mpps": 546.4683040763878,
-        "encode_repetition_mpps": [
-          546.4683040763878
-        ],
-        "decode_mpps": 1229.1661278129611,
-        "decode_repetition_mpps": [
-          1229.1661278129611
-        ]
+        "bytes": 544832,
+        "encode_sec": 0.013892999965,
+        "decode_sec": 0.006122800058,
+        "checks": 20,
+        "encode_mpps": 549.8078182713074,
+        "decode_mpps": 1247.5468621614755
+      },
+      "qoir": {
+        "bytes": 469226,
+        "encode_sec": 0.008791699889,
+        "decode_sec": 0.010040799912,
+        "checks": 20,
+        "encode_mpps": 868.8285651739675,
+        "decode_mpps": 760.7441704789945
       },
       "libpng_level_1": {
-        "bytes": 389537,
-        "encode_sec": 0.070778199997,
-        "decode_sec": 0.014987000002,
-        "checks": 44,
-        "encode_mpps": 69.78881915913894,
-        "encode_repetition_mpps": [
-          69.78881915913894
-        ],
-        "decode_mpps": 329.5874424061403,
-        "decode_repetition_mpps": [
-          329.5874424061403
-        ]
+        "bytes": 790193,
+        "encode_sec": 0.14589540002600002,
+        "decode_sec": 0.026614599977999996,
+        "checks": 20,
+        "encode_mpps": 52.355865905564855,
+        "decode_mpps": 287.00337432514766
       },
-      "libpng_level_3": {
-        "bytes": 375572,
-        "encode_sec": 0.071689000001,
-        "decode_sec": 0.014225999999999999,
-        "checks": 44,
-        "encode_mpps": 68.90216072104643,
-        "encode_repetition_mpps": [
-          68.90216072104643
-        ],
-        "decode_mpps": 347.21826233656685,
-        "decode_repetition_mpps": [
-          347.21826233656685
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 323682,
-        "encode_sec": 0.099664899998,
-        "decode_sec": 0.027775299995,
-        "checks": 44,
-        "encode_mpps": 49.561350085126485,
-        "encode_repetition_mpps": [
-          49.561350085126485
-        ],
-        "decode_mpps": 177.83883525611586,
-        "decode_repetition_mpps": [
-          177.83883525611586
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 224866,
-        "encode_sec": 2.330658699995,
-        "decode_sec": 0.017730700003,
-        "checks": 44,
-        "encode_mpps": 2.119369515583984,
-        "encode_repetition_mpps": [
-          2.119369515583984
-        ],
-        "decode_mpps": 278.58612458415297,
-        "decode_repetition_mpps": [
-          278.58612458415297
-        ]
+      "fpng_single_pass": {
+        "bytes": 862650,
+        "encode_sec": 0.012025200181,
+        "decode_sec": 0.007169599933000001,
+        "checks": 20,
+        "encode_mpps": 635.2060576978099,
+        "decode_mpps": 1065.3983585390663
       }
     }
   },
-  "qoi-photo_tecnick": {
-    "images": 21,
-    "pixels": 30240000,
+  "emoji-objects": {
+    "images": 20,
+    "pixels": 7638480,
     "codecs": {
       "tcom": {
-        "bytes": 49502554,
-        "encode_sec": 0.207610600003,
-        "decode_sec": 0.183537,
-        "checks": 42,
-        "encode_mpps": 145.65730265970538,
-        "encode_repetition_mpps": [
-          145.65730265970538
-        ],
-        "decode_mpps": 164.76241847692836,
-        "decode_repetition_mpps": [
-          164.76241847692836
-        ]
+        "bytes": 551177,
+        "encode_sec": 0.003474500145000001,
+        "decode_sec": 0.004794199892,
+        "checks": 20,
+        "encode_mpps": 2198.439971571795,
+        "decode_mpps": 1593.2752434345098
       },
       "qoi_reference": {
-        "bytes": 54305486,
-        "encode_sec": 0.204111999995,
-        "decode_sec": 0.172499400006,
-        "checks": 42,
-        "encode_mpps": 148.15395469517114,
-        "encode_repetition_mpps": [
-          148.15395469517114
-        ],
-        "decode_mpps": 175.30495757636356,
-        "decode_repetition_mpps": [
-          175.30495757636356
-        ]
+        "bytes": 432871,
+        "encode_sec": 0.012835300003999999,
+        "decode_sec": 0.006348100026,
+        "checks": 20,
+        "encode_mpps": 595.115034133954,
+        "decode_mpps": 1203.27026491627
+      },
+      "qoir": {
+        "bytes": 282955,
+        "encode_sec": 0.007495800033,
+        "decode_sec": 0.009301499985999998,
+        "checks": 20,
+        "encode_mpps": 1019.0346549230044,
+        "decode_mpps": 821.209483577588
       },
       "libpng_level_1": {
-        "bytes": 50393640,
-        "encode_sec": 1.560111299999,
-        "decode_sec": 0.461789999998,
-        "checks": 42,
-        "encode_mpps": 19.38323246554229,
-        "encode_repetition_mpps": [
-          19.38323246554229
-        ],
-        "decode_mpps": 65.4843110507611,
-        "decode_repetition_mpps": [
-          65.4843110507611
-        ]
+        "bytes": 511786,
+        "encode_sec": 0.14283669996,
+        "decode_sec": 0.023111899963000004,
+        "checks": 20,
+        "encode_mpps": 53.477012575473104,
+        "decode_mpps": 330.4998728892256
       },
-      "libpng_level_3": {
-        "bytes": 49054017,
-        "encode_sec": 2.509171299998,
-        "decode_sec": 0.435409899998,
-        "checks": 42,
-        "encode_mpps": 12.051787775519394,
-        "encode_repetition_mpps": [
-          12.051787775519394
-        ],
-        "decode_mpps": 69.45179703111688,
-        "decode_repetition_mpps": [
-          69.45179703111688
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 46258953,
-        "encode_sec": 8.096147500003,
-        "decode_sec": 0.410931300002,
-        "checks": 42,
-        "encode_mpps": 3.7351098161179497,
-        "encode_repetition_mpps": [
-          3.7351098161179497
-        ],
-        "decode_mpps": 73.5889429689411,
-        "decode_repetition_mpps": [
-          73.5889429689411
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 44828543,
-        "encode_sec": 36.1842733,
-        "decode_sec": 0.393441299998,
-        "checks": 42,
-        "encode_mpps": 0.8357221865223972,
-        "encode_repetition_mpps": [
-          0.8357221865223972
-        ],
-        "decode_mpps": 76.86025844300971,
-        "decode_repetition_mpps": [
-          76.86025844300971
-        ]
+      "fpng_single_pass": {
+        "bytes": 564919,
+        "encode_sec": 0.012013599859,
+        "decode_sec": 0.0055572001119999995,
+        "checks": 20,
+        "encode_mpps": 635.8194121371228,
+        "decode_mpps": 1374.5195145133907
       }
     }
   },
-  "aerial-resisc/rgb": {
-    "images": 22,
-    "pixels": 1441792,
+  "emoji-symbols": {
+    "images": 20,
+    "pixels": 7638480,
     "codecs": {
       "tcom": {
-        "bytes": 2229367,
-        "encode_sec": 0.010935000004,
-        "decode_sec": 0.008485899996,
-        "checks": 44,
-        "encode_mpps": 131.85112020782765,
-        "encode_repetition_mpps": [
-          131.85112020782765
-        ],
-        "decode_mpps": 169.90442978112137,
-        "decode_repetition_mpps": [
-          169.90442978112137
-        ]
+        "bytes": 598340,
+        "encode_sec": 0.0038897001080000003,
+        "decode_sec": 0.0049832998770000005,
+        "checks": 20,
+        "encode_mpps": 1963.7709303835102,
+        "decode_mpps": 1532.815641951382
       },
       "qoi_reference": {
-        "bytes": 2604011,
-        "encode_sec": 0.008338199999,
-        "decode_sec": 0.007253299994,
-        "checks": 44,
-        "encode_mpps": 172.9140582107546,
-        "encode_repetition_mpps": [
-          172.9140582107546
-        ],
-        "decode_mpps": 198.77738425167365,
-        "decode_repetition_mpps": [
-          198.77738425167365
-        ]
+        "bytes": 462307,
+        "encode_sec": 0.013301100059,
+        "decode_sec": 0.0064387000770000005,
+        "checks": 20,
+        "encode_mpps": 574.2743055926063,
+        "decode_mpps": 1186.3388430353812
+      },
+      "qoir": {
+        "bytes": 334881,
+        "encode_sec": 0.007975499959999998,
+        "decode_sec": 0.010710199944,
+        "checks": 20,
+        "encode_mpps": 957.743093011062,
+        "decode_mpps": 713.1967694290507
       },
       "libpng_level_1": {
-        "bytes": 2328737,
-        "encode_sec": 0.069889499996,
-        "decode_sec": 0.024759999988,
-        "checks": 44,
-        "encode_mpps": 20.629593860057927,
-        "encode_repetition_mpps": [
-          20.629593860057927
-        ],
-        "decode_mpps": 58.23069469704234,
-        "decode_repetition_mpps": [
-          58.23069469704234
-        ]
+        "bytes": 570340,
+        "encode_sec": 0.145727400262,
+        "decode_sec": 0.022454499849,
+        "checks": 20,
+        "encode_mpps": 52.41622362209817,
+        "decode_mpps": 340.1759135748541
       },
-      "libpng_level_3": {
-        "bytes": 2272697,
-        "encode_sec": 0.106342799997,
-        "decode_sec": 0.023165100004,
-        "checks": 44,
-        "encode_mpps": 13.557965372744313,
-        "encode_repetition_mpps": [
-          13.557965372744313
-        ],
-        "decode_mpps": 62.23983491334123,
-        "decode_repetition_mpps": [
-          62.23983491334123
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 2391586,
-        "encode_sec": 0.269937699997,
-        "decode_sec": 0.022250099999,
-        "checks": 44,
-        "encode_mpps": 5.341202803521047,
-        "encode_repetition_mpps": [
-          5.341202803521047
-        ],
-        "decode_mpps": 64.79934921932033,
-        "decode_repetition_mpps": [
-          64.79934921932033
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 2011569,
-        "encode_sec": 1.479165100003,
-        "decode_sec": 0.019093299997,
-        "checks": 44,
-        "encode_mpps": 0.9747336521102856,
-        "encode_repetition_mpps": [
-          0.9747336521102856
-        ],
-        "decode_mpps": 75.51298100519757,
-        "decode_repetition_mpps": [
-          75.51298100519757
-        ]
+      "fpng_single_pass": {
+        "bytes": 650859,
+        "encode_sec": 0.012178600124,
+        "decode_sec": 0.006146199885999998,
+        "checks": 20,
+        "encode_mpps": 627.2050910799737,
+        "decode_mpps": 1242.797198542007
       }
     }
   },
-  "qoi-textures_pk01": {
-    "images": 21,
-    "pixels": 2752512,
+  "emoji-travel": {
+    "images": 20,
+    "pixels": 7638480,
     "codecs": {
       "tcom": {
-        "bytes": 4112757,
-        "encode_sec": 0.015573700002,
-        "decode_sec": 0.011886299996,
-        "checks": 42,
-        "encode_mpps": 176.74104417360795,
-        "encode_repetition_mpps": [
-          176.74104417360795
-        ],
-        "decode_mpps": 231.57012703080693,
-        "decode_repetition_mpps": [
-          231.57012703080693
-        ]
+        "bytes": 622207,
+        "encode_sec": 0.003589400091000001,
+        "decode_sec": 0.004825799958,
+        "checks": 20,
+        "encode_mpps": 2128.065918077116,
+        "decode_mpps": 1582.8422368269248
       },
       "qoi_reference": {
-        "bytes": 4240512,
-        "encode_sec": 0.015141599999,
-        "decode_sec": 0.012087399999,
-        "checks": 42,
-        "encode_mpps": 181.78475195367628,
-        "encode_repetition_mpps": [
-          181.78475195367628
-        ],
-        "decode_mpps": 227.7174578675081,
-        "decode_repetition_mpps": [
-          227.7174578675081
-        ]
+        "bytes": 460300,
+        "encode_sec": 0.013769800077,
+        "decode_sec": 0.0063343999209999995,
+        "checks": 20,
+        "encode_mpps": 554.7270081835626,
+        "decode_mpps": 1205.8727101641741
+      },
+      "qoir": {
+        "bytes": 362558,
+        "encode_sec": 0.008201800111000001,
+        "decode_sec": 0.009241599880999998,
+        "checks": 20,
+        "encode_mpps": 931.3175030632002,
+        "decode_mpps": 826.5322128589567
       },
       "libpng_level_1": {
-        "bytes": 3730707,
-        "encode_sec": 0.110853599997,
-        "decode_sec": 0.033382499996,
-        "checks": 42,
-        "encode_mpps": 24.830154366430055,
-        "encode_repetition_mpps": [
-          24.830154366430055
-        ],
-        "decode_mpps": 82.45374074229956,
-        "decode_repetition_mpps": [
-          82.45374074229956
-        ]
+        "bytes": 631230,
+        "encode_sec": 0.143423099945,
+        "decode_sec": 0.022855999937,
+        "checks": 20,
+        "encode_mpps": 53.25836635053357,
+        "decode_mpps": 334.20021093168594
       },
-      "libpng_level_3": {
-        "bytes": 3630947,
-        "encode_sec": 0.159352100001,
-        "decode_sec": 0.033317600007,
-        "checks": 42,
-        "encode_mpps": 17.273145443221186,
-        "encode_repetition_mpps": [
-          17.273145443221186
-        ],
-        "decode_mpps": 82.61435395771903,
-        "decode_repetition_mpps": [
-          82.61435395771903
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 3483226,
-        "encode_sec": 0.371007799999,
-        "decode_sec": 0.030544199996,
-        "checks": 42,
-        "encode_mpps": 7.419013832074202,
-        "encode_repetition_mpps": [
-          7.419013832074202
-        ],
-        "decode_mpps": 90.11570119238556,
-        "decode_repetition_mpps": [
-          90.11570119238556
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 3082360,
-        "encode_sec": 2.042696500004,
-        "decode_sec": 0.027568899999,
-        "checks": 42,
-        "encode_mpps": 1.347489458171887,
-        "encode_repetition_mpps": [
-          1.347489458171887
-        ],
-        "decode_mpps": 99.84119787513615,
-        "decode_repetition_mpps": [
-          99.84119787513615
-        ]
+      "fpng_single_pass": {
+        "bytes": 709729,
+        "encode_sec": 0.011800599868000002,
+        "decode_sec": 0.0068242001590000005,
+        "checks": 20,
+        "encode_mpps": 647.295907449033,
+        "decode_mpps": 1119.3223853386096
       }
     }
   },
-  "qoi-screenshot_web": {
-    "images": 13,
-    "pixels": 86622127,
+  "flowers": {
+    "images": 20,
+    "pixels": 63536176,
     "codecs": {
       "tcom": {
-        "bytes": 27024134,
-        "encode_sec": 0.156299800005,
-        "decode_sec": 0.162329200004,
-        "checks": 26,
-        "encode_mpps": 554.2049765721325,
-        "encode_repetition_mpps": [
-          554.2049765721325
-        ],
-        "decode_mpps": 533.6201188564073,
-        "decode_repetition_mpps": [
-          533.6201188564073
-        ]
+        "bytes": 85287632,
+        "encode_sec": 0.344134899906,
+        "decode_sec": 0.272532700032,
+        "checks": 20,
+        "encode_mpps": 184.62578488073956,
+        "decode_mpps": 233.13230299534615
       },
       "qoi_reference": {
-        "bytes": 29762243,
-        "encode_sec": 0.269165900001,
-        "decode_sec": 0.160704900007,
-        "checks": 26,
-        "encode_mpps": 321.81686833168015,
-        "encode_repetition_mpps": [
-          321.81686833168015
-        ],
-        "decode_mpps": 539.0136019264311,
-        "decode_repetition_mpps": [
-          539.0136019264311
-        ]
+        "bytes": 95022047,
+        "encode_sec": 0.38196500012499995,
+        "decode_sec": 0.346477099984,
+        "checks": 20,
+        "encode_mpps": 166.34030861258876,
+        "decode_mpps": 183.37770664477983
+      },
+      "qoir": {
+        "bytes": 89158225,
+        "encode_sec": 0.36133269994799994,
+        "decode_sec": 0.330151499947,
+        "checks": 20,
+        "encode_mpps": 175.8384336904565,
+        "decode_mpps": 192.44551671035754
       },
       "libpng_level_1": {
-        "bytes": 26986103,
-        "encode_sec": 1.881784999998,
-        "decode_sec": 0.492976800002,
-        "checks": 26,
-        "encode_mpps": 46.03189365421238,
-        "encode_repetition_mpps": [
-          46.03189365421238
-        ],
-        "decode_mpps": 175.71238037905349,
-        "decode_repetition_mpps": [
-          175.71238037905349
-        ]
+        "bytes": 86185887,
+        "encode_sec": 2.6940301000130003,
+        "decode_sec": 0.79724990006,
+        "checks": 20,
+        "encode_mpps": 23.584063147510268,
+        "decode_mpps": 79.69417869505953
       },
-      "libpng_level_3": {
-        "bytes": 26155032,
-        "encode_sec": 2.145600799997,
-        "decode_sec": 0.476079700001,
-        "checks": 26,
-        "encode_mpps": 40.37196807538528,
-        "encode_repetition_mpps": [
-          40.37196807538528
-        ],
-        "decode_mpps": 181.9487934474376,
-        "decode_repetition_mpps": [
-          181.9487934474376
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 25149306,
-        "encode_sec": 3.705362000006,
-        "decode_sec": 0.694014300001,
-        "checks": 26,
-        "encode_mpps": 23.377507244868312,
-        "encode_repetition_mpps": [
-          23.377507244868312
-        ],
-        "decode_mpps": 124.81317315777959,
-        "decode_repetition_mpps": [
-          124.81317315777959
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 21928129,
-        "encode_sec": 48.526646799996,
-        "decode_sec": 0.568708199999,
-        "checks": 26,
-        "encode_mpps": 1.785042501638649,
-        "encode_repetition_mpps": [
-          1.785042501638649
-        ],
-        "decode_mpps": 152.31383510938,
-        "decode_repetition_mpps": [
-          152.31383510938
-        ]
+      "fpng_single_pass": {
+        "bytes": 94616796,
+        "encode_sec": 0.19713840016599998,
+        "decode_sec": 0.337578399865,
+        "checks": 20,
+        "encode_mpps": 322.292237060357,
+        "decode_mpps": 188.21161551037795
       }
     }
   },
-  "photo-bsds/rgb": {
-    "images": 22,
-    "pixels": 3396822,
+  "food": {
+    "images": 20,
+    "pixels": 24731490,
     "codecs": {
       "tcom": {
-        "bytes": 5639040,
-        "encode_sec": 0.021378199998,
-        "decode_sec": 0.018063100007,
-        "checks": 44,
-        "encode_mpps": 158.8918618180101,
-        "encode_repetition_mpps": [
-          158.8918618180101
-        ],
-        "decode_mpps": 188.05310266142735,
-        "decode_repetition_mpps": [
-          188.05310266142735
-        ]
+        "bytes": 36448032,
+        "encode_sec": 0.13029849989300002,
+        "decode_sec": 0.10155050008199999,
+        "checks": 20,
+        "encode_mpps": 189.80640621579897,
+        "decode_mpps": 243.53883023746627
       },
       "qoi_reference": {
-        "bytes": 6172547,
-        "encode_sec": 0.021209500001,
-        "decode_sec": 0.018424399995,
-        "checks": 44,
-        "encode_mpps": 160.15568494494656,
-        "encode_repetition_mpps": [
-          160.15568494494656
-        ],
-        "decode_mpps": 184.36540679326475,
-        "decode_repetition_mpps": [
-          184.36540679326475
-        ]
+        "bytes": 40760305,
+        "encode_sec": 0.145990899823,
+        "decode_sec": 0.12714050017700004,
+        "checks": 20,
+        "encode_mpps": 169.40432609145202,
+        "decode_mpps": 194.5209430949995
+      },
+      "qoir": {
+        "bytes": 37877195,
+        "encode_sec": 0.14350159995899997,
+        "decode_sec": 0.12254240008800002,
+        "checks": 20,
+        "encode_mpps": 172.34295650408126,
+        "decode_mpps": 201.81985975662178
       },
       "libpng_level_1": {
-        "bytes": 5836589,
-        "encode_sec": 0.170901399999,
-        "decode_sec": 0.052722499997,
-        "checks": 44,
-        "encode_mpps": 19.875916756795885,
-        "encode_repetition_mpps": [
-          19.875916756795885
-        ],
-        "decode_mpps": 64.42831808418198,
-        "decode_repetition_mpps": [
-          64.42831808418198
-        ]
+        "bytes": 36170564,
+        "encode_sec": 1.0864130999550001,
+        "decode_sec": 0.336174100055,
+        "checks": 20,
+        "encode_mpps": 22.764351793092693,
+        "decode_mpps": 73.56750563459168
       },
-      "libpng_level_3": {
-        "bytes": 5714685,
-        "encode_sec": 0.258822500004,
-        "decode_sec": 0.052698199994,
-        "checks": 44,
-        "encode_mpps": 13.12413719807012,
-        "encode_repetition_mpps": [
-          13.12413719807012
-        ],
-        "decode_mpps": 64.45802703672513,
-        "decode_repetition_mpps": [
-          64.45802703672513
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 5770243,
-        "encode_sec": 0.675016799999,
-        "decode_sec": 0.048093700001,
-        "checks": 44,
-        "encode_mpps": 5.032203642939009,
-        "encode_repetition_mpps": [
-          5.032203642939009
-        ],
-        "decode_mpps": 70.62925081516644,
-        "decode_repetition_mpps": [
-          70.62925081516644
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 5278231,
-        "encode_sec": 3.436852000001,
-        "decode_sec": 0.0491619,
-        "checks": 44,
-        "encode_mpps": 0.9883527134712264,
-        "encode_repetition_mpps": [
-          0.9883527134712264
-        ],
-        "decode_mpps": 69.09460374802438,
-        "decode_repetition_mpps": [
-          69.09460374802438
-        ]
+      "fpng_single_pass": {
+        "bytes": 40374698,
+        "encode_sec": 0.076130700009,
+        "decode_sec": 0.13987600011799997,
+        "checks": 20,
+        "encode_mpps": 324.85567579276557,
+        "decode_mpps": 176.8101030851355
       }
     }
   },
-  "natural-clic2022": {
-    "images": 22,
-    "pixels": 63041536,
+  "forests": {
+    "images": 20,
+    "pixels": 33071678,
     "codecs": {
       "tcom": {
-        "bytes": 94465049,
-        "encode_sec": 0.451057499997,
-        "decode_sec": 0.402820999999,
-        "checks": 44,
-        "encode_mpps": 139.76385715883075,
-        "encode_repetition_mpps": [
-          139.76385715883075
-        ],
-        "decode_mpps": 156.50012288375356,
-        "decode_repetition_mpps": [
-          156.50012288375356
-        ]
+        "bytes": 64331655,
+        "encode_sec": 0.17276710009900004,
+        "decode_sec": 0.127176499985,
+        "checks": 20,
+        "encode_mpps": 191.42347114149086,
+        "decode_mpps": 260.0455115835133
       },
       "qoi_reference": {
-        "bytes": 104264109,
-        "encode_sec": 0.420952300005,
-        "decode_sec": 0.373923799996,
-        "checks": 44,
-        "encode_mpps": 149.7593337754686,
-        "encode_repetition_mpps": [
-          149.7593337754686
-        ],
-        "decode_mpps": 168.5946067104431,
-        "decode_repetition_mpps": [
-          168.5946067104431
-        ]
+        "bytes": 75582884,
+        "encode_sec": 0.187292999877,
+        "decode_sec": 0.141465099936,
+        "checks": 20,
+        "encode_mpps": 176.5772240378391,
+        "decode_mpps": 233.77976628130827
+      },
+      "qoir": {
+        "bytes": 67470832,
+        "encode_sec": 0.191757500113,
+        "decode_sec": 0.15673329995399998,
+        "checks": 20,
+        "encode_mpps": 172.4661511571194,
+        "decode_mpps": 211.00607216020006
       },
       "libpng_level_1": {
-        "bytes": 97904262,
-        "encode_sec": 3.379115300001,
-        "decode_sec": 0.869251999997,
-        "checks": 44,
-        "encode_mpps": 18.65622519597995,
-        "encode_repetition_mpps": [
-          18.65622519597995
-        ],
-        "decode_mpps": 72.52388950525001,
-        "decode_repetition_mpps": [
-          72.52388950525001
-        ]
+        "bytes": 64580842,
+        "encode_sec": 1.793832899827,
+        "decode_sec": 0.4234619002090001,
+        "checks": 20,
+        "encode_mpps": 18.43632035246398,
+        "decode_mpps": 78.09835544514733
       },
-      "libpng_level_3": {
-        "bytes": 94979680,
-        "encode_sec": 5.275527299998,
-        "decode_sec": 0.856403599996,
-        "checks": 44,
-        "encode_mpps": 11.949807557630097,
-        "encode_repetition_mpps": [
-          11.949807557630097
-        ],
-        "decode_mpps": 73.61194651714968,
-        "decode_repetition_mpps": [
-          73.61194651714968
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 92482125,
-        "encode_sec": 15.054384400003,
-        "decode_sec": 0.778694500002,
-        "checks": 44,
-        "encode_mpps": 4.187586441594213,
-        "encode_repetition_mpps": [
-          4.187586441594213
-        ],
-        "decode_mpps": 80.95798288011292,
-        "decode_repetition_mpps": [
-          80.95798288011292
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 86620902,
-        "encode_sec": 77.9934333,
-        "decode_sec": 0.780140600002,
-        "checks": 44,
-        "encode_mpps": 0.8082928694459716,
-        "encode_repetition_mpps": [
-          0.8082928694459716
-        ],
-        "decode_mpps": 80.80791590623329,
-        "decode_repetition_mpps": [
-          80.80791590623329
-        ]
+      "fpng_single_pass": {
+        "bytes": 82574762,
+        "encode_sec": 0.089946399908,
+        "decode_sec": 0.22204270016100003,
+        "checks": 20,
+        "encode_mpps": 367.68206436084984,
+        "decode_mpps": 148.9428743931694
       }
     }
   },
-  "natural-div2k": {
-    "images": 22,
-    "pixels": 62424000,
+  "fungi": {
+    "images": 20,
+    "pixels": 63181489,
     "codecs": {
       "tcom": {
-        "bytes": 105860440,
-        "encode_sec": 0.454446200002,
-        "decode_sec": 0.424422599999,
-        "checks": 44,
-        "encode_mpps": 137.3627945392112,
-        "encode_repetition_mpps": [
-          137.3627945392112
-        ],
-        "decode_mpps": 147.07982091468992,
-        "decode_repetition_mpps": [
-          147.07982091468992
-        ]
+        "bytes": 101612229,
+        "encode_sec": 0.32933360006499995,
+        "decode_sec": 0.261103100027,
+        "checks": 20,
+        "encode_mpps": 191.84647113908204,
+        "decode_mpps": 241.97908409921817
       },
       "qoi_reference": {
-        "bytes": 119196057,
-        "encode_sec": 0.45502899999699997,
-        "decode_sec": 0.3631954,
-        "checks": 44,
-        "encode_mpps": 137.18686061857937,
-        "encode_repetition_mpps": [
-          137.18686061857937
-        ],
-        "decode_mpps": 171.87442351968113,
-        "decode_repetition_mpps": [
-          171.87442351968113
-        ]
+        "bytes": 111306620,
+        "encode_sec": 0.36461410013600004,
+        "decode_sec": 0.30806999991100004,
+        "checks": 20,
+        "encode_mpps": 173.28317521575136,
+        "decode_mpps": 205.08809367433648
+      },
+      "qoir": {
+        "bytes": 106033239,
+        "encode_sec": 0.338830000258,
+        "decode_sec": 0.307752300113,
+        "checks": 20,
+        "encode_mpps": 186.4695834249944,
+        "decode_mpps": 205.29981084398437
       },
       "libpng_level_1": {
-        "bytes": 109278975,
-        "encode_sec": 3.618621599998,
-        "decode_sec": 0.943943300002,
-        "checks": 44,
-        "encode_mpps": 17.2507675298336,
-        "encode_repetition_mpps": [
-          17.2507675298336
-        ],
-        "decode_mpps": 66.13109071261773,
-        "decode_repetition_mpps": [
-          66.13109071261773
-        ]
+        "bytes": 102494418,
+        "encode_sec": 2.9023170999690002,
+        "decode_sec": 0.863350199945,
+        "checks": 20,
+        "encode_mpps": 21.769326653064493,
+        "decode_mpps": 73.18176216791865
       },
-      "libpng_level_3": {
-        "bytes": 106890404,
-        "encode_sec": 5.324076,
-        "decode_sec": 0.953121500001,
-        "checks": 44,
-        "encode_mpps": 11.72485141083636,
-        "encode_repetition_mpps": [
-          11.72485141083636
-        ],
-        "decode_mpps": 65.49427329037746,
-        "decode_repetition_mpps": [
-          65.49427329037746
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 104042193,
-        "encode_sec": 15.173693499999,
-        "decode_sec": 0.840435300006,
-        "checks": 44,
-        "encode_mpps": 4.113962101580878,
-        "encode_repetition_mpps": [
-          4.113962101580878
-        ],
-        "decode_mpps": 74.27579493573668,
-        "decode_repetition_mpps": [
-          74.27579493573668
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 99329908,
-        "encode_sec": 69.991814700001,
-        "decode_sec": 0.863937300005,
-        "checks": 44,
-        "encode_mpps": 0.8918757181473551,
-        "encode_repetition_mpps": [
-          0.8918757181473551
-        ],
-        "decode_mpps": 72.25524352246248,
-        "decode_repetition_mpps": [
-          72.25524352246248
-        ]
+      "fpng_single_pass": {
+        "bytes": 114257848,
+        "encode_sec": 0.18047319993000002,
+        "decode_sec": 0.3663727000830001,
+        "checks": 20,
+        "encode_mpps": 350.0879300888228,
+        "decode_mpps": 172.45141077838636
       }
     }
   },
-  "qoi-screenshot_game": {
-    "images": 21,
-    "pixels": 12985837,
+  "glaciers": {
+    "images": 20,
+    "pixels": 37246730,
     "codecs": {
       "tcom": {
-        "bytes": 12272913,
-        "encode_sec": 0.058893800004,
-        "decode_sec": 0.054908700002,
-        "checks": 42,
-        "encode_mpps": 220.4958246728521,
-        "encode_repetition_mpps": [
-          220.4958246728521
-        ],
-        "decode_mpps": 236.49871513124518,
-        "decode_repetition_mpps": [
-          236.49871513124518
-        ]
+        "bytes": 52435946,
+        "encode_sec": 0.18997950007800002,
+        "decode_sec": 0.15133699984299998,
+        "checks": 20,
+        "encode_mpps": 196.05657444465103,
+        "decode_mpps": 246.1178035684631
       },
       "qoi_reference": {
-        "bytes": 12643875,
-        "encode_sec": 0.062367099997,
-        "decode_sec": 0.052544099999999996,
-        "checks": 42,
-        "encode_mpps": 208.21614281607847,
-        "encode_repetition_mpps": [
-          208.21614281607847
-        ],
-        "decode_mpps": 247.14167718164364,
-        "decode_repetition_mpps": [
-          247.14167718164364
-        ]
+        "bytes": 56943426,
+        "encode_sec": 0.20372090011299995,
+        "decode_sec": 0.18565389985599998,
+        "checks": 20,
+        "encode_mpps": 182.83214917733022,
+        "decode_mpps": 200.6245493840417
+      },
+      "qoir": {
+        "bytes": 52619917,
+        "encode_sec": 0.20006899984000004,
+        "decode_sec": 0.179680600236,
+        "checks": 20,
+        "encode_mpps": 186.16942169844953,
+        "decode_mpps": 207.29410938675957
       },
       "libpng_level_1": {
-        "bytes": 12225973,
-        "encode_sec": 0.464348400004,
-        "decode_sec": 0.142922099994,
-        "checks": 42,
-        "encode_mpps": 27.965719274338273,
-        "encode_repetition_mpps": [
-          27.965719274338273
-        ],
-        "decode_mpps": 90.85954516862793,
-        "decode_repetition_mpps": [
-          90.85954516862793
-        ]
+        "bytes": 51914483,
+        "encode_sec": 1.5308910998279999,
+        "decode_sec": 0.4532483001820001,
+        "checks": 20,
+        "encode_mpps": 24.330097682444418,
+        "decode_mpps": 82.17731866847315
       },
-      "libpng_level_3": {
-        "bytes": 11618345,
-        "encode_sec": 0.714976500004,
-        "decode_sec": 0.135016699998,
-        "checks": 42,
-        "encode_mpps": 18.162606742917212,
-        "encode_repetition_mpps": [
-          18.162606742917212
-        ],
-        "decode_mpps": 96.17948742779492,
-        "decode_repetition_mpps": [
-          96.17948742779492
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 10880374,
-        "encode_sec": 1.875455500001,
-        "decode_sec": 0.136346200004,
-        "checks": 42,
-        "encode_mpps": 6.924097639209822,
-        "encode_repetition_mpps": [
-          6.924097639209822
-        ],
-        "decode_mpps": 95.24164956279701,
-        "decode_repetition_mpps": [
-          95.24164956279701
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 9409636,
-        "encode_sec": 15.393978100007,
-        "decode_sec": 0.11543540000500001,
-        "checks": 42,
-        "encode_mpps": 0.8435660305372329,
-        "encode_repetition_mpps": [
-          0.8435660305372329
-        ],
-        "decode_mpps": 112.49440812296338,
-        "decode_repetition_mpps": [
-          112.49440812296338
-        ]
+      "fpng_single_pass": {
+        "bytes": 66138063,
+        "encode_sec": 0.11407199996699999,
+        "decode_sec": 0.215042999946,
+        "checks": 20,
+        "encode_mpps": 326.51947902005,
+        "decode_mpps": 173.20596350196527
       }
     }
   },
-  "photo-div2k/rgb": {
-    "images": 22,
-    "pixels": 61395840,
+  "insects": {
+    "images": 20,
+    "pixels": 63855013,
     "codecs": {
       "tcom": {
-        "bytes": 96934618,
-        "encode_sec": 0.460159699998,
-        "decode_sec": 0.414289899998,
-        "checks": 44,
-        "encode_mpps": 133.4228964428368,
-        "encode_repetition_mpps": [
-          133.4228964428368
-        ],
-        "decode_mpps": 148.19535788899606,
-        "decode_repetition_mpps": [
-          148.19535788899606
-        ]
+        "bytes": 86533502,
+        "encode_sec": 0.34399149992000005,
+        "decode_sec": 0.28191970020900003,
+        "checks": 20,
+        "encode_mpps": 185.62962461238246,
+        "decode_mpps": 226.50071262370577
       },
       "qoi_reference": {
-        "bytes": 108789457,
-        "encode_sec": 0.457546699995,
-        "decode_sec": 0.38514839999899997,
-        "checks": 44,
-        "encode_mpps": 134.18486025726102,
-        "encode_repetition_mpps": [
-          134.18486025726102
-        ],
-        "decode_mpps": 159.40826964401103,
-        "decode_repetition_mpps": [
-          159.40826964401103
-        ]
+        "bytes": 94650745,
+        "encode_sec": 0.3882779000539999,
+        "decode_sec": 0.349425699911,
+        "checks": 20,
+        "encode_mpps": 164.45698555369577,
+        "decode_mpps": 182.74274907731203
+      },
+      "qoir": {
+        "bytes": 88570941,
+        "encode_sec": 0.34693560004299995,
+        "decode_sec": 0.32471840002,
+        "checks": 20,
+        "encode_mpps": 184.05436914541394,
+        "decode_mpps": 196.64735043061017
       },
       "libpng_level_1": {
-        "bytes": 101123732,
-        "encode_sec": 3.513388,
-        "decode_sec": 0.956937199997,
-        "checks": 44,
-        "encode_mpps": 17.47482486989766,
-        "encode_repetition_mpps": [
-          17.47482486989766
-        ],
-        "decode_mpps": 64.15869296354293,
-        "decode_repetition_mpps": [
-          64.15869296354293
-        ]
+        "bytes": 88697843,
+        "encode_sec": 2.742705500105,
+        "decode_sec": 0.8277656998849999,
+        "checks": 20,
+        "encode_mpps": 23.281760654782445,
+        "decode_mpps": 77.14140971155396
       },
-      "libpng_level_3": {
-        "bytes": 98372379,
-        "encode_sec": 5.563183300004,
-        "decode_sec": 0.9131576999959999,
-        "checks": 44,
-        "encode_mpps": 11.036098702689852,
-        "encode_repetition_mpps": [
-          11.036098702689852
-        ],
-        "decode_mpps": 67.23465180249693,
-        "decode_repetition_mpps": [
-          67.23465180249693
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 94566831,
-        "encode_sec": 16.220967599997,
-        "decode_sec": 0.8348511,
-        "checks": 44,
-        "encode_mpps": 3.7849677968662827,
-        "encode_repetition_mpps": [
-          3.7849677968662827
-        ],
-        "decode_mpps": 73.54106618533532,
-        "decode_repetition_mpps": [
-          73.54106618533532
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 90670089,
-        "encode_sec": 80.0866536,
-        "decode_sec": 0.823093599994,
-        "checks": 44,
-        "encode_mpps": 0.766617622789523,
-        "encode_repetition_mpps": [
-          0.766617622789523
-        ],
-        "decode_mpps": 74.59156528546394,
-        "decode_repetition_mpps": [
-          74.59156528546394
-        ]
+      "fpng_single_pass": {
+        "bytes": 97385174,
+        "encode_sec": 0.20444250019200003,
+        "decode_sec": 0.34914510004300003,
+        "checks": 20,
+        "encode_mpps": 312.33727302312985,
+        "decode_mpps": 182.8896152119441
       }
     }
   },
-  "science-microscopy/rgb": {
-    "images": 21,
-    "pixels": 3214721,
+  "lakes": {
+    "images": 20,
+    "pixels": 61193808,
     "codecs": {
       "tcom": {
-        "bytes": 2303551,
-        "encode_sec": 0.014248399997,
-        "decode_sec": 0.012215199997,
-        "checks": 42,
-        "encode_mpps": 225.6197889360812,
-        "encode_repetition_mpps": [
-          225.6197889360812
-        ],
-        "decode_mpps": 263.1738326666384,
-        "decode_repetition_mpps": [
-          263.1738326666384
-        ]
+        "bytes": 94299252,
+        "encode_sec": 0.32014800008600003,
+        "decode_sec": 0.260971499896,
+        "checks": 20,
+        "encode_mpps": 191.14224665955047,
+        "decode_mpps": 234.48463922070573
       },
       "qoi_reference": {
-        "bytes": 2641294,
-        "encode_sec": 0.014418300001,
-        "decode_sec": 0.012118699995,
-        "checks": 42,
-        "encode_mpps": 222.96116738984756,
-        "encode_repetition_mpps": [
-          222.96116738984756
-        ],
-        "decode_mpps": 265.2694597049475,
-        "decode_repetition_mpps": [
-          265.2694597049475
-        ]
+        "bytes": 98005126,
+        "encode_sec": 0.36482560000200004,
+        "decode_sec": 0.324325200052,
+        "checks": 20,
+        "encode_mpps": 167.73441337358048,
+        "decode_mpps": 188.6803985326722
+      },
+      "qoir": {
+        "bytes": 92447029,
+        "encode_sec": 0.32262329995699995,
+        "decode_sec": 0.3000813999690001,
+        "checks": 20,
+        "encode_mpps": 189.67572400429873,
+        "decode_mpps": 203.9240286346359
       },
       "libpng_level_1": {
-        "bytes": 2059248,
-        "encode_sec": 0.096025899998,
-        "decode_sec": 0.028821000003,
-        "checks": 42,
-        "encode_mpps": 33.477645094364696,
-        "encode_repetition_mpps": [
-          33.477645094364696
-        ],
-        "decode_mpps": 111.54092500834035,
-        "decode_repetition_mpps": [
-          111.54092500834035
-        ]
+        "bytes": 95673474,
+        "encode_sec": 2.73414830002,
+        "decode_sec": 0.7581422000089999,
+        "checks": 20,
+        "encode_mpps": 22.381305359168838,
+        "decode_mpps": 80.71547527531585
       },
-      "libpng_level_3": {
-        "bytes": 1854014,
-        "encode_sec": 0.161841899997,
-        "decode_sec": 0.026785000002,
-        "checks": 42,
-        "encode_mpps": 19.86334194086692,
-        "encode_repetition_mpps": [
-          19.86334194086692
-        ],
-        "decode_mpps": 120.01945117640325,
-        "decode_repetition_mpps": [
-          120.01945117640325
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 1688180,
-        "encode_sec": 0.436736600002,
-        "decode_sec": 0.027303999995,
-        "checks": 42,
-        "encode_mpps": 7.3607776403106095,
-        "encode_repetition_mpps": [
-          7.3607776403106095
-        ],
-        "decode_mpps": 117.73809700368776,
-        "decode_repetition_mpps": [
-          117.73809700368776
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 1290106,
-        "encode_sec": 3.222417999996,
-        "decode_sec": 0.021750700006,
-        "checks": 42,
-        "encode_mpps": 0.9976114209900735,
-        "encode_repetition_mpps": [
-          0.9976114209900735
-        ],
-        "decode_mpps": 147.79850759346638,
-        "decode_repetition_mpps": [
-          147.79850759346638
-        ]
+      "fpng_single_pass": {
+        "bytes": 115704981,
+        "encode_sec": 0.18237710010800004,
+        "decode_sec": 0.368236999959,
+        "checks": 20,
+        "encode_mpps": 335.5344939894442,
+        "decode_mpps": 166.18049790437516
       }
     }
   },
-  "ui-enrico": {
-    "images": 21,
-    "pixels": 34214400,
+  "mammals": {
+    "images": 20,
+    "pixels": 58167474,
     "codecs": {
       "tcom": {
-        "bytes": 13139680,
-        "encode_sec": 0.061578799998,
-        "decode_sec": 0.063415600001,
-        "checks": 42,
-        "encode_mpps": 555.6197912448966,
-        "encode_repetition_mpps": [
-          555.6197912448966
-        ],
-        "decode_mpps": 539.5265518178568,
-        "decode_repetition_mpps": [
-          539.5265518178568
-        ]
+        "bytes": 98622746,
+        "encode_sec": 0.306601599906,
+        "decode_sec": 0.24041889992099993,
+        "checks": 20,
+        "encode_mpps": 189.71679866586928,
+        "decode_mpps": 241.94218515729605
       },
       "qoi_reference": {
-        "bytes": 13776891,
-        "encode_sec": 0.092094300008,
-        "decode_sec": 0.063130599999,
-        "checks": 42,
-        "encode_mpps": 371.51484942095095,
-        "encode_repetition_mpps": [
-          371.51484942095095
-        ],
-        "decode_mpps": 541.9622180137993,
-        "decode_repetition_mpps": [
-          541.9622180137993
-        ]
+        "bytes": 113255415,
+        "encode_sec": 0.33589309995200006,
+        "decode_sec": 0.27974919998,
+        "checks": 20,
+        "encode_mpps": 173.17257784786966,
+        "decode_mpps": 207.9272219693874
+      },
+      "qoir": {
+        "bytes": 104634496,
+        "encode_sec": 0.324617000006,
+        "decode_sec": 0.286545999987,
+        "checks": 20,
+        "encode_mpps": 179.18800925067038,
+        "decode_mpps": 202.9952398659864
       },
       "libpng_level_1": {
-        "bytes": 11235725,
-        "encode_sec": 0.693384300002,
-        "decode_sec": 0.199440499996,
-        "checks": 42,
-        "encode_mpps": 49.344065044307044,
-        "encode_repetition_mpps": [
-          49.344065044307044
-        ],
-        "decode_mpps": 171.5519164898113,
-        "decode_repetition_mpps": [
-          171.5519164898113
-        ]
+        "bytes": 99600858,
+        "encode_sec": 2.8012858001730003,
+        "decode_sec": 0.8194773999249999,
+        "checks": 20,
+        "encode_mpps": 20.76456247213609,
+        "decode_mpps": 70.98118142772894
       },
-      "libpng_level_3": {
-        "bytes": 10729331,
-        "encode_sec": 0.865334199997,
-        "decode_sec": 0.199945499999,
-        "checks": 42,
-        "encode_mpps": 39.53894345111821,
-        "encode_repetition_mpps": [
-          39.53894345111821
-        ],
-        "decode_mpps": 171.1186298274836,
-        "decode_repetition_mpps": [
-          171.1186298274836
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 10189297,
-        "encode_sec": 1.593515999994,
-        "decode_sec": 0.272326500005,
-        "checks": 42,
-        "encode_mpps": 21.471011273265425,
-        "encode_repetition_mpps": [
-          21.471011273265425
-        ],
-        "decode_mpps": 125.63742419254758,
-        "decode_repetition_mpps": [
-          125.63742419254758
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 8849357,
-        "encode_sec": 16.893356200002,
-        "decode_sec": 0.234408300008,
-        "checks": 42,
-        "encode_mpps": 2.02531691127166,
-        "encode_repetition_mpps": [
-          2.02531691127166
-        ],
-        "decode_mpps": 145.96070189849212,
-        "decode_repetition_mpps": [
-          145.96070189849212
-        ]
+      "fpng_single_pass": {
+        "bytes": 116086469,
+        "encode_sec": 0.16406470007600002,
+        "decode_sec": 0.364668799973,
+        "checks": 20,
+        "encode_mpps": 354.5398490537877,
+        "decode_mpps": 159.50767930875003
       }
     }
   },
-  "scan-document/gray-as-rgb": {
-    "images": 21,
-    "pixels": 126590128,
+  "manuscripts": {
+    "images": 20,
+    "pixels": 21032915,
     "codecs": {
       "tcom": {
-        "bytes": 25895582,
-        "encode_sec": 0.190601900007,
-        "decode_sec": 0.196224099999,
-        "checks": 42,
-        "encode_mpps": 664.1598430831534,
-        "encode_repetition_mpps": [
-          664.1598430831534
-        ],
-        "decode_mpps": 645.1303789934321,
-        "decode_repetition_mpps": [
-          645.1303789934321
-        ]
+        "bytes": 36492327,
+        "encode_sec": 0.109069900179,
+        "decode_sec": 0.08577749994499999,
+        "checks": 20,
+        "encode_mpps": 192.83885806699965,
+        "decode_mpps": 245.2031711519475
       },
       "qoi_reference": {
-        "bytes": 17513947,
-        "encode_sec": 0.270764899997,
-        "decode_sec": 0.161986300002,
-        "checks": 42,
-        "encode_mpps": 467.5278368850711,
-        "encode_repetition_mpps": [
-          467.5278368850711
-        ],
-        "decode_mpps": 781.4866318845299,
-        "decode_repetition_mpps": [
-          781.4866318845299
-        ]
+        "bytes": 42094866,
+        "encode_sec": 0.117782700109,
+        "decode_sec": 0.09564270009199999,
+        "checks": 20,
+        "encode_mpps": 178.57389056742159,
+        "decode_mpps": 219.9113469168913
+      },
+      "qoir": {
+        "bytes": 38442134,
+        "encode_sec": 0.11851319973199999,
+        "decode_sec": 0.09822680009500001,
+        "checks": 20,
+        "encode_mpps": 177.4731848229802,
+        "decode_mpps": 214.12603260676337
       },
       "libpng_level_1": {
-        "bytes": 20044489,
-        "encode_sec": 2.0148299,
-        "decode_sec": 0.342206300006,
-        "checks": 42,
-        "encode_mpps": 62.82918870719558,
-        "encode_repetition_mpps": [
-          62.82918870719558
-        ],
-        "decode_mpps": 369.92342922319216,
-        "decode_repetition_mpps": [
-          369.92342922319216
-        ]
+        "bytes": 35772796,
+        "encode_sec": 0.967990599865,
+        "decode_sec": 0.28962870000300006,
+        "checks": 20,
+        "encode_mpps": 21.72842897744393,
+        "decode_mpps": 72.62027209244849
       },
-      "libpng_level_3": {
-        "bytes": 18188722,
-        "encode_sec": 2.243440100006,
-        "decode_sec": 0.315504899998,
-        "checks": 42,
-        "encode_mpps": 56.4267920501472,
-        "encode_repetition_mpps": [
-          56.4267920501472
-        ],
-        "decode_mpps": 401.2303073606858,
-        "decode_repetition_mpps": [
-          401.2303073606858
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 17308628,
-        "encode_sec": 3.870277200004,
-        "decode_sec": 0.682578100003,
-        "checks": 42,
-        "encode_mpps": 32.70828456418294,
-        "encode_repetition_mpps": [
-          32.70828456418294
-        ],
-        "decode_mpps": 185.4588185578231,
-        "decode_repetition_mpps": [
-          185.4588185578231
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 8354955,
-        "encode_sec": 30.827844499998,
-        "decode_sec": 0.327405000001,
-        "checks": 42,
-        "encode_mpps": 4.106356771068058,
-        "encode_repetition_mpps": [
-          4.106356771068058
-        ],
-        "decode_mpps": 386.64689909932156,
-        "decode_repetition_mpps": [
-          386.64689909932156
-        ]
+      "fpng_single_pass": {
+        "bytes": 45822247,
+        "encode_sec": 0.059888700081,
+        "decode_sec": 0.139418300009,
+        "checks": 20,
+        "encode_mpps": 351.2000589686,
+        "decode_mpps": 150.86193848757475
       }
     }
   },
-  "industrial/rgb": {
-    "images": 22,
-    "pixels": 19874112,
+  "microscopy": {
+    "images": 20,
+    "pixels": 18949803,
     "codecs": {
       "tcom": {
-        "bytes": 32499210,
-        "encode_sec": 0.140079199998,
-        "decode_sec": 0.120556,
-        "checks": 44,
-        "encode_mpps": 141.8776806284142,
-        "encode_repetition_mpps": [
-          141.8776806284142
-        ],
-        "decode_mpps": 164.85377749759448,
-        "decode_repetition_mpps": [
-          164.85377749759448
-        ]
+        "bytes": 20225308,
+        "encode_sec": 0.074875599879,
+        "decode_sec": 0.06081570009799999,
+        "checks": 20,
+        "encode_mpps": 253.08382210791154,
+        "decode_mpps": 311.5939300125428
       },
       "qoi_reference": {
-        "bytes": 35723525,
-        "encode_sec": 0.134101099999,
-        "decode_sec": 0.106460200001,
-        "checks": 44,
-        "encode_mpps": 148.20245322482964,
-        "encode_repetition_mpps": [
-          148.20245322482964
-        ],
-        "decode_mpps": 186.68114468893842,
-        "decode_repetition_mpps": [
-          186.68114468893842
-        ]
+        "bytes": 22547103,
+        "encode_sec": 0.09112860006399998,
+        "decode_sec": 0.073220699968,
+        "checks": 20,
+        "encode_mpps": 207.94572710094832,
+        "decode_mpps": 258.8039039271917
+      },
+      "qoir": {
+        "bytes": 19941336,
+        "encode_sec": 0.08209249999900001,
+        "decode_sec": 0.07370710012200002,
+        "checks": 20,
+        "encode_mpps": 230.8347656634995,
+        "decode_mpps": 257.0960323854049
       },
       "libpng_level_1": {
-        "bytes": 28715412,
-        "encode_sec": 0.967072599998,
-        "decode_sec": 0.301224299999,
-        "checks": 44,
-        "encode_mpps": 20.550796289793652,
-        "encode_repetition_mpps": [
-          20.550796289793652
-        ],
-        "decode_mpps": 65.9777846610183,
-        "decode_repetition_mpps": [
-          65.9777846610183
-        ]
+        "bytes": 18862367,
+        "encode_sec": 0.665687000208,
+        "decode_sec": 0.201216200017,
+        "checks": 20,
+        "encode_mpps": 28.466536065867235,
+        "decode_mpps": 94.17632873694565
       },
-      "libpng_level_3": {
-        "bytes": 27702543,
-        "encode_sec": 1.670527600002,
-        "decode_sec": 0.282913900005,
-        "checks": 44,
-        "encode_mpps": 11.896907300409888,
-        "encode_repetition_mpps": [
-          11.896907300409888
-        ],
-        "decode_mpps": 70.24791641431814,
-        "decode_repetition_mpps": [
-          70.24791641431814
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 24860921,
-        "encode_sec": 6.4900865,
-        "decode_sec": 0.270695500004,
-        "checks": 44,
-        "encode_mpps": 3.0622260581580845,
-        "encode_repetition_mpps": [
-          3.0622260581580845
-        ],
-        "decode_mpps": 73.41870108556044,
-        "decode_repetition_mpps": [
-          73.41870108556044
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 23452829,
-        "encode_sec": 27.044461599998,
-        "decode_sec": 0.255904500002,
-        "checks": 44,
-        "encode_mpps": 0.7348680958766607,
-        "encode_repetition_mpps": [
-          0.7348680958766607
-        ],
-        "decode_mpps": 77.6622216484848,
-        "decode_repetition_mpps": [
-          77.6622216484848
-        ]
+      "fpng_single_pass": {
+        "bytes": 21808792,
+        "encode_sec": 0.05016250006200001,
+        "decode_sec": 0.08030509995200003,
+        "checks": 20,
+        "encode_mpps": 377.7683125158906,
+        "decode_mpps": 235.9725971492057
       }
     }
   },
-  "qoi-textures_pk": {
-    "images": 21,
-    "pixels": 862208,
+  "monochrome": {
+    "images": 20,
+    "pixels": 25125117,
     "codecs": {
       "tcom": {
-        "bytes": 1532640,
-        "encode_sec": 0.005005599997,
-        "decode_sec": 0.0049465,
-        "checks": 42,
-        "encode_mpps": 172.24868157997963,
-        "encode_repetition_mpps": [
-          172.24868157997963
-        ],
-        "decode_mpps": 174.306681491964,
-        "decode_repetition_mpps": [
-          174.306681491964
-        ]
+        "bytes": 27947454,
+        "encode_sec": 0.11322429997399998,
+        "decode_sec": 0.106101499987,
+        "checks": 20,
+        "encode_mpps": 221.9056952065021,
+        "decode_mpps": 236.8026559763852
       },
       "qoi_reference": {
-        "bytes": 1380946,
-        "encode_sec": 0.0058528,
-        "decode_sec": 0.004799800005,
-        "checks": 42,
-        "encode_mpps": 147.31547293603063,
-        "encode_repetition_mpps": [
-          147.31547293603063
-        ],
-        "decode_mpps": 179.63415123584923,
-        "decode_repetition_mpps": [
-          179.63415123584923
-        ]
+        "bytes": 29533879,
+        "encode_sec": 0.11123899999200001,
+        "decode_sec": 0.11523279989999999,
+        "checks": 20,
+        "encode_mpps": 225.86608115685078,
+        "decode_mpps": 218.03789391391854
+      },
+      "qoir": {
+        "bytes": 27606763,
+        "encode_sec": 0.10716820007599999,
+        "decode_sec": 0.10402039985799999,
+        "checks": 20,
+        "encode_mpps": 234.4456376255469,
+        "decode_mpps": 241.54028473548192
       },
       "libpng_level_1": {
-        "bytes": 1538232,
-        "encode_sec": 0.046422700005,
-        "decode_sec": 0.011829,
-        "checks": 42,
-        "encode_mpps": 18.572982612108625,
-        "encode_repetition_mpps": [
-          18.572982612108625
-        ],
-        "decode_mpps": 72.88933975822133,
-        "decode_repetition_mpps": [
-          72.88933975822133
-        ]
+        "bytes": 24643127,
+        "encode_sec": 0.838263299897,
+        "decode_sec": 0.258759100048,
+        "checks": 20,
+        "encode_mpps": 29.972822385385594,
+        "decode_mpps": 97.09848656661455
       },
-      "libpng_level_3": {
-        "bytes": 1531791,
-        "encode_sec": 0.053047799997,
-        "decode_sec": 0.013007399994,
-        "checks": 42,
-        "encode_mpps": 16.253416730736433,
-        "encode_repetition_mpps": [
-          16.253416730736433
-        ],
-        "decode_mpps": 66.28596033009792,
-        "decode_repetition_mpps": [
-          66.28596033009792
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 1523700,
-        "encode_sec": 0.082814100002,
-        "decode_sec": 0.012044599999,
-        "checks": 42,
-        "encode_mpps": 10.41136714616445,
-        "encode_repetition_mpps": [
-          10.41136714616445
-        ],
-        "decode_mpps": 71.5846105368036,
-        "decode_repetition_mpps": [
-          71.5846105368036
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 640233,
-        "encode_sec": 0.5517406,
-        "decode_sec": 0.0054874,
-        "checks": 42,
-        "encode_mpps": 1.5627053727784397,
-        "encode_repetition_mpps": [
-          1.5627053727784397
-        ],
-        "decode_mpps": 157.12505011480846,
-        "decode_repetition_mpps": [
-          157.12505011480846
-        ]
+      "fpng_single_pass": {
+        "bytes": 43274245,
+        "encode_sec": 0.08030370006,
+        "decode_sec": 0.145465199894,
+        "checks": 20,
+        "encode_mpps": 312.87620596843516,
+        "decode_mpps": 172.72252757572662
       }
     }
   },
-  "ui-enrico/rgb": {
-    "images": 21,
-    "pixels": 34214400,
+  "mountains": {
+    "images": 20,
+    "pixels": 62354793,
     "codecs": {
       "tcom": {
-        "bytes": 14970025,
-        "encode_sec": 0.072260399992,
-        "decode_sec": 0.073897000001,
-        "checks": 42,
-        "encode_mpps": 473.4875534011423,
-        "encode_repetition_mpps": [
-          473.4875534011423
-        ],
-        "decode_mpps": 463.00120437280265,
-        "decode_repetition_mpps": [
-          463.00120437280265
-        ]
+        "bytes": 97730794,
+        "encode_sec": 0.326773200126,
+        "decode_sec": 0.26143350004000004,
+        "checks": 20,
+        "encode_mpps": 190.81978869734945,
+        "decode_mpps": 238.51110508201722
       },
       "qoi_reference": {
-        "bytes": 16406816,
-        "encode_sec": 0.101263099994,
-        "decode_sec": 0.072478900001,
-        "checks": 42,
-        "encode_mpps": 337.8762846686232,
-        "encode_repetition_mpps": [
-          337.8762846686232
-        ],
-        "decode_mpps": 472.06014439413315,
-        "decode_repetition_mpps": [
-          472.06014439413315
-        ]
+        "bytes": 105421118,
+        "encode_sec": 0.36808489996599997,
+        "decode_sec": 0.30933190003399996,
+        "checks": 20,
+        "encode_mpps": 169.40328985448662,
+        "decode_mpps": 201.57892863020697
+      },
+      "qoir": {
+        "bytes": 97638826,
+        "encode_sec": 0.312263600005,
+        "decode_sec": 0.29171770019199994,
+        "checks": 20,
+        "encode_mpps": 199.68639636192492,
+        "decode_mpps": 213.7504613499967
       },
       "libpng_level_1": {
-        "bytes": 13102798,
-        "encode_sec": 0.755789599997,
-        "decode_sec": 0.231323199997,
-        "checks": 42,
-        "encode_mpps": 45.26974173782731,
-        "encode_repetition_mpps": [
-          45.26974173782731
-        ],
-        "decode_mpps": 147.9073434936216,
-        "decode_repetition_mpps": [
-          147.9073434936216
-        ]
+        "bytes": 98502684,
+        "encode_sec": 2.8752552997330003,
+        "decode_sec": 0.758189100305,
+        "checks": 20,
+        "encode_mpps": 21.686697875416606,
+        "decode_mpps": 82.24174282499744
       },
-      "libpng_level_3": {
-        "bytes": 12421376,
-        "encode_sec": 0.939512000003,
-        "decode_sec": 0.225946899996,
-        "checks": 42,
-        "encode_mpps": 36.417203824848166,
-        "encode_repetition_mpps": [
-          36.417203824848166
-        ],
-        "decode_mpps": 151.4267290261814,
-        "decode_repetition_mpps": [
-          151.4267290261814
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 11588016,
-        "encode_sec": 1.954287300001,
-        "decode_sec": 0.2906131,
-        "checks": 42,
-        "encode_mpps": 17.507354215515033,
-        "encode_repetition_mpps": [
-          17.507354215515033
-        ],
-        "decode_mpps": 117.73178841559448,
-        "decode_repetition_mpps": [
-          117.73178841559448
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 10092309,
-        "encode_sec": 21.295321800004,
-        "decode_sec": 0.254099700004,
-        "checks": 42,
-        "encode_mpps": 1.6066627366013118,
-        "encode_repetition_mpps": [
-          1.6066627366013118
-        ],
-        "decode_mpps": 134.6495096194974,
-        "decode_repetition_mpps": [
-          134.6495096194974
-        ]
+      "fpng_single_pass": {
+        "bytes": 111928147,
+        "encode_sec": 0.18252879992399998,
+        "decode_sec": 0.368695600078,
+        "checks": 20,
+        "encode_mpps": 341.61618892998166,
+        "decode_mpps": 169.12269359007385
       }
     }
   },
-  "qoi-pngimg": {
-    "images": 21,
-    "pixels": 35260535,
+  "pixel-art": {
+    "images": 20,
+    "pixels": 6984,
     "codecs": {
       "tcom": {
-        "bytes": 38638330,
-        "encode_sec": 0.17168610000099999,
-        "decode_sec": 0.159587599999,
-        "checks": 42,
-        "encode_mpps": 205.37792517737094,
-        "encode_repetition_mpps": [
-          205.37792517737094
-        ],
-        "decode_mpps": 220.94783680073482,
-        "decode_repetition_mpps": [
-          220.94783680073482
-        ]
+        "bytes": 2843,
+        "encode_sec": 0.000323300018,
+        "decode_sec": 2.1300048e-05,
+        "checks": 20,
+        "encode_mpps": 21.602225830992687,
+        "decode_mpps": 327.8865850443154
       },
       "qoi_reference": {
-        "bytes": 46884298,
-        "encode_sec": 0.211413300002,
-        "decode_sec": 0.14937300000099998,
-        "checks": 42,
-        "encode_mpps": 166.78484749855582,
-        "encode_repetition_mpps": [
-          166.78484749855582
-        ],
-        "decode_mpps": 236.05695138856385,
-        "decode_repetition_mpps": [
-          236.05695138856385
-        ]
+        "bytes": 2940,
+        "encode_sec": 4.459987199999998e-05,
+        "decode_sec": 2.5900082999999993e-05,
+        "checks": 20,
+        "encode_mpps": 156.59237766422297,
+        "decode_mpps": 269.65164551789286
+      },
+      "qoir": {
+        "bytes": 2818,
+        "encode_sec": 0.000326600099,
+        "decode_sec": 8.859980099999998e-05,
+        "checks": 20,
+        "encode_mpps": 21.38394942740051,
+        "decode_mpps": 78.82636214950416
       },
       "libpng_level_1": {
-        "bytes": 40700301,
-        "encode_sec": 1.747954399992,
-        "decode_sec": 0.441216699995,
-        "checks": 42,
-        "encode_mpps": 20.172457016133475,
-        "encode_repetition_mpps": [
-          20.172457016133475
-        ],
-        "decode_mpps": 79.91659200660261,
-        "decode_repetition_mpps": [
-          79.91659200660261
-        ]
+        "bytes": 4480,
+        "encode_sec": 0.0015572999840000002,
+        "decode_sec": 0.000528900014,
+        "checks": 20,
+        "encode_mpps": 4.4846850778623,
+        "decode_mpps": 13.20476425625506
       },
-      "libpng_level_3": {
-        "bytes": 39386087,
-        "encode_sec": 2.380989300002,
-        "decode_sec": 0.412703200002,
-        "checks": 42,
-        "encode_mpps": 14.809195068608826,
-        "encode_repetition_mpps": [
-          14.809195068608826
-        ],
-        "decode_mpps": 85.43799757266027,
-        "decode_repetition_mpps": [
-          85.43799757266027
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 34809101,
-        "encode_sec": 6.411380300001,
-        "decode_sec": 0.441871899996,
-        "checks": 42,
-        "encode_mpps": 5.499679218840677,
-        "encode_repetition_mpps": [
-          5.499679218840677
-        ],
-        "decode_mpps": 79.7980930679665,
-        "decode_repetition_mpps": [
-          79.7980930679665
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 33037395,
-        "encode_sec": 43.712236800002,
-        "decode_sec": 0.37315940000000003,
-        "checks": 42,
-        "encode_mpps": 0.8066513539750586,
-        "encode_repetition_mpps": [
-          0.8066513539750586
-        ],
-        "decode_mpps": 94.49188470128314,
-        "decode_repetition_mpps": [
-          94.49188470128314
-        ]
+      "fpng_single_pass": {
+        "bytes": 6935,
+        "encode_sec": 0.00017910008200000001,
+        "decode_sec": 0.0005527999030000001,
+        "checks": 20,
+        "encode_mpps": 38.99495702073436,
+        "decode_mpps": 12.633866182136432
       }
     }
   },
-  "qoi-textures_plants": {
-    "images": 21,
-    "pixels": 22233719,
+  "rocks": {
+    "images": 20,
+    "pixels": 54648975,
     "codecs": {
       "tcom": {
-        "bytes": 17101636,
-        "encode_sec": 0.0654223,
-        "decode_sec": 0.062063000001,
-        "checks": 42,
-        "encode_mpps": 339.8492410080355,
-        "encode_repetition_mpps": [
-          339.8492410080355
-        ],
-        "decode_mpps": 358.2443484788321,
-        "decode_repetition_mpps": [
-          358.2443484788321
-        ]
+        "bytes": 79955339,
+        "encode_sec": 0.265355300041,
+        "decode_sec": 0.21589649992700002,
+        "checks": 20,
+        "encode_mpps": 205.94642349919596,
+        "decode_mpps": 253.125803421909
       },
       "qoi_reference": {
-        "bytes": 18477362,
-        "encode_sec": 0.083259399997,
-        "decode_sec": 0.054495700004,
-        "checks": 42,
-        "encode_mpps": 267.04154727035177,
-        "encode_repetition_mpps": [
-          267.04154727035177
-        ],
-        "decode_mpps": 407.9903368223188,
-        "decode_repetition_mpps": [
-          407.9903368223188
-        ]
+        "bytes": 89032789,
+        "encode_sec": 0.29186850023500005,
+        "decode_sec": 0.25029579980800004,
+        "checks": 20,
+        "encode_mpps": 187.23834519997524,
+        "decode_mpps": 218.3375631629488
+      },
+      "qoir": {
+        "bytes": 83263769,
+        "encode_sec": 0.27881429996199997,
+        "decode_sec": 0.251603700045,
+        "checks": 20,
+        "encode_mpps": 196.0049215820286,
+        "decode_mpps": 217.20258879430583
       },
       "libpng_level_1": {
-        "bytes": 19511549,
-        "encode_sec": 0.8165452,
-        "decode_sec": 0.212518000002,
-        "checks": 42,
-        "encode_mpps": 27.22901193957175,
-        "encode_repetition_mpps": [
-          27.22901193957175
-        ],
-        "decode_mpps": 104.62040391774231,
-        "decode_repetition_mpps": [
-          104.62040391774231
-        ]
+        "bytes": 81218652,
+        "encode_sec": 2.334875499889,
+        "decode_sec": 0.6960483000719999,
+        "checks": 20,
+        "encode_mpps": 23.40551990999007,
+        "decode_mpps": 78.51319368835044
       },
-      "libpng_level_3": {
-        "bytes": 18978274,
-        "encode_sec": 1.119108900001,
-        "decode_sec": 0.206060599996,
-        "checks": 42,
-        "encode_mpps": 19.867341775210736,
-        "encode_repetition_mpps": [
-          19.867341775210736
-        ],
-        "decode_mpps": 107.89893361676903,
-        "decode_repetition_mpps": [
-          107.89893361676903
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 17429867,
-        "encode_sec": 3.1041162999950003,
-        "decode_sec": 0.248837800003,
-        "checks": 42,
-        "encode_mpps": 7.162656566712984,
-        "encode_repetition_mpps": [
-          7.162656566712984
-        ],
-        "decode_mpps": 89.35024742917655,
-        "decode_repetition_mpps": [
-          89.35024742917655
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 15540033,
-        "encode_sec": 19.5377698,
-        "decode_sec": 0.2256224,
-        "checks": 42,
-        "encode_mpps": 1.1379865372351763,
-        "encode_repetition_mpps": [
-          1.1379865372351763
-        ],
-        "decode_mpps": 98.54393446749967,
-        "decode_repetition_mpps": [
-          98.54393446749967
-        ]
+      "fpng_single_pass": {
+        "bytes": 99030820,
+        "encode_sec": 0.15956949995400002,
+        "decode_sec": 0.32366520003199994,
+        "checks": 20,
+        "encode_mpps": 342.4775725671508,
+        "decode_mpps": 168.84414819571887
       }
     }
   },
-  "qoi-photo_kodak": {
-    "images": 21,
-    "pixels": 8257536,
+  "scanned-maps": {
+    "images": 20,
+    "pixels": 26417914,
     "codecs": {
       "tcom": {
-        "bytes": 13535674,
-        "encode_sec": 0.057093999996,
-        "decode_sec": 0.046643599997,
-        "checks": 42,
-        "encode_mpps": 144.63053912107264,
-        "encode_repetition_mpps": [
-          144.63053912107264
-        ],
-        "decode_mpps": 177.03470573735956,
-        "decode_repetition_mpps": [
-          177.03470573735956
-        ]
+        "bytes": 36571755,
+        "encode_sec": 0.125872300064,
+        "decode_sec": 0.101062999861,
+        "checks": 20,
+        "encode_mpps": 209.87869441146117,
+        "decode_mpps": 261.40045354219313
       },
       "qoi_reference": {
-        "bytes": 13991262,
-        "encode_sec": 0.052600100004,
-        "decode_sec": 0.046516499996,
-        "checks": 42,
-        "encode_mpps": 156.98707795939652,
-        "encode_repetition_mpps": [
-          156.98707795939652
-        ],
-        "decode_mpps": 177.51842895983302,
-        "decode_repetition_mpps": [
-          177.51842895983302
-        ]
+        "bytes": 41705738,
+        "encode_sec": 0.146154599963,
+        "decode_sec": 0.123843899986,
+        "checks": 20,
+        "encode_mpps": 180.75321616074945,
+        "decode_mpps": 213.31623118285543
+      },
+      "qoir": {
+        "bytes": 38277297,
+        "encode_sec": 0.139662800184,
+        "decode_sec": 0.12222209980000001,
+        "checks": 20,
+        "encode_mpps": 189.15497874305456,
+        "decode_mpps": 216.14678559138937
       },
       "libpng_level_1": {
-        "bytes": 14013009,
-        "encode_sec": 0.394105800001,
-        "decode_sec": 0.119079100007,
-        "checks": 42,
-        "encode_mpps": 20.95258684337822,
-        "encode_repetition_mpps": [
-          20.95258684337822
-        ],
-        "decode_mpps": 69.34496481342725,
-        "decode_repetition_mpps": [
-          69.34496481342725
-        ]
+        "bytes": 38008449,
+        "encode_sec": 1.116225500184,
+        "decode_sec": 0.33758989989400007,
+        "checks": 20,
+        "encode_mpps": 23.6671837327182,
+        "decode_mpps": 78.25445609686476
       },
-      "libpng_level_3": {
-        "bytes": 13683682,
-        "encode_sec": 0.627498999993,
-        "decode_sec": 0.112614600004,
-        "checks": 42,
-        "encode_mpps": 13.159440891686069,
-        "encode_repetition_mpps": [
-          13.159440891686069
-        ],
-        "decode_mpps": 73.3256256267544,
-        "decode_repetition_mpps": [
-          73.3256256267544
-        ]
-      },
-      "libpng_level_6": {
-        "bytes": 13556313,
-        "encode_sec": 1.900114200005,
-        "decode_sec": 0.104298800003,
-        "checks": 42,
-        "encode_mpps": 4.345810372859837,
-        "encode_repetition_mpps": [
-          4.345810372859837
-        ],
-        "decode_mpps": 79.17191760367793,
-        "decode_repetition_mpps": [
-          79.17191760367793
-        ]
-      },
-      "oxipng_preset_4": {
-        "bytes": 12450612,
-        "encode_sec": 8.2838152,
-        "decode_sec": 0.097655100001,
-        "checks": 42,
-        "encode_mpps": 0.9968276453100983,
-        "encode_repetition_mpps": [
-          0.9968276453100983
-        ],
-        "decode_mpps": 84.55816439607806,
-        "decode_repetition_mpps": [
-          84.55816439607806
-        ]
+      "fpng_single_pass": {
+        "bytes": 46176135,
+        "encode_sec": 0.077574300115,
+        "decode_sec": 0.151207799906,
+        "checks": 20,
+        "encode_mpps": 340.5498207632782,
+        "decode_mpps": 174.71264059408966
       }
     }
   },
-  "photo-coco/gray-as-rgb": {
-    "images": 2,
-    "pixels": 650240,
+  "street-scenes": {
+    "images": 20,
+    "pixels": 41532079,
     "codecs": {
       "tcom": {
-        "bytes": 710526,
-        "encode_sec": 0.0032973000020000004,
-        "decode_sec": 0.0033379999990000003,
-        "checks": 4,
-        "encode_mpps": 197.20377266417748,
-        "encode_repetition_mpps": [
-          197.20377266417748
-        ],
-        "decode_mpps": 194.79928106494881,
-        "decode_repetition_mpps": [
-          194.79928106494881
-        ]
+        "bytes": 59275747,
+        "encode_sec": 0.20891359995699998,
+        "decode_sec": 0.17520420003,
+        "checks": 20,
+        "encode_mpps": 198.80026483938056,
+        "decode_mpps": 237.0495626982031
       },
       "qoi_reference": {
-        "bytes": 742075,
-        "encode_sec": 0.0025924999989999998,
-        "decode_sec": 0.0032487000009999998,
-        "checks": 4,
-        "encode_mpps": 250.8158149472771,
-        "encode_repetition_mpps": [
-          250.8158149472771
-        ],
-        "decode_mpps": 200.15390765532248,
-        "decode_repetition_mpps": [
-          200.15390765532248
-        ]
+        "bytes": 66651892,
+        "encode_sec": 0.22656730003399997,
+        "decode_sec": 0.20706700015499996,
+        "checks": 20,
+        "encode_mpps": 183.3101201884273,
+        "decode_mpps": 200.57314284222582
+      },
+      "qoir": {
+        "bytes": 60530086,
+        "encode_sec": 0.217190599885,
+        "decode_sec": 0.19767780019899997,
+        "checks": 20,
+        "encode_mpps": 191.22410924777947,
+        "decode_mpps": 210.09986431551815
       },
       "libpng_level_1": {
-        "bytes": 635267,
-        "encode_sec": 0.022177499999,
-        "decode_sec": 0.0063497999990000005,
-        "checks": 4,
-        "encode_mpps": 29.319806111118016,
-        "encode_repetition_mpps": [
-          29.319806111118016
-        ],
-        "decode_mpps": 102.4032253145616,
-        "decode_repetition_mpps": [
-          102.4032253145616
-        ]
+        "bytes": 59122029,
+        "encode_sec": 1.7810377998399998,
+        "decode_sec": 0.5078546999710001,
+        "checks": 20,
+        "encode_mpps": 23.319032871582543,
+        "decode_mpps": 81.77945188332725
       },
-      "libpng_level_3": {
-        "bytes": 553403,
-        "encode_sec": 0.036499699999999996,
-        "decode_sec": 0.0059593999970000006,
-        "checks": 4,
-        "encode_mpps": 17.814940944720096,
-        "encode_repetition_mpps": [
-          17.814940944720096
-        ],
-        "decode_mpps": 109.11165559071968,
-        "decode_repetition_mpps": [
-          109.11165559071968
-        ]
+      "fpng_single_pass": {
+        "bytes": 75937044,
+        "encode_sec": 0.12992369988900002,
+        "decode_sec": 0.25026050012,
+        "checks": 20,
+        "encode_mpps": 319.66514989553735,
+        "decode_mpps": 165.95539040354092
+      }
+    }
+  },
+  "sunsets": {
+    "images": 20,
+    "pixels": 57299601,
+    "codecs": {
+      "tcom": {
+        "bytes": 67235492,
+        "encode_sec": 0.279669699842,
+        "decode_sec": 0.23140750010400002,
+        "checks": 20,
+        "encode_mpps": 204.8831211689058,
+        "decode_mpps": 247.61341345569267
       },
-      "libpng_level_6": {
-        "bytes": 610078,
-        "encode_sec": 0.09948840000100001,
-        "decode_sec": 0.0059141,
-        "checks": 4,
-        "encode_mpps": 6.535837343785447,
-        "encode_repetition_mpps": [
-          6.535837343785447
-        ],
-        "decode_mpps": 109.94741380767995,
-        "decode_repetition_mpps": [
-          109.94741380767995
-        ]
+      "qoi_reference": {
+        "bytes": 69133900,
+        "encode_sec": 0.317558199925,
+        "decode_sec": 0.290551800048,
+        "checks": 20,
+        "encode_mpps": 180.43810871056976,
+        "decode_mpps": 197.2095887567516
       },
-      "oxipng_preset_4": {
-        "bytes": 353017,
-        "encode_sec": 0.275899900001,
-        "decode_sec": 0.004048300002,
-        "checks": 4,
-        "encode_mpps": 2.356796794771014,
-        "encode_repetition_mpps": [
-          2.356796794771014
-        ],
-        "decode_mpps": 160.6205072941133,
-        "decode_repetition_mpps": [
-          160.6205072941133
-        ]
+      "qoir": {
+        "bytes": 64984589,
+        "encode_sec": 0.28674260003,
+        "decode_sec": 0.271522499911,
+        "checks": 20,
+        "encode_mpps": 199.82939749449545,
+        "decode_mpps": 211.03076547535372
+      },
+      "libpng_level_1": {
+        "bytes": 66774256,
+        "encode_sec": 2.198828500112,
+        "decode_sec": 0.650333099942,
+        "checks": 20,
+        "encode_mpps": 26.059149677694904,
+        "decode_mpps": 88.10808031316608
+      },
+      "fpng_single_pass": {
+        "bytes": 81923304,
+        "encode_sec": 0.182427000137,
+        "decode_sec": 0.298229399953,
+        "checks": 20,
+        "encode_mpps": 314.09605462441874,
+        "decode_mpps": 192.13263685280603
+      }
+    }
+  },
+  "textures": {
+    "images": 20,
+    "pixels": 37051466,
+    "codecs": {
+      "tcom": {
+        "bytes": 50649585,
+        "encode_sec": 0.163339699908,
+        "decode_sec": 0.128424299939,
+        "checks": 20,
+        "encode_mpps": 226.8368683233102,
+        "decode_mpps": 288.50821859725147
+      },
+      "qoi_reference": {
+        "bytes": 58119737,
+        "encode_sec": 0.188742599914,
+        "decode_sec": 0.15662710013800002,
+        "checks": 20,
+        "encode_mpps": 196.30685397404926,
+        "decode_mpps": 236.55846253525044
+      },
+      "qoir": {
+        "bytes": 52521697,
+        "encode_sec": 0.17876119993000003,
+        "decode_sec": 0.15686839999399999,
+        "checks": 20,
+        "encode_mpps": 207.26794189403935,
+        "decode_mpps": 236.19458094439142
+      },
+      "libpng_level_1": {
+        "bytes": 49759076,
+        "encode_sec": 1.4817355998669999,
+        "decode_sec": 0.427317899887,
+        "checks": 20,
+        "encode_mpps": 25.005450367343354,
+        "decode_mpps": 86.70703008181472
+      },
+      "fpng_single_pass": {
+        "bytes": 59689023,
+        "encode_sec": 0.097267000063,
+        "decode_sec": 0.17514339997500003,
+        "checks": 20,
+        "encode_mpps": 380.9253495635899,
+        "decode_mpps": 211.54931333575072
+      }
+    }
+  },
+  "ui-controls": {
+    "images": 20,
+    "pixels": 92000,
+    "codecs": {
+      "tcom": {
+        "bytes": 39978,
+        "encode_sec": 0.000267800175,
+        "decode_sec": 0.000186799968,
+        "checks": 20,
+        "encode_mpps": 343.5397306965912,
+        "decode_mpps": 492.50543768829766
+      },
+      "qoi_reference": {
+        "bytes": 28203,
+        "encode_sec": 0.00029230001299999995,
+        "decode_sec": 0.00020539987899999997,
+        "checks": 20,
+        "encode_mpps": 314.74511087346417,
+        "decode_mpps": 447.9067877152937
+      },
+      "qoir": {
+        "bytes": 21477,
+        "encode_sec": 0.00050120009,
+        "decode_sec": 0.00046120001800000013,
+        "checks": 20,
+        "encode_mpps": 183.5594243408855,
+        "decode_mpps": 199.4796106014028
+      },
+      "libpng_level_1": {
+        "bytes": 35767,
+        "encode_sec": 0.004670700058999999,
+        "decode_sec": 0.001312099862,
+        "checks": 20,
+        "encode_mpps": 19.697261403614363,
+        "decode_mpps": 70.1166143404411
+      },
+      "fpng_single_pass": {
+        "bytes": 57752,
+        "encode_sec": 0.0005177001000000001,
+        "decode_sec": 0.000736499963,
+        "checks": 20,
+        "encode_mpps": 177.70906360651657,
+        "decode_mpps": 124.91514544719672
+      }
+    }
+  },
+  "vehicles": {
+    "images": 20,
+    "pixels": 77664164,
+    "codecs": {
+      "tcom": {
+        "bytes": 111412079,
+        "encode_sec": 0.41139509988899997,
+        "decode_sec": 0.3300099001499999,
+        "checks": 20,
+        "encode_mpps": 188.7824235654602,
+        "decode_mpps": 235.33889124144213
+      },
+      "qoi_reference": {
+        "bytes": 119322833,
+        "encode_sec": 0.448930600021,
+        "decode_sec": 0.414940900168,
+        "checks": 20,
+        "encode_mpps": 172.99815159930517,
+        "decode_mpps": 187.16921848040425
+      },
+      "qoir": {
+        "bytes": 112578679,
+        "encode_sec": 0.42200900014700005,
+        "decode_sec": 0.3925424998729999,
+        "checks": 20,
+        "encode_mpps": 184.03437834962511,
+        "decode_mpps": 197.84905844622392
+      },
+      "libpng_level_1": {
+        "bytes": 113594650,
+        "encode_sec": 3.3460110998140005,
+        "decode_sec": 1.053983299935,
+        "checks": 20,
+        "encode_mpps": 23.21097022192103,
+        "decode_mpps": 73.68633260582935
+      },
+      "fpng_single_pass": {
+        "bytes": 134255599,
+        "encode_sec": 0.235599800014,
+        "decode_sec": 0.44827529997499993,
+        "checks": 20,
+        "encode_mpps": 329.64443940693064,
+        "decode_mpps": 173.25104462443343
+      }
+    }
+  },
+  "waterfalls": {
+    "images": 20,
+    "pixels": 32554110,
+    "codecs": {
+      "tcom": {
+        "bytes": 51249500,
+        "encode_sec": 0.17124359990500002,
+        "decode_sec": 0.13385619997399997,
+        "checks": 20,
+        "encode_mpps": 190.10409742647252,
+        "decode_mpps": 243.20210798097705
+      },
+      "qoi_reference": {
+        "bytes": 58398197,
+        "encode_sec": 0.17739760002800004,
+        "decode_sec": 0.155488199903,
+        "checks": 20,
+        "encode_mpps": 183.5093033663462,
+        "decode_mpps": 209.36707750368586
+      },
+      "qoir": {
+        "bytes": 54431100,
+        "encode_sec": 0.18261859996500002,
+        "decode_sec": 0.15731200005099996,
+        "checks": 20,
+        "encode_mpps": 178.26283854021,
+        "decode_mpps": 206.93977566521357
+      },
+      "libpng_level_1": {
+        "bytes": 51652331,
+        "encode_sec": 1.460760499876,
+        "decode_sec": 0.4332366001900001,
+        "checks": 20,
+        "encode_mpps": 22.28572719673309,
+        "decode_mpps": 75.14164312461847
+      },
+      "fpng_single_pass": {
+        "bytes": 67000632,
+        "encode_sec": 0.09629859996399999,
+        "decode_sec": 0.2123057,
+        "checks": 20,
+        "encode_mpps": 338.053824377197,
+        "decode_mpps": 153.33601500101034
       }
     }
   }
